@@ -1,18 +1,20 @@
 package edu.javial.keyCount
 
-//import org.junit.Test
 import org.junit.Assert;
 
 /**
- * Created by mak on 7/15/14.
+ * Created by Bob Makowski on 7/15/14.
  */
 class ReportTest extends GroovyTestCase {
   public void testSanity() {
     Assert.assertTrue(true);
   }
 
-  void testFoo() {
-    Report instance = new Report()
-    instance.reportFileContentsAsKeyCounts()
+  /*
+   * functional end to end test
+   */
+  void testReportFileContentsAsKeyCounts() {
+    Report customFileLocationContents = new Report( Report.defaultLocation )
+    customFileLocationContents.reportFileContentsAsKeyCounts()
   }
 }
