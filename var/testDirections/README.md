@@ -28,9 +28,7 @@ Would result in the output: "The total for John is 6. The total for Jane is 8."
 Write a function that determines if a given string is a palindrome. A
 palindrome is a word or phrase that is spelled exactly the same forwards
 or backwards, like "pop" or "Ah, Satan sees Natasha". For this question,
-ignore all non
--
-alphanumeric characters and assume that upper and lower-case characters are identical. 
+ignore all non-alphanumeric characters and assume that upper and lower-case characters are identical. 
 The function should output whether or not the string is a palindrome and return a boolean.
 ****************************************************
 **********
