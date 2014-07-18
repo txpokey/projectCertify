@@ -30,13 +30,8 @@ palindrome is a word or phrase that is spelled exactly the same forwards
 or backwards, like "pop" or "Ah, Satan sees Natasha". For this question,
 ignore all non
 -
-alphanumeric characters a
-nd assume that upper
--
-and lower
--
-case characters are identical. The function should output whether or not
-the string is a palindrome and return a boolean.
+alphanumeric characters and assume that upper and lower-case characters are identical. 
+The function should output whether or not the string is a palindrome and return a boolean.
 ****************************************************
 **********
 Please do not hesitate to be in touch
