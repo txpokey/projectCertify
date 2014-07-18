@@ -3,10 +3,8 @@ You may use online resources like JavaDocs but we ask that you arrive at
 the solution on your own. We are trusting that this exercise is completed
 in its entirety by you as any in
 -
-person interview will include additional
-competency tests.
-Please let us kn
-ow if you have any questions regarding these rules or if
+person interview will include additional competency tests.
+Please let us know if you have any questions regarding these rules or if
 clarification is required. Once we've received the solutions we'll review
 them and contact you shortly thereafter on next steps. Good Luck!
 ****************************************************
