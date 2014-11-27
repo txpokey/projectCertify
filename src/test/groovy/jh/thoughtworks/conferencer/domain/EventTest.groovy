@@ -1,9 +1,13 @@
 package jh.thoughtworks.conferencer.domain
 
 /**
+ * Tests for the {@link Event} class.
+ */
+/*
  * Created by mak on 11/27/14.
  */
-class EventTest extends GroovyTestCase {
+
+  class EventTest extends GroovyTestCase {
   void testGetLine() {
     def e = new Event()
     print e.dump()
