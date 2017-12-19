@@ -1,8 +1,13 @@
-javaSeCert
-================
+platform for java and groovy certification. 
+_____________________________________________
 
-preparing for java cert test on brainbench, which tests for the following
-concepts ala a package structure that encapsulates the functional area
+status: adinitio
+
+accomplish:
+o pulled code from thoughtworks and dealer.com interview process. no attempt to reboot or to verify efficacy. just creating home for this
+
+description: 
+o preparing for java cert test on brainbench, which tests for the following concepts ala a package structure that encapsulates the functional area
 
 viz.
 	oop.accessModifiers
