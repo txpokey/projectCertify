@@ -1,0 +1,11 @@
+  jhunt-dealer.com                                          39dc27c F:U: pulled in code prepared for dealer.com interview. untested. uncompiled.
+  jhunt-thoughtworks                                        7c889f6 F:U: pulled in code prepared for thoughtworks interview. untested. uncompiled.
+* legacyJava9                                               bc16c09 F:U: added  resume/cover.misc--140914
+  master                                                    0a34802 F:U: added  resume/cover.misc--140914
+  remotes/jhuntDealer/dev                                   b3235f6 P: add & enforce gitignore
+  remotes/jhuntThought/dev-0                                3f88abc P: add & enforce gitignore
+  remotes/legacyJava9/adinitio                              6ab65f0 P: add eclipse + maven boilerplate
+  remotes/legacyJava9/merge/miscCertificationRepos/170929-0 af5b240 BRANCH : merge/miscCertificationRepos/170929-0
+  remotes/origin/jhunt-dealer.com                           39dc27c F:U: pulled in code prepared for dealer.com interview. untested. uncompiled.
+  remotes/origin/jhunt-thoughtworks                         7c889f6 F:U: pulled in code prepared for thoughtworks interview. untested. uncompiled.
+  remotes/origin/master                                     0a34802 F:U: added  resume/cover.misc--140914
