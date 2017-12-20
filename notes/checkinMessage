@@ -1,13 +1,2 @@
-BRANCH : merge/miscCertificationRepos/170929-0
-
-accomplished: 
-F: completed merging javaCert-8-grails + java8-redux + javaCert7 into a new java-se-9 repo. 
-
-known issues: 
-	0. there has been NO compilation or even an attempt to run any of this code in the next context. expect compiler breaks all over because of directory vs. package name mismatches. 
-	1. also we have to figure out where to use groovy and where to use java. is this a certification corpus for java or for grooy. ideally I want both. 
-	2. also I want to run these tests in travis and under gradle.
-
-..................
-
-
+F:U: (attempt) formating README via github convention
+BRANCH: master
