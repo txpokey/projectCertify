@@ -1,0 +1,21 @@
+:projects
+
+------------------------------------------------------------
+Root project
+------------------------------------------------------------
+
+Root project 'projectCertify'
++--- Project ':jhunt'
+|    +--- Project ':jhunt:dealer.com'
+|    +--- Project ':jhunt:interview'
+|    |    +--- Project ':jhunt:interview:interviewGroovy'
+|    |    \--- Project ':jhunt:interview:interviewJava'
+|    \--- Project ':jhunt:thoughtWorks'
++--- Project ':projectCertifyGroovy'
+\--- Project ':projectCertifyJava'
+
+To see a list of the tasks of a project, run gradle <project-path>:tasks
+For example, try running gradle :jhunt:tasks
+
+BUILD SUCCESSFUL in 0s
+1 actionable task: 1 executed
