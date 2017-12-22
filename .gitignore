@@ -10,6 +10,7 @@
 /.gradle/
 /.idea/
 *.iml
+*.ipr
 /.insync-trash/
 *.iws
 /.link_to_grails_plugins/
