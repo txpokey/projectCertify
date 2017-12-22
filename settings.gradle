@@ -15,4 +15,13 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'javaCert'
+
+include 'projectCertifyGroovy'
+include 'projectCertifyJava'
+include 'jhunt:thoughtWorks'
+include 'jhunt:dealer.com'
+include 'jhunt:interview'
+include 'jhunt:interview:interviewGroovy'
+include 'jhunt:interview:interviewJava'
+
+rootProject.name = 'projectCertify'
