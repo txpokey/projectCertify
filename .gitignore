@@ -7,7 +7,7 @@
 *Db.script
 .DS_Store
 /.git/
-/.gradle/
+*.gradle/
 /.idea/
 *.iml
 *.ipr
