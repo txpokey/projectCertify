@@ -1,18 +1,14 @@
 package edu.javial.cert.se.sx
 
-import org.junit.Test
-
-import static org.junit.Assert.assertTrue
-import static org.junit.Assert.assertTrue
-
+import edu.javial.cert.se.sx.CascadedExceptions
 /**
  * Created by mak on 9/14/14.
  */
 class CascadedExceptionsTest extends GroovyTestCase {
-  CascadedExceptions tool;
+  CascadedExceptions tool
 
   void setUp() {
-    tool = new CascadedExceptions();
+    tool = new CascadedExceptions()
   }
 
   final String baseOutcome = CascadedExceptions.PIPE_DELIMITER + CascadedExceptions.FINALLY_OUTCOME + CascadedExceptions.PIPE_DELIMITER + CascadedExceptions.POST_BREAK + CascadedExceptions.PIPE_DELIMITER;
