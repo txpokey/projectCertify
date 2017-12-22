@@ -1,12 +1,12 @@
 /**
  * 
  */
-package javial.cert.sx.pkg;
+package edu.javial.cert.se.sx.pkg;
 
-import javial.cert.sx.pkg.DefaultVisibleType.PubMemberWithinDefaultAccessClass;
-import javial.cert.sx.pkg.DefaultVisibleType.StaticPubMemberWithinDefaultAccessClass;
-import javial.cert.sx.pkg.SamePkgAsDefaultVisibleTypeButPublicAccessItself.DefaultPackagedInnerClassOfAPublicAccessClass;
-import javial.cert.sx.pkg.SamePkgAsDefaultVisibleTypeButPublicAccessItself.StaticDefaultPackagedInnerClassOfAPublicAccessClass;
+import edu.javial.cert.se.sx.pkg.DefaultVisibleType.PubMemberWithinDefaultAccessClass;
+import edu.javial.cert.se.sx.pkg.DefaultVisibleType.StaticPubMemberWithinDefaultAccessClass;
+import edu.javial.cert.se.sx.pkg.SamePkgAsDefaultVisibleTypeButPublicAccessItself.DefaultPackagedInnerClassOfAPublicAccessClass;
+import edu.javial.cert.se.sx.pkg.SamePkgAsDefaultVisibleTypeButPublicAccessItself.StaticDefaultPackagedInnerClassOfAPublicAccessClass;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

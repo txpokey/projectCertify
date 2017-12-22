@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.javial.cert.collections;
+package edu.javial.cert.se.collections;
 
 import java.util.Collection;
 import java.util.NavigableSet;

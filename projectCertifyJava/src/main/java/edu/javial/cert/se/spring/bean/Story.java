@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.javial.cert.spring.bean;
+package edu.javial.cert.se.spring.bean;
 
 /**
  * @author mak

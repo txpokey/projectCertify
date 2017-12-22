@@ -16,7 +16,7 @@ class PrimeNumberTest extends GroovyTestCase {
 
   void testMain() {
     for (int i = 2; i <= 1000; i++) {
-      PrimeNumber.isPrime(i) ? log.info(i) : false ;
+      PrimeNumber.isPrime(i) ? log.info(i as String) : false ;
     }
   }
 }

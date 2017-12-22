@@ -1,4 +1,4 @@
-package edu.javial.cert.string;
+package edu.javial.cert.se.string;
 
 /**
  * Created by mak on 3/10/15.
