@@ -2,7 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
       "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
-   <bean id="StoryList" class="javial.cert.spring.bean.StoryList">
+   <bean id="StoryList" class="edu.javial.cert.se.spring.bean.StoryList">
       <property name="stories">
          <list>
            <ref bean="HelloWorld"/>
@@ -11,7 +11,7 @@
        </property>
    </bean>
  
-   <bean id="HelloWorld" class="javial.cert.spring.bean.Story">
+   <bean id="HelloWorld" class="edu.javial.cert.se.spring.bean.Story">
       <property name="title">
          <value>Hello World!</value>
       </property>
@@ -25,7 +25,7 @@ See, now wasn't that simple.</value>
       </property>
    </bean>
  
-   <bean id="OnceUpon" class="javial.cert.spring.bean.Story">
+   <bean id="OnceUpon" class="edu.javial.cert.se.spring.bean.Story">
       <property name="title">
          <value>Once Upon a Time</value>
       </property>

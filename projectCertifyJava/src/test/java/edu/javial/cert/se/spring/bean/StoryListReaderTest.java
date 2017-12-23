@@ -7,6 +7,6 @@ public class StoryListReaderTest {
 	public void readerTest() {
 		StoryListReader reader = new StoryListReader();
 		boolean OK = reader.storyReader();
-		assert OK : "reader trest failed" ;
+		assert OK : "reader test failed" ;
 	}
 }
