@@ -6,7 +6,7 @@ public class TrivialFileDirCreationTest {
 	TrivialFileDirCreation tool = new TrivialFileDirCreation() ;
 
 
-	@Test
+//	@Test /*DEBUG*/
 	public void createFile() {
 //		TrivialFileDirCreation tool = new TrivialFileDirCreation() ;
 		boolean createdOK = tool.createFile() ;

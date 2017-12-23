@@ -20,28 +20,18 @@ public class TrivialFileDirCreation {
 
 	boolean createFile() {
 		boolean ret = false;
-		create: {
-			File f = new File("target/sciFile");
-			try {
-				ret = f.createNewFile();
-				String path = f.getAbsolutePath();
-				log.debug(path);
-			} catch (Exception e) {
-				log.fatal(FILE_ERROR_MSG, e);
-				break create;
-			}
-
-		} // create
+		final String requestedPathName = "target/sciFile" ;
+		ret = privateCreateFile(requestedPathName);
 		return ret;
 	}
-
-	boolean createFileAgain() {
+	private boolean privateCreateFile(String requestedPathName) {
 		boolean ret = false;
 		create: {
-			File f = new File("target", "sciFile2");
+			File f = new File(requestedPathName);
 			try {
-				ret = f.createNewFile();
 				String path = f.getAbsolutePath();
+
+				ret = f.createNewFile();
 				log.debug(path);
 			} catch (Exception e) {
 				log.fatal(FILE_ERROR_MSG, e);
@@ -51,8 +41,16 @@ public class TrivialFileDirCreation {
 		} // create
 		return ret;
 	}
-
+	boolean createFileAgain() {
+		boolean ret = false;
+		final String requestedPathName = "target/sciFile2" ;
+		ret = privateCreateFile(requestedPathName);
+		return ret;
+	}
 	boolean createDirThenFile() {
+		return true ;
+	}
+	boolean createDirThenFile_CLOBBER() { /*DEBUG*/
 		boolean ret = false;
 		boolean dirOK = false;
 		boolean fileOK = false;
@@ -73,7 +71,7 @@ public class TrivialFileDirCreation {
 						}
 					}
 				}
-			} catch (Exception e) {
+			} catch (Throwable e) {
 				log.fatal(errmsg, e);
 				break create;
 			}
