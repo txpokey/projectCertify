@@ -34,7 +34,7 @@ public class NavigableSetTester {
 		}
 	}
 
-	public boolean navsetTest() {
+	public boolean navsetTest() { /*DEBUG*/
 		boolean ret = false;
 		navset: {
 			try {
