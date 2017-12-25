@@ -18,35 +18,29 @@ public class TrivialFileDirCreation {
 	private static final String DIR_ERROR_MSG = "unable to create directory";
 	private static final String RENAME_ERROR_MSG = "unable to rename";
 
-	boolean createFile() {
+	boolean createTempFile() {
 		boolean ret = false;
-		final String requestedPathName = "target/sciFile" ;
-		ret = privateCreateFile(requestedPathName);
-		return ret;
+		final String requestedPathName = "sciFile" ;
+		File temp = privateCreateTempFile(requestedPathName);
+        ret = null != temp;
+        return ret ;
 	}
-	private boolean privateCreateFile(String requestedPathName) {
-		boolean ret = false;
-		create: {
-			File f = new File(requestedPathName);
-			try {
-				String path = f.getAbsolutePath();
 
-				ret = f.createNewFile();
-				log.debug(path);
-			} catch (Exception e) {
-				log.fatal(FILE_ERROR_MSG, e);
-				break create;
-			}
-
-		} // create
-		return ret;
-	}
-	boolean createFileAgain() {
-		boolean ret = false;
-		final String requestedPathName = "target/sciFile2" ;
-		ret = privateCreateFile(requestedPathName);
-		return ret;
-	}
+private File privateCreateTempFile(String requestedPathName) {
+    File ret = null;
+    create: {
+        try {
+            File temp = File.createTempFile(requestedPathName, null);
+            String path = temp.getAbsolutePath();
+            log.debug(path);
+            ret = temp ;
+        } catch (Exception e) {
+            log.fatal(FILE_ERROR_MSG, e);
+            break create;
+        }
+    } // create
+    return ret;
+}
 	boolean createDirThenFile() {
 		return true ;
 	}
