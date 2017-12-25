@@ -64,7 +64,7 @@ public class PrimeNumber {
         return  limit = (int) Math.sqrt(number);
     }
 
-    public static Collection<Integer> values() {
+    public static Collection<Integer> getPrimes() {
         return primesFound.values();
     }
 

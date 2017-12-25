@@ -1,5 +1,5 @@
 /**
- * 
+ * NavigableSetTester
  */
 package edu.javial.cert.se.collections;
 
@@ -15,39 +15,45 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * @author mak
- * 
  */
 public class NavigableSetTester {
 	private static Log log = LogFactory.getLog(NavigableSetTester.class);
 	private NavigableSet<Integer> ns = null;
+    public NavigableSetTester()
 	{
-		try {
-			for (int i = 2; i < 100; i++) {
-				PrimeNumber.isPrime(i);
+		factory : {
+			try {
+				for (int i = 2; i < 100; i++) {
+					PrimeNumber.isPrime(i);
+				}
+				Collection<Integer> primes = PrimeNumber.getPrimes();
+				ns = new TreeSet<>(primes);
+				log.info( ns ) ;
+			} catch (Exception e) {
+				log.fatal("unable to set up tester because of a problem", e);
+				break factory;
 			}
-//			Collection<Integer> primes = PrimeNumber.getPrimes();
-//			NavigableSet<Integer> set = new TreeSet<Integer>(primes);
-//			ns = set;
-			log.info( ns ) ;
-		} catch (Exception e) {
-			log.fatal("unable to set up tester because of a problem", e);
 		}
+	}
+	private NavigableSet getSet() {
+		return ns ;
 	}
 
 	public boolean navsetTest() { /*DEBUG*/
 		boolean ret = false;
-		navset: {
+		NavigableSetTester tester = new NavigableSetTester() ;
+		headset: {
 			try {
-				SortedSet<Integer> head = ns.headSet(new Integer(50));
+				SortedSet<Integer> head = tester.getSet().headSet(new Integer(50));
 				for (Integer i : head) {
 					log.info(i);
 				} // for
 				ret = true ;
 			} catch (Exception e) {
 				log.fatal("exception during test", e);
-				break navset;
+				break headset;
 			}
-		} // navset
+		} // headset
 		return ret;
 	}
 }
