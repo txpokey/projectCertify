@@ -5,7 +5,7 @@ package edu.javial.keyCount
  */
 class Report {
 
-  static def defaultLocation = "./var/testData/keyCount"
+  static def defaultLocation = "src/test/resources/testData/keyCount"
   def location = defaultLocation
 
   Report(String whereData) { location = whereData ?: defaultLocation }
@@ -53,6 +53,7 @@ class Report {
   def File verifiedFileLocation( String path ) {
     assert null != path
     File f = new File(path)
+    String fap = f.getAbsolutePath()
     assert f.exists()
     assert f.file
     return f
