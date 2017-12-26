@@ -10,7 +10,7 @@ public class TrivialFileDirCreationTest {
 		boolean createdOK = tool.createTempFile() ;
 		assert createdOK : "file creation failed during unit test" ;
 	}
-//	@Test /*DEBUG*/
+	@Test /*DEBUG*/
 	public void createDirThenFile() {
 		boolean createdOK = tool.createDirThenFile() ;
 		assert createdOK : "file creation failed during unit test" ;
