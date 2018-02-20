@@ -7,7 +7,7 @@ import org.apache.commons.logging.LogFactory;
  * Created by mak on 9/25/14.
  */
 public class Cat extends Animal {
-    private static Log log = LogFactory.getLog(Animal.class);
+    private static Log log = LogFactory.getLog(Cat.class);
     public Cat() {
         setName("Animal.Cat") ;
     }
