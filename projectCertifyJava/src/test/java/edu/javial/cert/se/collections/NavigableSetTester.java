@@ -16,7 +16,7 @@ import org.apache.commons.logging.LogFactory;
 /**
  * @author mak
  */
-public class NavigableSetTester {
+public class NavigableSetTester { // TODO get NavigableSetTester to work
 	private static Log log = LogFactory.getLog(NavigableSetTester.class);
 	private NavigableSet<Integer> ns = null;
     public NavigableSetTester()
@@ -27,7 +27,7 @@ public class NavigableSetTester {
 					PrimeNumber.isPrime(i);
 				}
 				Collection<Integer> primes = PrimeNumber.getPrimes();
-				ns = new TreeSet<>(primes);
+				ns = new TreeSet<>(primes); // TODO threadsafety
 				log.info( ns ) ;
 			} catch (Exception e) {
 				log.fatal("unable to set up tester because of a problem", e);
