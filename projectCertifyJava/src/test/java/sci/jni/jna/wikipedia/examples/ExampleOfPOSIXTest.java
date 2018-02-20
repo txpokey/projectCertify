@@ -1,24 +1,22 @@
 package sci.jni.jna.wikipedia.examples;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by mak on 2/20/18.
  */
 class ExampleOfPOSIXTest {
-    final static Logger logger = LoggerFactory.getLogger(CLibraryNativePrintfTest.class);
+    final static Log logger = LogFactory.getLog(ExampleOfPOSIXTest.class);
 
     @Test
     void confirmLibraryFound() {
         Object tester = ExampleOfPOSIX.POSIX.INSTANCE.getClass();
         assert null != tester ;
         logger.debug("what is tester?:> " + tester);
-        // DEBUG
-//        ExampleOfPOSIX.POSIX.INSTANCE.printf("Hello, World\n");
     }
 
     @Test

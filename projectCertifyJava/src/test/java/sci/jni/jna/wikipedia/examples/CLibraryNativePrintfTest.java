@@ -1,8 +1,8 @@
 package sci.jni.jna.wikipedia.examples;
 
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import java.util.Collections;
 import java.util.Enumeration;
@@ -16,7 +16,7 @@ import java.util.Properties;
  * WORKS: DONE: 2/20/18
  */
 class CLibraryNativePrintfTest {
-    final static Logger logger = LoggerFactory.getLogger(CLibraryNativePrintfTest.class);
+    final static Log logger = LogFactory.getLog(CLibraryNativePrintfTest.class);
 
     @Test
     void discoverLogging(){
