@@ -8,27 +8,36 @@ import org.apache.commons.logging.LogFactory;
  */
 public abstract class Animal {
     private static Log log = LogFactory.getLog(Animal.class);
+    private String name_ = null;
 
-    public static void testClassMethod() {
-        final String msg = "The static method in Animal" ;
-        log.info(msg);
+    protected void setName(String name) {
+        name_ = name;
     }
-//    public void testInstanceMethod() {
-//        final String msg = "The instance method:Animal> " ;
-//        log.info(msg + this )  ;
-//    }
-
-    public Animal testInstanceMethod() {
-        final String msg = "The instance method returning:Animal> " ;
-        log.info(msg + this )  ;
-        return this ;
+    protected String getName() {
+        return name_;
     }
 
-    class Dog {
-
+    public static String classLevelMethod() {
+        final String msg = "The static method in Animal";
+        return msg;
     }
+
+    public Animal instanceLevelMethod() {
+        final String msg = "The instance method returning:Animal> ";
+        return this;
+    }
+
+    public class Dog {
+        public Dog() {
+            setName("Animal.Dog") ;
+        }
+    }
+
     public class Horse {
-        // i thought you can only have one public class per page?!?!?
+        // i thought you can only have one public class per file?!?!?
         // ah but this class is really Animal.Horse
+        public Horse() {
+            setName("Animal.Horse") ;
+        }
     }
 }
