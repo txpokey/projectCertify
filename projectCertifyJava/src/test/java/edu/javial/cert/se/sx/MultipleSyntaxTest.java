@@ -39,12 +39,7 @@ public class MultipleSyntaxTest {
 		boolean OK = tool.splitStringWithTrailingEdgeCase() ;
 		assertTrue( "regexSplitter test failed" , OK) ;
 	}
-	@Test
-	public void multiDimArrayTest() {
-		MultiDimArrayTool tool = new MultiDimArrayTool() ;
-		boolean OK = tool.verifyMutilDimArrayCalcs() ;
-		assertTrue( "multiDimArray test failed" , OK) ;
-	}
+
 //	@Test
 //	public void cascadeExceptionTest() {
 //		CascadedExceptions tool = new CascadedExceptions();

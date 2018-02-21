@@ -3,6 +3,7 @@ package edu.javial.cert.se.sx;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.jupiter.api.Test;
+import org.junit.Assert;
 
 //import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,16 +26,18 @@ class MultiDimArrayToolTest { // TODO DEBUG
                 Integer lI0[][] = new Integer[2][2];
                 Integer lI1[][] = { { 1, 2 }, { 3, 4 } } ; // autobox works here
                 Integer lI2[][] =  null ; // x ; // autobox never gets a chance here
+                //
+                Assert.assertTrue("y test:> ", 2 == y[0][1]);
+                Assert.assertTrue("z test:> ", 2 == z[0][1]);
+                Assert.assertTrue("q test:> ", 0 == q[0][1]);
+                Assert.assertTrue("pmi test:> ", 0 == pmi[0][1]);
+                Assert.assertTrue("pmI test:> ", null == pmI[0][1]);
+                Assert.assertTrue("lI0 test:> ", null == lI0[0][1]);
+                Assert.assertTrue("lI0 test:> ", 2 == lI1[0][1]);
 
-                log.debug("y test: " + y[0][1]) ;
-                log.debug("z test: " + z[0][1]) ;
-                log.debug("q test: " + q[0][1]) ;
-                log.debug("pmi test: " + pmi[0][1]) ;
-                log.debug("pmI test: " + pmI[0][1]) ;
-                log.debug("lI0 test: " + lI0[0][1]) ;
-                log.debug("lI1 test: " + lI1[0][1]) ;
                 try {
                     log.debug("lI2 test: " + lI2[0][1]) ; // NPE raised here
+                    Assert.fail("lI0 test:>  lI2[0][1] should raise NPE");
                 } catch (NullPointerException e) {
                     log.debug("got the expected exception on the lI1 test");
                 }
