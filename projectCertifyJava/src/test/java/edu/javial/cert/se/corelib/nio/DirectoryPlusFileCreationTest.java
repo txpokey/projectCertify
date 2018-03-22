@@ -13,6 +13,7 @@ import java.nio.file.attribute.PosixFilePermission;
 import java.nio.file.attribute.PosixFilePermissions;
 import java.util.Set;
 
+import com.sun.istack.internal.NotNull;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
@@ -95,7 +96,7 @@ public class DirectoryPlusFileCreationTest {
         File ret = candidate ? requestedParentFile : null ;
         return ret;
     }
-    private static boolean tearDown_testDirectory( Path requestedParentPath ) {
+    private static boolean tearDown_testDirectory( @NotNull Path requestedParentPath ) {
         assertNotNull(requestedParentPath);
         boolean tornDown = false ;
         try {
