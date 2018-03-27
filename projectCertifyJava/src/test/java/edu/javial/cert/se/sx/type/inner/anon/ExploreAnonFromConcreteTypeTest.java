@@ -51,4 +51,13 @@ public class ExploreAnonFromConcreteTypeTest { // TODO need other class for test
         SampleContractForAnon.SampleContractInnerForAnon sampleInner = sampleAnon.getContractInnerForAnon() ;
         sampleInner.innerDoit();
     }
+    @Test
+    void method() {
+        class MethodLocalClass { }
+        MethodLocalClass mlc = new MethodLocalClass();
+        if ( 1 == 1 ) {
+            class IfLocalClass { }
+            IfLocalClass ilc = new IfLocalClass();
+        }
+    }
 }
