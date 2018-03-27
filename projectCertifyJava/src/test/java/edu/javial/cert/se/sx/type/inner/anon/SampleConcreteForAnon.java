@@ -10,4 +10,13 @@ public class SampleConcreteForAnon {
         log.debug("dummy method") ;
         assert true ;
     }
+    class SampleConcreteInnerForAnon {
+        void innerDoit() {
+            log.debug("dummy method") ;
+            assert true ;
+        }
+    }
+     SampleConcreteInnerForAnon getConcreteInnerForAnon() {
+        return new SampleConcreteInnerForAnon() ;
+    }
 }

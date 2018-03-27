@@ -20,10 +20,13 @@ public class ExploreAnonFromConcreteTypeTest { // TODO need other class for test
             }
         } ;
         sample.doit();
+
+        SampleConcreteForAnon.SampleConcreteInnerForAnon sampleInner = sample.getConcreteInnerForAnon() ;
+        sampleInner.innerDoit();
     }
     @Test
     public void anInterfaceTypeTest(){
-        SampleContractForAnon sample = new SampleContractForAnon() {
+        SampleContractForAnon sampleAnon = new SampleContractForAnon() {
             void redoit() {
                 log.debug("can not compile a direct reference to this method") ;
             }
@@ -31,10 +34,21 @@ public class ExploreAnonFromConcreteTypeTest { // TODO need other class for test
                 redoit();
                 redoit2();
             }
+
+            @Override
+            public SampleContractInnerForAnon getContractInnerForAnon() {
+                return () -> {
+                    log.debug("dummy method") ;
+                    assert true ;
+                };
+            }
+
             void redoit2() {
                 log.debug("can not compile a direct reference to this method") ;
             }
         } ;
-        sample.doit();
+        sampleAnon.doit();
+        SampleContractForAnon.SampleContractInnerForAnon sampleInner = sampleAnon.getContractInnerForAnon() ;
+        sampleInner.innerDoit();
     }
 }
