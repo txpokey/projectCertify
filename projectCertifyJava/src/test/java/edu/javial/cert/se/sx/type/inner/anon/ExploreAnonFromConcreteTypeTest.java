@@ -1,4 +1,4 @@
-package edu.javial.cert.se.sx.type.anon;
+package edu.javial.cert.se.sx.type.inner.anon;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -27,7 +27,7 @@ public class ExploreAnonFromConcreteTypeTest { // TODO need other class for test
             void redoit() {
                 log.debug("can not compile a direct reference to this method") ;
             }
-            public void doit() { // COMPILE : must be public
+            public void doit() { // COMPILE : must be public because using interface
                 redoit();
                 redoit2();
             }
