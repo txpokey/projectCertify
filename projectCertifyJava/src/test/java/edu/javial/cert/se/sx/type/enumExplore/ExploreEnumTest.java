@@ -2,6 +2,7 @@ package edu.javial.cert.se.sx.type.enumExplore;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import javax.annotation.Nonnull;
@@ -42,13 +43,13 @@ public class ExploreEnumTest {
         }
     }
 
-    public void applyStaticPeekOverEntireEnumType() {
+    public void applyStaticPeekOverEntireEnumType0() {
         log.debug("ENTER");
         applyConsumerToEntireEnumConvertedToStream(AllDefaultValues.class, ExploreEnumTest::peek);
         applyConsumerToEntireEnumConvertedToStream(DefineEnumValuesExample.class, ExploreEnumTest::peek);
         log.debug("LEAVE");
     }
-    public void applyEnumHarnessInspectorOverEntireEnumType() {
+    public void applyEnumHarnessInspectorOverEntireEnumType0() {
         log.debug("ENTER");
         applyConsumerToEntireEnumConvertedToStream(AllDefaultValues.class, EnumTestHarness::inspect);
         applyConsumerToEntireEnumConvertedToStream(DefineEnumValuesExample.class, EnumTestHarness::inspect);
@@ -68,5 +69,19 @@ public class ExploreEnumTest {
         return Arrays.stream(declare.getEnumConstants()) ;
     }
 
+    //  DataProviders INWORK
+
+    @DataProvider
+    public  final Object[][] getAllEnumTypesBeingTested(){
+        return new Object[][] {{AllDefaultValues.class}, {DefineEnumValuesExample.class}};
+    }
+    @Test(dataProvider = "getAllEnumTypesBeingTested")
+    public <E extends Enum> void applyStaticPeekOverEntireEnumType(Class<E> input) {
+        log.debug("ENTER");
+        applyConsumerToEntireEnumConvertedToStream(input, ExploreEnumTest::peek);
+        log.debug("LEAVE");
+    }
+
+    // TODO : get DataProviders working on inspect scenario
 
 }
