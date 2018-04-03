@@ -7,12 +7,12 @@ public class SampleConcreteForAnon {
     private static Log log = LogFactory.getLog(SampleConcreteForAnon.class);
 
     void doit() {
-        log.debug("dummy method") ;
+        log.debug("dummy doIt method from SampleConcreteForAnon") ;
         assert true ;
     }
     class SampleConcreteInnerForAnon {
         void innerDoit() {
-            log.debug("dummy method") ;
+            log.debug("dummy method on SampleConcreteForAnon inner class") ;
             assert true ;
         }
     }
