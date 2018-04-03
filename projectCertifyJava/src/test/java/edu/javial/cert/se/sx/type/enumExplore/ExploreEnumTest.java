@@ -16,6 +16,21 @@ public class ExploreEnumTest {
     enum AllDefaultValues implements EnumTestHarness {
         TRY0, TRY1
     }
+    enum DefineEnumValuesExample implements EnumTestHarness {
+        RETRY0(10), RETRY1(-10) ;
+
+        public int getValue() { return value ; }
+
+        DefineEnumValuesExample(int assign) {
+            value = assign ;
+            asString = this.name() + "(" + this.value + ")" ;
+        }
+        public String toString() {
+            return asString ;
+        }
+        private int value ;
+        private String asString ;
+    }
 
     interface EnumTestHarness<E extends Enum> {
         default void inspectEnumObject() {
@@ -28,12 +43,16 @@ public class ExploreEnumTest {
     }
 
     public void applyStaticPeekOverEntireEnumType() {
-        log.debug("");
+        log.debug("ENTER");
         applyConsumerToEntireEnumConvertedToStream(AllDefaultValues.class, ExploreEnumTest::peek);
+        applyConsumerToEntireEnumConvertedToStream(DefineEnumValuesExample.class, ExploreEnumTest::peek);
+        log.debug("LEAVE");
     }
     public void applyEnumHarnessInspectorOverEntireEnumType() {
-        log.debug("");
+        log.debug("ENTER");
         applyConsumerToEntireEnumConvertedToStream(AllDefaultValues.class, EnumTestHarness::inspect);
+        applyConsumerToEntireEnumConvertedToStream(DefineEnumValuesExample.class, EnumTestHarness::inspect);
+        log.debug("LEAVE");
     }
 
     private static <E extends Enum> void peek(E element) {
@@ -48,4 +67,6 @@ public class ExploreEnumTest {
     private static <E extends Enum>  Stream<E> expressEnumTypeAsStream(@Nonnull Class<E> declare) {
         return Arrays.stream(declare.getEnumConstants()) ;
     }
+
+
 }
