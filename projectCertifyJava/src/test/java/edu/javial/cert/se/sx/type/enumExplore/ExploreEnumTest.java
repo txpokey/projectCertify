@@ -34,12 +34,9 @@ public class ExploreEnumTest {
     }
 
     interface EnumTestHarness<E extends Enum> {
-        default void inspectEnumObject() {
+        default void inspect() {
             E e = (E) this ;
             peek(e);
-        }
-        default void inspect() {
-            inspectEnumObject();
         }
     }
 
@@ -83,5 +80,6 @@ public class ExploreEnumTest {
     }
 
     // TODO : get DataProviders working on inspect scenario
+
 
 }
