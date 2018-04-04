@@ -34,7 +34,7 @@ public class ExploreEnumTest {
 
         DefineEnumValuesExample(int assign) {
             value = assign;
-            asString = this.name() + "(" + this.value + ")";
+            asString = this.name() + "(" + this.getValue() + ")";
         }
 
         public String toString() {
