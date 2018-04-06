@@ -115,63 +115,78 @@ public class ExploreGenericTest {
         Comparable<String> comp = node;
 //        Comparable<Integer> comp1 = node;
     }
+
     public void oraTutorialExerciseWildCardErrorBad() {
+
+        class Tuple<T extends Number>  {
+            List<T> left , right ;
+            Tuple( List<T> left, List<T> right) {
+                this.left = left ; this. right = right;
+            }
+        }
 
         class WildcardErrorBad<T extends Number> {
 
-//            void swapFirst(List<? extends Number> l1, List<? extends Number> l2) {
-//                Number temp = l1.get(0);
-//                l1.set(0, l2.get(0)); // expected a CAP#1 extends Number,
-//                // got a CAP#2 extends Number;
-//                // same bound, but different types
-//                l2.set(0, temp);	    // expected a CAP#1 extends Number,
-//                // got a Number
-//            }
+/*
             void swapFirst(List<? extends Number> l1, List<? extends Number> l2) {
-                List<T> left = new ArrayList<>();
-//                left.addAll((Collection<? extends T>) l1); // COMPILE: OK
-                left.addAll((Collection<T>) l1);
-                List<T> right = new ArrayList<>();
-                right.addAll((Collection<T>) l1);
-                swapFirstHelper(left,right);
-                swapFirstHelper( (List<T>) l1 , (List<T>) l2 ) ;
-                right = (List<T>) l2 ;
-                swapFirstHelper( left , right ) ;
+                Number temp = l1.get(0);
+                l1.set(0, l2.get(0)); // expected a CAP#1 extends Number,
+                // got a CAP#2 extends Number;
+                // same bound, but different types
+                l2.set(0, temp);	    // expected a CAP#1 extends Number,
+                // got a Number
             }
-            void swapFirstHelper( List<T> left , List<T> right) {
-                T temp = left.get(0) ;
-                left.set(0, right.get(0));
-                right.set(0,temp);
-            }
-//            void swapFirstHelper( List<List<? extends Number>> dummy) {
-//
-//            }
-            void swapFirstHelper( List<Object> dummy ) {
+ */
 
+            void swapFirst(List<? extends Number> l1, List<? extends Number> l2) {
+                List<T> left = rewrap(l1) ;
+                List<T> right = rewrap(l2) ;
+                swapFirstHelper( left , right ) ;
+                log.debug("");
+                l1 = left;
+                log.debug("");
+            }
+            Tuple swapFirst(Tuple in) {
+                List<T> left = rewrap(in.left) ;
+                List<T> right = rewrap(in.right) ;
+                swapFirstHelper( left , right ) ;
+                log.debug("");
+                Tuple candidate = new Tuple(left,right) ;
+                log.debug("");
+                return candidate ;
+            }
+            Tuple swapFirst0(Tuple in) {
+                swapFirstHelper( in.left , in.right ) ; // FAILS: ArrayStoreException: java.lang.Double
+                log.debug("");
+                Tuple candidate = in ; //  new Tuple(left,right) ;
+                log.debug("");
+                return candidate ;
+            }
+            private List<T> rewrap( List<? extends Number> in) {
+                List<T> candidate = new ArrayList<>();
+                candidate.addAll((Collection<T>) in);
+                return candidate;
+            }
+            private void swapFirstHelper( List<T> left , List<T> right) {
+                T temp = left.get(0) ;
+                left.set(0, (T) right.get(0));
+                right.set(0,(T) temp);
+            }
+            private Tuple<T> doIt( List<T> left , List<T> right ) {
+                Tuple<T> candidate = swapFirst(new Tuple( left, right));
+                swapFirst( left , right ) ;
+                return candidate ;
             }
         }
         WildcardErrorBad SUT =  new WildcardErrorBad();
 
         List<Integer> li = Arrays.asList(1, 2, 3);
         List<Double>  ld = Arrays.asList(10.10, 20.20, 30.30);
-        SUT.swapFirst(li, li);
-        SUT.swapFirstHelper(li, li);
-        List<? extends Number> ll = li ;
-        List<? extends Number> rr = Arrays.asList(10.10, 20.20, 30.30);
-        List<List<? extends Number>> wrapped = Arrays.asList(ll,rr);
-        List<Object> llO = Arrays.asList(1, 2, 3);
+        SUT.doIt(li, ld);
 
-        SUT.swapFirstHelper( wrapped ) ;
-        SUT.swapFirstHelper( llO ) ;
-        SUT.swapFirst(ll, ll);
-        SUT.swapFirstHelper(ll, ll);
-        List<Number> llT = Arrays.asList(1, 2, 3);
-        List<Number> rrT = Arrays.asList(10.10, 20.20, 30.30);
-        SUT.swapFirst(llT, llT);
-        SUT.swapFirstHelper(llT, llT);
-        List<?> llW = Arrays.asList(1, 2, 3);
-        List<?> rrW = Arrays.asList(10.10, 20.20, 30.30);
-        SUT.swapFirst(llW, llW);
-        SUT.swapFirstHelper(llW, llW);
+        List<? extends Number> liT = li ;
+        List<? extends Number> ldT = ld ;
+        SUT.doIt(liT, ldT);
+
     }
 }
