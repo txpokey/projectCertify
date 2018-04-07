@@ -10,6 +10,15 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+/*
+ * BOOYA is explores rare case generics with static keyword. class is dual to Algorithm in oraTutorialQuestion_2()
+ */
+class BOOYA<T> {
+    public static <T extends Comparable<T>> T max(T x, T y) { // BUT: no static members 4 inner classes
+        return 0 < x.compareTo(y) ? x : y;
+    }
+    public final List<T> list = new ArrayList<>(); // SX: cant be static and use <T>
+}
 /**
  * Oracle Java8 Tutorial on Generics has a lot of code and test questions. This entire package is for exploring those
  * lessons and looking for work arounds to problems that were posited.
@@ -147,10 +156,5 @@ public class ExploreGenericFromOracleTutorialTest {
         List<? extends Number> ldT = ld ;
         SUT.doIt(liT, ldT); // TODO : test the swap
 
-    }
-}
-class BOOYA {
-    public static <T extends Comparable<T>> T max(T x, T y) { // BUT: no static members 4 inner classes
-        return 0 < x.compareTo(y) ? x : y;
     }
 }
