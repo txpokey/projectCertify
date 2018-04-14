@@ -51,12 +51,19 @@ public class ExploringQueueMutationSemanticsTest {
     }
     public void test() {
         Class<ArrayDeque> q0c = ArrayDeque.class ;
-        List<Integer> aqList = originalListCloningFactory();
+        Collection<Integer> aqList = originalListCloningFactory();
         Queue<Integer> aq0 = queueFactory(q0c, aqList);
         verifyWhichIsHeadOnQueueImplementation( aq0 ) ;
     }
 
-    private List<Integer> originalListCloningFactory() {
+    private List<Integer> originalListCloningFactory0() {
+        final List<Integer> referenceList = Arrays.asList(0,1,2,3,4,5,6,7,8,9);
+        List<Integer> candidate = referenceList.stream().map(Integer::new)
+                .collect(Collectors.toList());
+        return candidate ;
+    }
+
+    private Collection<Integer> originalListCloningFactory() {
         final List<Integer> referenceList = Arrays.asList(0,1,2,3,4,5,6,7,8,9);
         List<Integer> candidate = referenceList.stream().map(Integer::new)
                 .collect(Collectors.toList());
@@ -81,7 +88,7 @@ public class ExploringQueueMutationSemanticsTest {
 
     private <Q,T> Queue<T> queueFactory(Class<Q> qc) {
         Queue<T> ret = null ;
-        List<Integer> qList = originalListCloningFactory();
+        Collection<Integer> qList = originalListCloningFactory();
         Queue<Integer> aq0 = queueFactory(qc, qList);
         return ret ;
     }
