@@ -11,8 +11,8 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 @Test
-public class ExploreEnumTest {
-    private static Log log = LogFactory.getLog(ExploreEnumTest.class);
+public class ExploreEnumNameVsOrdinalOrderingTest {
+    private static Log log = LogFactory.getLog(ExploreEnumNameVsOrdinalOrderingTest.class);
 
     interface Inspector<E extends Enum> {
         default void inspect() {
@@ -45,7 +45,8 @@ public class ExploreEnumTest {
         private String asString;
 
     }
- /*
+
+    /*
   ****************************** TESTING ******************************
   */
     @DataProvider
@@ -56,7 +57,7 @@ public class ExploreEnumTest {
     @Test(dataProvider = "getAllEnumTypesBeingTested")
     public <E extends Enum> void applyStaticPeekOverEntireEnumType(Class<E> enumTypeAsInput) {
         log.debug("ENTER");
-        applyConsumerToEntireEnumConvertedToStream(enumTypeAsInput, ExploreEnumTest::peek);
+        applyConsumerToEntireEnumConvertedToStream(enumTypeAsInput, ExploreEnumNameVsOrdinalOrderingTest::peek);
         log.debug("LEAVE");
     }
 
