@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import javax.annotation.Nonnull;
 import java.lang.reflect.Constructor;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Test
@@ -22,6 +23,18 @@ public class ExploringQueueMutationSemanticsTest {
         report( originalList , queue );
         ((ArrayDeque) queue).addFirst(12);
         report( originalList , queue );
+        Integer fromPop = (Integer) ((ArrayDeque) queue).pop();
+        report( "fromPop" , fromPop );
+        report( originalList , queue );
+        ((ArrayDeque) queue).push(fromPop) ;
+        report( originalList , queue );
+    }
+    private void verifyWhichIsHeadOnQueueImplementation(Queue<Integer> queue) {
+        assert queue.add(10);
+        report( originalList , queue );
+        assert queue.offer(11);
+        report( originalList , queue );
+
         Integer fromPeek = queue.peek() ;
         report( "fromPeek" , fromPeek );
         report( originalList , queue );
@@ -35,18 +48,19 @@ public class ExploringQueueMutationSemanticsTest {
         report( "fromPoll" , fromPoll );
         report( originalList , queue );
         assert fromElement == fromPoll ;
-
-        Integer fromPop = (Integer) ((ArrayDeque) queue).pop();
-        report( "fromPop" , fromPop );
-        report( originalList , queue );
-        ((ArrayDeque) queue).push(fromPop) ;
-        report( originalList , queue );
     }
-
     public void test() {
         Class<ArrayDeque> q0c = ArrayDeque.class ;
-        Queue<Integer> aq0 = queueFactory(q0c, originalList);
-        verifyWhichIsHeadOnQueueImplementation0( aq0 ) ;
+        List<Integer> aqList = originalListCloningFactory();
+        Queue<Integer> aq0 = queueFactory(q0c, aqList);
+        verifyWhichIsHeadOnQueueImplementation( aq0 ) ;
+    }
+
+    private List<Integer> originalListCloningFactory() {
+        final List<Integer> referenceList = Arrays.asList(0,1,2,3,4,5,6,7,8,9);
+        List<Integer> candidate = referenceList.stream().map(Integer::new)
+                .collect(Collectors.toList());
+        return candidate ;
     }
 
     private <Q,T> Queue<T> queueFactory(@Nonnull Class<Q> q0c, @Nonnull Collection<T> constructArgument ) {
@@ -63,35 +77,13 @@ public class ExploringQueueMutationSemanticsTest {
             e.printStackTrace();
         }
         return ret ;
-
     }
 
-    private <Q,T> Queue<List<T>> queueFactory0(@Nonnull Class<Q> q0c, @Nonnull Collection<T> constructArgument ) {
-        Queue<List<T>> ret = null ;
-
-        try {
-            Constructor<Q> cons = q0c.getConstructor(Collection.class);
-            Object o = cons.newInstance(constructArgument) ;
-            Queue<List<T>> candidate = (Queue<List<T>>) o ;
-            ret = candidate ;
-            log.debug("cons:>" + cons) ;
-            log.debug("o:>" + o) ;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private <Q,T> Queue<T> queueFactory(Class<Q> qc) {
+        Queue<T> ret = null ;
+        List<Integer> qList = originalListCloningFactory();
+        Queue<Integer> aq0 = queueFactory(qc, qList);
         return ret ;
-
-    }
-
-    private void queueFactory0(Class<ArrayDeque> q0c) {
-        try {
-            Constructor<ArrayDeque> cons = q0c.getConstructor(Collection.class);
-            Object o = cons.newInstance(originalList) ;
-            log.debug("cons:>" + cons) ;
-            log.debug("o:>" + o) ;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     private static <E> String toReport(@Nonnull Collection<E> forReport) {
