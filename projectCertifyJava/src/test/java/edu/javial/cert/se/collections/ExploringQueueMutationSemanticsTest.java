@@ -10,8 +10,8 @@ import java.util.*;
 
 
 @Test
-public class ExploringQueueDirectionPragmaticsTest {
-    private static Log log = LogFactory.getLog(ExploringQueueDirectionPragmaticsTest.class);
+public class ExploringQueueMutationSemanticsTest {
+    private static Log log = LogFactory.getLog(ExploringQueueMutationSemanticsTest.class);
 
     private static List<Integer> originalList = Arrays.asList(0,1,2,3,4,5,6,7,8,9);
 
