@@ -26,7 +26,7 @@ public class ExploringQueueMutationSemanticsTest {
             verifyWhichIsHeadOnQueueImplementation(q);
         }
     }
-    private void verifyWhichIsHeadOnQueueImplementation(Queue<Integer> queue) {
+    private void verifyWhichIsHeadOnQueueImplementation(@Nonnull Queue<Integer> queue) {
         assert queue.add(10);
         report(queue);
         assert queue.offer(11);
@@ -53,7 +53,7 @@ public class ExploringQueueMutationSemanticsTest {
         return candidate ;
     };
 
-    private <T> Collection<T> originalListFactory(Collection<T> ref ) {
+    private <T> Collection<T> originalListFactory(@Nonnull Collection<T> ref ) {
         Collection<T> deep = originalListFactory(ref, (Function<T, T>) cloningMapper);
         return deep ;
     }
@@ -61,7 +61,7 @@ public class ExploringQueueMutationSemanticsTest {
     /*
      * deep copy implementation
      */
-    private <T> Collection<T> originalListFactory(Collection<T> ref , Function<T,T> mapper ) {
+    private <T> Collection<T> originalListFactory(@Nonnull Collection<T> ref , @Nonnull Function<T,T> mapper ) {
         Collection<T> deep = ref.stream().map( mapper ).collect(Collectors.toList());
         return deep ;
     }
@@ -69,7 +69,7 @@ public class ExploringQueueMutationSemanticsTest {
     /*
      * shallow copy implementation
      */
-    private <T> Collection<T> originalListFactoryShallow(Collection<T> ref ) {
+    private <T> Collection<T> originalListFactoryShallow(@Nonnull Collection<T> ref ) {
         Collection<T> shallow = new ArrayList<>(ref);
         return shallow ;
     }
@@ -94,11 +94,11 @@ public class ExploringQueueMutationSemanticsTest {
         return forReport.toString();
     }
 
-    private static <E> void report(Collection<E> in, Collection<E> out) {
+    private static <E> void report(@Nonnull Collection<E> in, @Nonnull Collection<E> out) {
         log.debug("original:> " + toReport(in));
         log.debug("derived:> " + toReport(out));
     }
-    private static <E> void report(Collection<E> out) {
+    private static <E> void report(@Nonnull Collection<E> out) {
         log.debug("original:> " + toReport(originalList));
         log.debug("derived:> " + toReport(out));
     }
