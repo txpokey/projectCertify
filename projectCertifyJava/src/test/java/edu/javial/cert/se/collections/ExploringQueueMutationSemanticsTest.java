@@ -65,10 +65,10 @@ public class ExploringQueueMutationSemanticsTest {
         Collection<T> deep = ref.stream().map( mapper ).collect(Collectors.toList());
         return deep ;
     }
-    @Deprecated
     /*
      * shallow copy implementation
      */
+    @Deprecated
     private <T> Collection<T> originalListFactoryShallow(@Nonnull Collection<T> ref ) {
         Collection<T> shallow = new ArrayList<>(ref);
         return shallow ;
