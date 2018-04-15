@@ -52,11 +52,12 @@ public class ExploringQueueMutationSemanticsTest {
 
     public void test() {
         final List<Integer> referenceList = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-
-        Class<ArrayDeque> q0c = ArrayDeque.class;
-        Collection<Integer> aqList = originalListFactory(referenceList);
-        Queue<Integer> aq0 = queueFactory(q0c, aqList);
-        verifyWhichIsHeadOnQueueImplementation(aq0);
+        Class[] fodder = { ArrayDeque.class } ;
+        for( Class c : fodder ) {
+            Collection<Integer> dup = originalListFactory(referenceList);
+            Queue<Integer> q = queueFactory(c, dup);
+            verifyWhichIsHeadOnQueueImplementation(q);
+        }
     }
 
     private <T> Collection<T> originalListFactory(Collection<T> ref ) {
