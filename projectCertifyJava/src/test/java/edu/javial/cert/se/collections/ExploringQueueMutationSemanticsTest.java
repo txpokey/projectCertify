@@ -52,7 +52,7 @@ public class ExploringQueueMutationSemanticsTest {
 
     public void test() {
         final List<Integer> referenceList = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-        Class[] fodder = { ArrayDeque.class } ;
+        Class[] fodder = { ArrayDeque.class , PriorityQueue.class} ;
         for( Class c : fodder ) {
             Collection<Integer> dup = originalListFactory(referenceList);
             Queue<Integer> q = queueFactory(c, dup);
