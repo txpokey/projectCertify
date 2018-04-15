@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.annotations.Test;
 
+import javax.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -23,7 +24,7 @@ public class Java8StreamFilterExamplesTest {
 
             private String sex;
 
-            SEX(String _sex) {
+            SEX(@Nonnull String _sex) {
                 sex = _sex;
             }
             @Override
@@ -37,7 +38,7 @@ public class Java8StreamFilterExamplesTest {
         private SEX gender;
         private int age;
 
-        Student(int id, String name, SEX gender, int age) {
+        Student(int id, @Nonnull String name, @Nonnull SEX gender, int age) {
             super();
             this.id = id;
             this.name = name;
@@ -86,7 +87,7 @@ public class Java8StreamFilterExamplesTest {
         filterBasedOnName(studentList, "John");
     }
 
-    private void filterBasedOnGender(List<Student> studentList, Student.SEX sex) {
+    private void filterBasedOnGender(@Nonnull List<Student> studentList, @Nonnull Student.SEX sex) {
         // Filter all male students
         List maleStudents = studentList.stream()
                 .filter(getStudentGenderPredicate(sex))
@@ -94,11 +95,11 @@ public class Java8StreamFilterExamplesTest {
         log.debug(sex + " students are :> " + maleStudents);
     }
 
-    private Predicate<Student> getStudentGenderPredicate(Student.SEX sex) {
+    private Predicate<Student> getStudentGenderPredicate(@Nonnull Student.SEX sex) {
         return s -> s.getGender().equals(sex);
     }
 
-    private void filterBasedOnName(List<Student> studentList, String name) {
+    private void filterBasedOnName(@Nonnull List<Student> studentList, @Nonnull String name) {
         Student student = studentList.stream()
                 .filter(getStudentNamePredicate(name))
                 .findAny()
@@ -106,7 +107,7 @@ public class Java8StreamFilterExamplesTest {
         log.debug("Student with Name " + name + ":> " + student);
     }
 
-    private Predicate<Student> getStudentNamePredicate(String name) {
+    private Predicate<Student> getStudentNamePredicate(@Nonnull String name) {
         return s -> s.getName().equalsIgnoreCase(name);
     }
 
