@@ -49,11 +49,14 @@ public class ExploreBuiltInConsumerLambdasTest {
         public static List<Integer> findNumbers(
                 @Nonnull List<Integer> l,
                 @Nonnull BiPredicate<Integer, Integer> p) {
-//            assert Objects.nonNull(l) && Objects.nonNull(p);
             final Integer fudgeFactor = 10;
             Predicate<Integer> predicateWithFudgeFactor = i -> p.test(i, i + fudgeFactor);
             List<Integer> newList = l.stream().filter(predicateWithFudgeFactor).collect(Collectors.toList());
             return newList;
+            /*
+             * i prefer using @Nonnull to declare the pre-condition rather than to use
+             * assert Objects.nonNull(l) && Objects.nonNull(p);
+             */
         }
     }
 
