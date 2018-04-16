@@ -33,7 +33,7 @@ public class ExploreBuiltInConsumerLambdasTest {
 
         }
 
-        public static List<Integer> findNumbersOriginal(
+        public List<Integer> findNumbersOriginal(
                 List<Integer> l, BiPredicate<Integer, Integer> p) {
 
             List<Integer> newList = new ArrayList<>();
