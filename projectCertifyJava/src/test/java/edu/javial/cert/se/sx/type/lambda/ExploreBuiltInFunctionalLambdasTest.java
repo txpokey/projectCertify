@@ -8,17 +8,16 @@ import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Test
-public class ExploreBuiltInConsumerLambdasTest {
-    private static Log log = LogFactory.getLog(ExploreBuiltInConsumerLambdasTest.class);
+public class ExploreBuiltInFunctionalLambdasTest {
+    private static Log log = LogFactory.getLog(ExploreBuiltInFunctionalLambdasTest.class);
 
-    public void BookEHexample() {
+    public void bookEH_consumerAndThenExample() {
         Consumer<String> first = t ->
                 System.out.println("First:" + t);
         Consumer<String> second = t ->
