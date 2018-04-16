@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.annotations.Test;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,29 +32,33 @@ public class ExploreBuiltInConsumerLambdasTest {
             return (n1 + n2) > 50;
 
         }
+
         public static List<Integer> findNumbersOriginal(
                 List<Integer> l, BiPredicate<Integer, Integer> p) {
 
             List<Integer> newList = new ArrayList<>();
-            for(Integer i : l) {
+            for (Integer i : l) {
 
-                if(p.test(i, i + 10)) {
+                if (p.test(i, i + 10)) {
                     newList.add(i);
                 }
             }
             return newList;
         }
+
         public static List<Integer> findNumbers(
-                List<Integer> l, BiPredicate<Integer, Integer> p) {
-            assert Objects.nonNull(l) && Objects.nonNull(p);
-            final Integer fudgeFactor = 10 ;
-            Predicate<Integer> predicateWithFudgeFactor = i -> p.test(i, i + fudgeFactor ) ;
+                @Nonnull List<Integer> l,
+                @Nonnull BiPredicate<Integer, Integer> p) {
+//            assert Objects.nonNull(l) && Objects.nonNull(p);
+            final Integer fudgeFactor = 10;
+            Predicate<Integer> predicateWithFudgeFactor = i -> p.test(i, i + fudgeFactor);
             List<Integer> newList = l.stream().filter(predicateWithFudgeFactor).collect(Collectors.toList());
             return newList;
         }
     }
+
     public void methodReferenceToStaticMethod() {
-        final List<Integer> input = Arrays.asList(12,5,45,18,33,24,40);
+        final List<Integer> input = Arrays.asList(12, 5, 45, 18, 33, 24, 40);
         List<Integer> out = Numbers.findNumbers(input, Numbers::isMoreThanFifty);
         log.debug(out);
     }
