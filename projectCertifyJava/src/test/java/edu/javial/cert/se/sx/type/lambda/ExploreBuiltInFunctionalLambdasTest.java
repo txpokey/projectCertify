@@ -29,7 +29,6 @@ public class ExploreBuiltInFunctionalLambdasTest {
     static class Numbers {
         public static boolean isMoreThanFifty(int n1, int n2) {
             return (n1 + n2) > 50;
-
         }
 
         public List<Integer> findNumbersOriginal(
