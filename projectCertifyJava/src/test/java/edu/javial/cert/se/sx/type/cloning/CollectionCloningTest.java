@@ -5,8 +5,10 @@ import org.apache.commons.logging.LogFactory;
 import org.testng.annotations.Test;
 
 import javax.annotation.Nonnull;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -30,7 +32,7 @@ public class CollectionCloningTest {
         log.debug("shallowCopy Collection without modification :> " + shallowCopy);
     }
 
-    public void demonstrateDeepCopy() {
+    public void demonstrateCloneCopy() {
         Collection<Employee> org;
         org = getEmployeesOrganization();
         Collection<Employee> deepCopy = getEmployeesViaDeepCopy(org);
@@ -39,6 +41,10 @@ public class CollectionCloningTest {
         convertAllToStaff(deepCopy);
         log.debug("Original Collection after DeepCopy modification :> " + org);
         log.debug("DeepCopy Collection after modification :> " + deepCopy);
+    }
+
+    public void demonstrateCloneCopyPragmatics() {
+//        final Employee skippy =
     }
 
     private Collection<Employee> getEmployeesViaDeepCopy(@Nonnull Collection<Employee> org) {
@@ -67,9 +73,16 @@ public class CollectionCloningTest {
         return org;
     }
 
+    private static long getDummyLong() {
+        double d = Math.random() * 100 ;
+        Long l = new Long((long) d) ;
+        return l ;
+    }
+
     class Employee implements Cloneable {
         private String name;
         private String designation;
+        private Instant dob = Instant.now().minusSeconds(getDummyLong()) ;
 
         public Employee(String name, String designation) {
             this.name = name;
@@ -86,14 +99,13 @@ public class CollectionCloningTest {
         }
         @Override
         public String toString() {
-            return String.format("%s: %s", name, designation);
+            return String.format("%s: %s(%s)", name, designation, dob);
         }
         @Override
         protected Employee clone() {
             Employee clone = null;
             try {
                 clone = (Employee) super.clone();
-
             } catch (CloneNotSupportedException e) {
                 throw new RuntimeException(e); // won't happen
             }
