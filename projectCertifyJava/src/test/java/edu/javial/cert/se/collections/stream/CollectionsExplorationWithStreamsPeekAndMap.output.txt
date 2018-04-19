@@ -1,0 +1,19 @@
+
+2018-04-19|17:06:26 CollectionsExplorationWithStreamsPeekAndMap.lambda$getCharacterConsumerReport$3.42 [DEBUG] before map(): class of <T> :> class java.lang.Character
+2018-04-19|17:06:26 CollectionsExplorationWithStreamsPeekAndMap.lambda$getIntegerConsumerReport$2.38 [DEBUG] after map(): class of <T> :> class java.lang.Integer
+97 2018-04-19|17:06:26 CollectionsExplorationWithStreamsPeekAndMap.lambda$getCharacterConsumerReport$3.42 [DEBUG] before map(): class of <T> :> class java.lang.Character
+2018-04-19|17:06:26 CollectionsExplorationWithStreamsPeekAndMap.lambda$getIntegerConsumerReport$2.38 [DEBUG] after map(): class of <T> :> class java.lang.Integer
+98 2018-04-19|17:06:26 CollectionsExplorationWithStreamsPeekAndMap.lambda$getCharacterConsumerReport$3.42 [DEBUG] before map(): class of <T> :> class java.lang.Character
+2018-04-19|17:06:26 CollectionsExplorationWithStreamsPeekAndMap.lambda$getIntegerConsumerReport$2.38 [DEBUG] after map(): class of <T> :> class java.lang.Integer
+99 2018-04-19|17:06:26 CollectionsExplorationWithStreamsPeekAndMap.lambda$getCharacterConsumerReport$3.42 [DEBUG] before map(): class of <T> :> class java.lang.Character
+2018-04-19|17:06:26 CollectionsExplorationWithStreamsPeekAndMap.lambda$getIntegerConsumerReport$2.38 [DEBUG] after map(): class of <T> :> class java.lang.Integer
+100 2018-04-19|17:06:26 CollectionsExplorationWithStreamsPeekAndMap.lambda$getCharacterConsumerReport$3.42 [DEBUG] before map(): class of <T> :> class java.lang.Character
+2018-04-19|17:06:26 CollectionsExplorationWithStreamsPeekAndMap.lambda$getIntegerConsumerReport$2.38 [DEBUG] after map(): class of <T> :> class java.lang.Integer
+101 
+===============================================
+Default Suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+Process finished with exit code 0
