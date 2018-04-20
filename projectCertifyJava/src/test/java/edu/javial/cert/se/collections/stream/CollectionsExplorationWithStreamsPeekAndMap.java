@@ -4,6 +4,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -40,5 +42,14 @@ public class CollectionsExplorationWithStreamsPeekAndMap {
 
     private Consumer<Character> getCharacterConsumerReport(String preface) {
         return c -> log.debug(preface + " map(): class of <T> :> " + c.getClass());
+    }
+    public void flatmapUseCase() {
+        List<Character> aToD = Arrays.asList('a', 'b', 'c', 'd');
+        List<Character> eToG = Arrays.asList('e', 'f', 'g');
+        Stream<List<Character>> stream = Stream.of(aToD, eToG);
+        stream
+                .flatMap(l -> l.stream())
+                .map(c -> (int)c)
+                .forEach(i -> System.out.format("%d ", i));
     }
 }
