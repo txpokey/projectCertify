@@ -10,6 +10,8 @@ import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+// TODO  BiFunction<Computer, Computer, Integer> biff
+
 @Test
 public class ExploreComparisonObjectsTest {
     private static Log log = LogFactory.getLog(ExploreComparisonObjectsTest.class);
