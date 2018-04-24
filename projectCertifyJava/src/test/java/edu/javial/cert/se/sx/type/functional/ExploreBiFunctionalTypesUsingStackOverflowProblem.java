@@ -91,9 +91,9 @@ public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
     public void exploreStreamsCollectedByMapsViaBiConsumer3() {
         final Stream<Foo> stream2  = Stream.of(data);
         Map<Integer,List<Foo>> groupedByIdMap = stream2.collect(Collectors.groupingBy(Foo::getId));
-        List<Foo> result2 = new ArrayList<>();
-        groupedByIdMap.forEach(reduceBiConsumer(fooBinaryOperator, result2));
-        log.debug(result2);
+        List<Foo> reductionTarget = new ArrayList<>();
+        groupedByIdMap.forEach(reduceBiConsumer(fooBinaryOperator, reductionTarget));
+        log.debug(reductionTarget);
     }
     private BiFunction<Object,? super Map<Integer,List<Foo>>,Object> myDummy;
     private BinaryOperator<Object> moreDummy;
@@ -120,9 +120,8 @@ public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
 
         Map<Integer,List<Foo>> groupedByIdMap = stream2.collect(Collectors.groupingBy(Foo::getId));
         final Stream<Map<Integer, List<Foo>>> mapStream = Stream.of(groupedByIdMap);
-        List<Foo> dummyList = new ArrayList<>();
         BiFunction<List<Foo>, ? super Map<Integer, List<Foo>>, List<Foo>> reducingBiFunction = (List<Foo> result, Map<Integer, List<Foo>> in ) -> {
-            List<Foo> ret = new ArrayList<>() ;
+            List<Foo> ret = result ;
             in.entrySet().forEach(
                     new Consumer<Map.Entry<Integer, List<Foo>>>() {
                         @Override
@@ -134,7 +133,8 @@ public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
             );
             return ret ;
         };
-        final List<Foo> reduceResult = mapStream.reduce(dummyList, reducingBiFunction, combineListsOfFooBiOperator) ;
+        List<Foo> reductionTarget = new ArrayList<>();
+        final List<Foo> reduceResult = mapStream.reduce(reductionTarget, reducingBiFunction, combineListsOfFooBiOperator) ;
         log.debug(reduceResult);
     }
     public void exploreStreamsCollectedByMapsViaBiConsumer4L() {
@@ -142,10 +142,9 @@ public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
 
         Map<Integer,List<Foo>> groupedByIdMap = stream2.collect(Collectors.groupingBy(Foo::getId));
         final Stream<Map<Integer, List<Foo>>> mapStream = Stream.of(groupedByIdMap);
-        List<Foo> dummyList = new ArrayList<>();
         BiFunction<List<Foo>, ? super Map<Integer, List<Foo>>, List<Foo>> reducingBiFunction = (List<Foo> result,
                                                                                           Map<Integer, List<Foo>> in ) -> {
-            List<Foo> ret = new ArrayList<>() ;
+            List<Foo> ret = result ;
             in.entrySet().forEach(
                     integerListEntry -> {
                         final Optional<Foo> fooOptional = integerListEntry.getValue().stream().reduce(fooBinaryOperator);
@@ -154,8 +153,8 @@ public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
             );
             return ret ;
         };
-
-        final List<Foo> reduceResult = mapStream.reduce(dummyList, reducingBiFunction, combineListsOfFooBiOperator) ;
+        List<Foo> reductionTarget = new ArrayList<>();
+        final List<Foo> reduceResult = mapStream.reduce(reductionTarget, reducingBiFunction, combineListsOfFooBiOperator) ;
         log.debug(reduceResult);
     }
     public void exploreStreamsCollectedByMapsViaBiConsumer5() {
@@ -163,24 +162,23 @@ public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
 
         Map<Integer,List<Foo>> groupedByIdMap = stream2.collect(Collectors.groupingBy(Foo::getId));
         final Stream<Map<Integer, List<Foo>>> mapStream = Stream.of(groupedByIdMap);
-        List<Foo> dummyList = new ArrayList<>();
         BiFunction<List<Foo>, ? super Map<Integer, List<Foo>>, List<Foo>> reducingBiFunction = (List<Foo> result, Map<Integer, List<Foo>> in ) -> {
-            List<Foo> ret = new ArrayList<>() ;
+            List<Foo> ret = result ;
             in.entrySet().forEach(
                     integerListEntry -> {
                         List<Foo> tmp = integerListEntry.getValue();
                         Foo patsy = tmp.get(0);
-                        Foo indentity = new Foo(patsy.id, patsy.name, 0, 0);
+                        Foo identity = new Foo(patsy.id, patsy.name, 0, 0);
                         final Foo foo = integerListEntry.getValue().stream().reduce(
-                                indentity,
+                                identity,
                                 fooBinaryOperator);
                         ret.add(foo);
                     }
             );
             return ret ;
         };
-
-        final List<Foo> reduceResult = mapStream.reduce(dummyList, reducingBiFunction, combineListsOfFooBiOperator) ;
+        List<Foo> reductionTarget = new ArrayList<>();
+        final List<Foo> reduceResult = mapStream.reduce(reductionTarget, reducingBiFunction, combineListsOfFooBiOperator) ;
         log.debug(reduceResult);
     }
 }
