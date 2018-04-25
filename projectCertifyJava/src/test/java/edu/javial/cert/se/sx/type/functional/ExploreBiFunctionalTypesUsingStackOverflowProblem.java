@@ -10,8 +10,12 @@ import java.util.function.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
+/**
+ * has Function, BiFunction, Consumer, BiConsumer, GroupingBy, Collectors.mapping examples
+ */
 @Test
 public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
     private static Log log = LogFactory.getLog(ExploreBiFunctionalTypesUsingStackOverflowProblem.class);
@@ -82,7 +86,7 @@ public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
         final Foo ret = in.getValue().stream().reduce(fooBinaryOperator).get();
         return ret;
     };
-    public void exploreStreamsGroupedIntoMapsButCollectedReducingFunction() {
+    public void exploreStreamsGroupedIntoMapsButCollectedByMappingWithReducingFunction() {
         final Stream<Foo> dataStream = Stream.of(data);
         final Map<Integer, List<Foo>> groupedByIdMap = dataStream.collect(Collectors.groupingBy(Foo::getId));
         final List<Foo> result = groupedByIdMap.entrySet().stream().collect(Collectors.mapping
@@ -121,7 +125,7 @@ public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
         return ret;
     };
 
-    public void exploreStreamsCollectedByGroupingOverIdsThenReducedViaBiConsumerInnerClass() {
+    public void exploreStreamsCollectedByGroupingOverIdsThenReducedViaBiFunctionUsingBiConsumerInnerClass() {
         final Stream<Foo> stream2 = Stream.of(data);
 
         Map<Integer, List<Foo>> groupedByIdMap = stream2.collect(Collectors.groupingBy(Foo::getId));
@@ -144,7 +148,8 @@ public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
         log.debug(reduceResult);
     }
 
-    public void exploreStreamsCollectedByGroupingOverIdsThenReducedViaBiConsumerInnerClassConertedToLambda() {
+    public void
+    exploreStreamsCollectedByGroupingOverIdsThenReducedViaBiFunctionUsingBiConsumerInnerClassConvertedToLambda() {
         final Stream<Foo> stream2 = Stream.of(data);
 
         Map<Integer, List<Foo>> groupedByIdMap = stream2.collect(Collectors.groupingBy(Foo::getId));
@@ -165,15 +170,38 @@ public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
         log.debug(reduceResult);
     }
 
-    private BiFunction<List<Foo>, ? super Map<Integer, List<Foo>>, List<Foo>> reducingBiFunction =
+    /***************************** BIFUNCTION EXAMPLES **************************************/
+
+    BiFunction<List<Foo>, ? super Map<Integer, List<Foo>>, List<Foo>> reducingBiFunctionAlaMapToCollect =
+            (List<Foo> result, Map<Integer, List<Foo>> in) -> {
+                List<Foo> candidate = in.entrySet().stream().map( integerListEntry -> reducingFunction.apply(
+                        integerListEntry ))
+                        .collect(toList());
+                result.addAll(candidate);
+                return result;
+            };
+    BiFunction<List<Foo>, ? super Map<Integer, List<Foo>>, List<Foo>> reducingBiFunctionAlaCollectorMapping =
+            (List<Foo> result, Map<Integer, List<Foo>> in) -> {
+                List<Foo> candidate = in.entrySet().stream().collect(Collectors.mapping(reducingFunction, Collectors
+                        .toList()));
+                result.addAll(candidate);
+                return result;
+            };
+    BiFunction<List<Foo>, ? super Map<Integer, List<Foo>>, List<Foo>> reducingBiFunctionWithForEach =
             (List<Foo> result, Map<Integer, List<Foo>> in) -> {
                 in.entrySet().forEach(
                         getEntryConsumer(result)
                 );
                 return result;
             };
+    public void exploreStreamsCollectedByGroupingOverIdsThenReducedViaBiFunctionUsingBiConsumer() {
+        exploreStreamsCollectedByGroupingOverIdsThenReducedViaBiFunctionUsingBiConsumer(reducingBiFunctionAlaMapToCollect) ;
+        exploreStreamsCollectedByGroupingOverIdsThenReducedViaBiFunctionUsingBiConsumer(reducingBiFunctionAlaCollectorMapping) ;
+        exploreStreamsCollectedByGroupingOverIdsThenReducedViaBiFunctionUsingBiConsumer(reducingBiFunctionWithForEach) ;
+    }
+    private void exploreStreamsCollectedByGroupingOverIdsThenReducedViaBiFunctionUsingBiConsumer(BiFunction<List<Foo>,
+            ? super Map<Integer, List<Foo>>, List<Foo>> reducingBiFunction) {
 
-    public void exploreStreamsCollectedByGroupingOverIdsThenReducedViaBiFunction() {
         final Stream<Foo> stream2 = Stream.of(data);
 
         Map<Integer, List<Foo>> groupedByIdMap = stream2.collect(Collectors.groupingBy(Foo::getId));
@@ -183,8 +211,15 @@ public class ExploreBiFunctionalTypesUsingStackOverflowProblem {
         final List<Foo> reduceResult = mapStream.reduce(reductionTarget, reducingBiFunction, combineListsOfFooBiOperator);
         log.debug(reduceResult);
     }
+    /***************************** CONSUMER EXAMPLES **************************************/
 
     private Consumer<Map.Entry<Integer, List<Foo>>> getEntryConsumer(List<Foo> ret) {
+        return integerListEntry -> {
+            final Foo foo = reducingFunction.apply( integerListEntry ) ;
+            ret.add(foo);
+        };
+    }
+    private Consumer<Map.Entry<Integer, List<Foo>>> getEntryConsumerUsingReduceWithIdentity(List<Foo> ret) {
         return integerListEntry -> {
             List<Foo> tmp = integerListEntry.getValue();
             Foo patsy = tmp.get(0);
