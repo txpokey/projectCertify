@@ -5,9 +5,14 @@ import org.apache.commons.logging.LogFactory;
 import org.testng.annotations.Test;
 
 import java.time.*;
+import java.time.temporal.ChronoField;
+import java.util.Comparator;
 import java.util.List;
+import java.util.TimeZone;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+// TODO investigate ZoneRules , esp "transitions" and "offset" values
 
 @Test
 public class ExploreLocalTemporalExamplesJCP8BookTest {
@@ -20,9 +25,13 @@ public class ExploreLocalTemporalExamplesJCP8BookTest {
     }
 
     public void whatIsTimeZoneZulu() {
-        List<ZoneId> zones = Stream.of(ZoneId.of("Z"), ZoneId.of("-2"), ZoneOffset.ofHours(-6)).collect(Collectors
-                .toList());
-        log.debug(zones);
+        ZoneId Z = ZoneId.of("Z");
+        ZoneId UTC = ZoneOffset.UTC;
+
+        log.debug(Z);
+        log.debug(UTC);
+        log.debug(((ZoneOffset) UTC).get(ChronoField.OFFSET_SECONDS));
+        assert Z.equals(UTC);
     }
 
     public void whatIsSystemDefaultTimeZone() {
@@ -31,7 +40,10 @@ public class ExploreLocalTemporalExamplesJCP8BookTest {
         log.debug(punisher.getRules());
         ZonedDateTime now = ZonedDateTime.now();
         log.debug(now);
-
+        TimeZone defaultTZ = TimeZone.getDefault();
+        ZoneId defaultTZid = ZoneId.of( defaultTZ.getID() ) ;
+        log.debug(defaultTZ);
+        log.debug(defaultTZid);
     }
 
     public void whatIsTimeZoneForUTC11() {
@@ -55,6 +67,24 @@ public class ExploreLocalTemporalExamplesJCP8BookTest {
         ZonedDateTime zonedDateTime =
                 ZonedDateTime.of(2015, 1, 30, 13, 59, 59, 999, australiaZone);
         log.debug(zonedDateTime);
+        log.debug(zonedDateTime.getOffset());
+    }
+
+    public void lookAtAllZoneIdsForDateTime() {
+        ZoneId.getAvailableZoneIds().stream().map(ZoneId::of).map(this::getZonedDateTimeForExampleDateTime)
+                .sorted(zonedDateTimeComparitor).forEach(
+                zonePick -> {
+                    log.debug(zonePick);
+                    log.debug(zonePick.getOffset());
+                }
+        );
+
+    }
+
+    private Comparator<? super ZonedDateTime> zonedDateTimeComparitor = Comparator.comparing(ZonedDateTime::getOffset);
+
+    private ZonedDateTime getZonedDateTimeForExampleDateTime(ZoneId zoned) {
+        return ZonedDateTime.of(2015, 1, 30, 13, 59, 59, 999, zoned);
     }
 
     public void whatDoesOffsetDateTimeLookLike() {
