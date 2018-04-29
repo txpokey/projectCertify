@@ -9,6 +9,7 @@ import java.time.temporal.ChronoField;
 import java.util.Comparator;
 import java.util.List;
 import java.util.TimeZone;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -41,7 +42,7 @@ public class ExploreLocalTemporalExamplesJCP8BookTest {
         ZonedDateTime now = ZonedDateTime.now();
         log.debug(now);
         TimeZone defaultTZ = TimeZone.getDefault();
-        ZoneId defaultTZid = ZoneId.of( defaultTZ.getID() ) ;
+        ZoneId defaultTZid = ZoneId.of(defaultTZ.getID());
         log.debug(defaultTZ);
         log.debug(defaultTZid);
     }
@@ -70,22 +71,53 @@ public class ExploreLocalTemporalExamplesJCP8BookTest {
         log.debug(zonedDateTime.getOffset());
     }
 
-    public void lookAtAllZoneIdsForDateTime() {
-        ZoneId.getAvailableZoneIds().stream().map(ZoneId::of).map(this::getZonedDateTimeForExampleDateTime)
-                .sorted(zonedDateTimeComparitor).forEach(
+    public void lookAtAllZoneIdsForDateTimeViaZoneDateTime() {
+        lookAtAllZoneIdsForDateTime(getZonedDateTimeForExampleDateTime);
+        log.debug("--------------------");
+    }
+
+    public void lookAtAllZoneIdsForDateTimeViaLocalDateTime() {
+        lookAtAllZoneIdsForDateTime(getZonedDateTimeFromLocalDateTime);
+    }
+
+    final private Function<ZoneId, ZonedDateTime> getZonedDateTimeForExampleDateTime =
+            this::getZonedDateTimeForExampleDateTime;
+    final private Function<ZoneId, ZonedDateTime> getZonedDateTimeFromLocalDateTime =
+            this::getZonedDateTimeFromExampleLocalDateTime;
+
+    private void lookAtAllZoneIdsForDateTime(Function<ZoneId, ZonedDateTime> mapper) {
+        ZoneId.getAvailableZoneIds().stream().map(ZoneId::of).map(mapper)
+                .sorted(zonedDateTimeComparator).forEach(
                 zonePick -> {
-                    log.debug(zonePick);
+                    log.debug(zonePick.getZone());
                     log.debug(zonePick.getOffset());
+                }
+        );
+    }
+
+    public void lookAtAllZoneIds() {
+        ZoneId.getAvailableZoneIds().stream().map(ZoneId::of).forEach(
+
+                z -> {
+                    log.debug(z.getId());
+                    log.debug(z.normalized().getClass());
                 }
         );
 
     }
 
-    private Comparator<? super ZonedDateTime> zonedDateTimeComparitor = Comparator.comparing(ZonedDateTime::getOffset);
+    private Comparator<? super ZonedDateTime> zonedDateTimeComparator = Comparator.comparing(ZonedDateTime::getOffset);
 
     private ZonedDateTime getZonedDateTimeForExampleDateTime(ZoneId zoned) {
-        return ZonedDateTime.of(2015, 1, 30, 13, 59, 59, 999, zoned);
+        return ZonedDateTime.of(2010, 7, 3, 9, 0, 59, 999, zoned);
     }
+
+    private ZonedDateTime getZonedDateTimeFromExampleLocalDateTime(ZoneId zoned) {
+        final LocalDateTime dateTime = LocalDateTime.of(2010, 7, 3, 9, 0, 59, 999);
+        ZonedDateTime zonedDateTime = dateTime.atZone(zoned);
+        return zonedDateTime;
+    }
+
 
     public void whatDoesOffsetDateTimeLookLike() {
         OffsetDateTime odt = OffsetDateTime.of(LocalDateTime.now(), ZoneOffset.of("+03:00"));
