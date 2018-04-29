@@ -1,4 +1,4 @@
-package edu.javial.cert.se.corelib.time;
+package edu.javial.cert.se.corelib.time.jcp8book;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -16,8 +16,8 @@ import java.util.stream.Stream;
 // TODO investigate ZoneRules , esp "transitions" and "offset" values
 
 @Test
-public class ExploreLocalTemporalExamplesJCP8BookTest {
-    private static Log log = LogFactory.getLog(ExploreLocalTemporalExamplesJCP8BookTest.class);
+public class ExploreLocalTemporalExamplesTest {
+    private static Log log = LogFactory.getLog(ExploreLocalTemporalExamplesTest.class);
 
     public void whatIsTimeZoneForSingapore() {
         ZoneId singaporeZoneId = ZoneId.of("Asia/Singapore");
