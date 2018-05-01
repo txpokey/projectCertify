@@ -6,6 +6,9 @@ import org.testng.annotations.Test;
 
 import java.time.*;
 import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
+import java.util.List;
 
 @Test
 public class ExploreLocalTimeTest {
@@ -19,11 +22,38 @@ public class ExploreLocalTimeTest {
 // With hour, minutes, seconds, and nanoseconds (0-999,999,999)
         LocalTime almostMidnight = LocalTime.of(23, 59, 59, 999999);
         LocalTime am2 = LocalTime.of(02, 0);
+        LocalTime am2PlusZero = LocalTime.of(02, 0).plusHours(0);
         LocalTime zeroHour = LocalTime.of(0, 0, 0, 0 );
         LocalDateTime thisMorningMidnight = LocalDate.now().atStartOfDay();
         LocalTime midnight = LocalTime.from(thisMorningMidnight);
         LocalDateTime thisMorning2am = am2.atDate(LocalDate.from(thisMorningMidnight));
         ZonedDateTime thisMorning2amChicago = ZonedDateTime.of(thisMorning2am, ZoneId.of("America/Chicago"));
+        log.debug("");
+    }
+    public void exploreInstant() {
+        Instant now = Instant.now();
+        long i = now.getLong(ChronoField.MICRO_OF_SECOND);
+        long sec = now.getEpochSecond();
+        Instant more = now.plus( 1, ChronoUnit.DAYS) ;
+        log.debug("");
+    }
+    public void explorePeriod() {
+// dif1 will be 1 year 2 months 2 days
+        Period dif1 = Period.between( LocalDate.of(2000, 2, 10), LocalDate.of(2001, 4, 12));
+// dif2 will be 25 days
+        Period dif2 = Period.between( LocalDate.of(2013, 5, 9), LocalDate.of(2013, 6, 3));
+// dif3 will be -2 years -3 days
+        Period dif3 = Period.between( LocalDate.of(2014, 11, 3), LocalDate.of(2012, 10, 31));
+        Period z = Period.ZERO;
+        z.get(ChronoUnit.DAYS);
+        z.plusDays(0);
+        z.withDays(0);
+        log.debug("");
+    }
+    public void exploreDuration() {
+        Duration dif = Duration.between( Instant.ofEpochSecond(123456789), Instant.ofEpochSecond(99999));
+        List<TemporalUnit> u = dif.getUnits(); // Seconds and Nanos
+        dif.get(ChronoUnit.NANOS);
         log.debug("");
     }
     public void directlyFromChapter21_LocalTime() {

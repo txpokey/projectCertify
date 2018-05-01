@@ -74,6 +74,7 @@ public class ExploreLocalDateTest {
         LocalDate newYear2005 = newYear2001.plusYears(4);
         LocalDate march2001 = newYear2001.plusMonths(2);
         LocalDate january15_2001 = newYear2001.plusDays(14);
+        LocalDate january15_2001PlusZero = january15_2001.plusDays(0);
         LocalDate lastWeekJanuary2001 = newYear2001.plusWeeks(3);
         LocalDate newYear2006 = newYear2001.plus(5, ChronoUnit.YEARS);
 
