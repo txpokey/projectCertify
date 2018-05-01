@@ -4,16 +4,28 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.annotations.Test;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Month;
+import java.time.*;
 import java.time.temporal.ChronoField;
 
 @Test
 public class ExploreLocalTimeTest {
     private static Log log = LogFactory.getLog(ExploreLocalTimeTest.class);
 
+    public void introLocalTime() {
+        // With hour (0-23) and minutes (0-59)
+        LocalTime fiveThirty = LocalTime.of(5, 30);
+// With hour, minutes, and seconds (0-59)
+        LocalTime noon = LocalTime.of(12, 0, 0);
+// With hour, minutes, seconds, and nanoseconds (0-999,999,999)
+        LocalTime almostMidnight = LocalTime.of(23, 59, 59, 999999);
+        LocalTime am2 = LocalTime.of(02, 0);
+        LocalTime zeroHour = LocalTime.of(0, 0, 0, 0 );
+        LocalDateTime thisMorningMidnight = LocalDate.now().atStartOfDay();
+        LocalTime midnight = LocalTime.from(thisMorningMidnight);
+        LocalDateTime thisMorning2am = am2.atDate(LocalDate.from(thisMorningMidnight));
+        ZonedDateTime thisMorning2amChicago = ZonedDateTime.of(thisMorning2am, ZoneId.of("America/Chicago"));
+        log.debug("");
+    }
     public void directlyFromChapter21_LocalTime() {
         LocalTime now = LocalTime.now();
 

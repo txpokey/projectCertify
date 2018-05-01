@@ -23,6 +23,11 @@ public class ExploreLocalDateTest {
     // This version uses the enum java.time.Month
     private final LocalDate newYear2002 = LocalDate.of(2002, Month.JANUARY, 1);
 
+    public void exploreUnitRanges() {
+        LocalDate zeroDate = LocalDate.of(0, 1, 1);
+        LocalDate minusYear = LocalDate.of(-1, 1, 1);
+        log.debug("");
+    }
     public void exploreAccessorMethods() {
         int year = today.getYear();
         int month = today.getMonthValue();
@@ -30,6 +35,12 @@ public class ExploreLocalDateTest {
         int dayYear = today.getDayOfYear();
         int dayMonth = today.getDayOfMonth();
         DayOfWeek dayWeekEnum = today.getDayOfWeek(); //as an enum
+        log.debug("");
+    }
+    public void exploreComparatorMethods() {
+        boolean after = newYear2001.isAfter(newYear2002);
+        boolean before = newYear2001.isBefore(newYear2002);
+        boolean equal = newYear2001.equals(newYear2002); // false
         log.debug("");
     }
     public void exploreChronoField() {
@@ -45,9 +56,7 @@ public class ExploreLocalDateTest {
     }
 
     public void exploreMath() {
-        boolean after = newYear2001.isAfter(newYear2002); // false
-        boolean before = newYear2001.isBefore(newYear2002); // true
-        boolean equal = newYear2001.equals(newYear2002); // false
+        exploreComparatorMethods();
         boolean leapYear = newYear2001.isLeapYear(); // false
         log.debug("");
     }
