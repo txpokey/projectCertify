@@ -49,16 +49,17 @@ public class PathVsFileEquivalenceTest {
     Function<Path, List<Path>> getPathBrakedown = p -> {
         final int count = p.getNameCount();
         final List<Path> ret = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            ret.add(p.getName(i));
+        for( Path name : p ) {
+            ret.add( name );
         }
         return ret;
     };
     Function<Path, Map<Integer, Path>> getPathBrakedownAsMap = p -> {
         final int count = p.getNameCount();
         final Map<Integer, Path> ret = new HashMap<>();
-        for (int i = 0; i < count; i++) {
-            ret.put(i, p.getName(i));
+        for( Path name : p ) {
+            int i = ret.values().size();
+            ret.put(i, name );
         }
         ret.put(count, p);
         return ret;
@@ -81,12 +82,12 @@ public class PathVsFileEquivalenceTest {
 
     public void explorePathIterationExample() {
         final Path idea = new File("/opt/com/jetbrains/idea/current/bin/idea.sh").toPath();
-        Consumer<Path> executePathGetNameRunner = p -> {
+        Consumer<Path> examinePathViaGetNameRunner = p -> {
             for (Path name : p) {
                 log.debug(name);
             }
         };
-        Stream.of(idea).forEach(executePathGetNameRunner);
+        Stream.of(idea).forEach(examinePathViaGetNameRunner);
     }
 }
 /*
