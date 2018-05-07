@@ -1,4 +1,4 @@
-package com.javial.com.javial.sx.contracts;
+package edu.javial.cert.se.pragmatic.patterns.state;
 
 /**
  * Created by mak on 5/14/15.

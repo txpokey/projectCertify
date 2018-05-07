@@ -2,12 +2,12 @@ package edu.javial.cert.se.sx;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import javax.annotation.Nonnull;
 import java.util.stream.IntStream;
 
-
+@Test
 public class AutoboxFeatureTest<T> {
     private static Log log = LogFactory.getLog(AutoboxFeatureTest.class);
 
@@ -30,7 +30,6 @@ public class AutoboxFeatureTest<T> {
         int fromInteger( Integer in );
     }
 
-    @Test
     public void intToStringConvertTest()
     {
         int count = 1;
@@ -45,7 +44,6 @@ public class AutoboxFeatureTest<T> {
         assert "1".equals(convertTypeToString((T)c));
 
     }
-    @Test
     public void autoBoxIntegerTest() {
 
         SampleContractForAutoBoxingIntegers sample = new SampleContractForAutoBoxingIntegers() {

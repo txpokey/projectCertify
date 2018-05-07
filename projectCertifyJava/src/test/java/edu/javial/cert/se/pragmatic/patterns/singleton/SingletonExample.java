@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.javial.cert.se.sx;
+package edu.javial.cert.se.pragmatic.patterns.singleton;
 
 /**
  * @author mak

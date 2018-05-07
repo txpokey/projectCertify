@@ -1,14 +1,14 @@
 /**
  * 
  */
-package edu.javial.cert.se.sx;
+package edu.javial.cert.se.sx.exceptionHandling;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
  * @author mak
- * 
+ * TODO convert into @Test
  */
 public class CascadedExceptions {
 	private static Log log = LogFactory.getLog(CascadedExceptions.class);
