@@ -1,9 +1,9 @@
 /**
  * NavigableSetTester
  */
-package edu.javial.cert.se.collections;
+package edu.javial.cert.se.corelib.collections;
 
-import edu.javial.cert.se.math.PrimeNumber;
+import edu.javial.cert.se.coreLib.math.PrimeNumber;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.annotations.Test;

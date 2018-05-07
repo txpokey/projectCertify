@@ -1,4 +1,4 @@
-package edu.javial.cert.se.spring.bean;
+package edu.javial.cert.spring.bean;
 
 import org.junit.Test;
 

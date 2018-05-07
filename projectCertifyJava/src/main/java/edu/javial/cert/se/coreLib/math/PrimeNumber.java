@@ -1,7 +1,7 @@
 /**
  *
  */
-package edu.javial.cert.se.math;
+package edu.javial.cert.se.coreLib.math;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;

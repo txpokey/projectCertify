@@ -1,4 +1,4 @@
-package edu.javial.cert.se.collections;
+package edu.javial.cert.se.coreLib.collections;
 
 import java.util.Collection;
 import java.util.HashSet;

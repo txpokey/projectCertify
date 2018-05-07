@@ -1,4 +1,4 @@
-package edu.javial.cert.se.corelib.exception;
+package edu.javial.cert.se.sx.exceptionHandling;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
