@@ -3,7 +3,7 @@
  */
 package edu.javial.cert.se.core.collections;
 
-import edu.javial.cert.se.coreLib.math.PrimeNumber;
+import edu.javial.cert.se.core.math.PrimeNumberViaDubiousHashMapApproach;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.annotations.Test;
@@ -25,9 +25,9 @@ public class NavigableSetTester {
 		factory : {
 			try {
 				for (int i = 2; i < 100; i++) {
-					PrimeNumber.isPrime(i);
+					PrimeNumberViaDubiousHashMapApproach.isPrime(i);
 				}
-				Collection<Integer> primes = PrimeNumber.getPrimes();
+				Collection<Integer> primes = PrimeNumberViaDubiousHashMapApproach.getPrimes();
 				ns = new TreeSet<>(primes);
 				log.info( ns ) ;
 			} catch (Exception e) {

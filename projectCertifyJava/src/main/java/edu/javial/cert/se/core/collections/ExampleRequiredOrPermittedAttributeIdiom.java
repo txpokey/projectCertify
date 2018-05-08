@@ -1,4 +1,4 @@
-package edu.javial.cert.se.coreLib.collections;
+package edu.javial.cert.se.core.collections;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

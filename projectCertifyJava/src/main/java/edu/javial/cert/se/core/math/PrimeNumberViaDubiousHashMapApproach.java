@@ -1,7 +1,7 @@
 /**
  *
  */
-package edu.javial.cert.se.coreLib.math;
+package edu.javial.cert.se.core.math;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
@@ -15,10 +15,10 @@ import org.apache.commons.logging.LogFactory;
  *         http://www.cs
  *         .utexas.edu/users/mitra/uxFall2004/cs303/assgn/prime.html
  */
-public class PrimeNumber {
-    private static Log log = LogFactory.getLog(PrimeNumber.class);
-    private static Integer max = -1;
-    private static ConcurrentHashMap<Integer, Integer> primesFound = new ConcurrentHashMap<Integer, Integer>();
+public class PrimeNumberViaDubiousHashMapApproach {
+    private static Log log = LogFactory.getLog(PrimeNumberViaDubiousHashMapApproach.class);
+    private static final Integer max = -1;
+    private static ConcurrentHashMap<Integer, Integer> primesFound = new ConcurrentHashMap<>();
 
     static {
         primesFound.put(max, max);
@@ -53,15 +53,15 @@ public class PrimeNumber {
     }
 
     public static boolean isDiscovered(Integer number) {
-        boolean ret = false;
-        boolean lookup = number < primesFound.get(max) ;
-        boolean discovered = lookup ? primesFound.contains(number) : false ;
-        return ret = discovered;
+        boolean ret = primesFound.contains(number) ;
+//        boolean lookup = number < primesFound.get(max) ;
+//        boolean discovered = lookup ? primesFound.contains(number) : false ;
+        return ret ;
     }
 
     private static int upperLimit(int number) {
-        int limit = -1 ;
-        return  limit = (int) Math.sqrt(number);
+        int limit = (int) Math.sqrt(number) ;
+        return  limit ;
     }
 
     public static Collection<Integer> getPrimes() {
