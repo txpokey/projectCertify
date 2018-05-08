@@ -91,7 +91,6 @@ public class ExploreMetaDataForOriginalFileObjectsByTest {
     }
     private boolean checkIfSymbolicLink(@Nonnull File subjectFile , final @Nonnull Optional<BasicFileAttributes>
             attributes) {
-//        boolean doubleCheck = attributes.get().isSymbolicLink() ;
         boolean isSymbolicLink = attributes.isPresent() ? attributes.get().isSymbolicLink() : false ;
         return isSymbolicLink;
     }
