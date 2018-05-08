@@ -1,4 +1,4 @@
-package edu.javial.cert.se.stream.parallel;
+package edu.javial.cert.se.corelib.stream.parallel;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -1,4 +1,4 @@
-package edu.javial.cert.se.stream;
+package edu.javial.cert.se.corelib.stream;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

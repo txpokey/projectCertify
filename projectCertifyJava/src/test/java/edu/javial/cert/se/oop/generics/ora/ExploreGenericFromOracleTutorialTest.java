@@ -1,4 +1,4 @@
-package edu.javial.cert.se.sx.type.generic.ora;
+package edu.javial.cert.se.oop.generics.ora;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

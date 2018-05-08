@@ -1,4 +1,4 @@
-package edu.javial.cert.se.sx.type.cloning;
+package edu.javial.cert.se.oop.cloning;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
