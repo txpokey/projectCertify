@@ -3,7 +3,7 @@
  */
 package edu.javial.cert.se.core.collections;
 
-import edu.javial.cert.se.core.math.PrimeNumberViaDubiousHashMapApproach;
+import edu.javial.cert.se.core.math.PrimeNumber;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.annotations.Test;
@@ -12,10 +12,11 @@ import java.util.Collection;
 import java.util.NavigableSet;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.IntStream;
 
 /**
  * @author mak
- *  TODO get NavigableSetTester to work
+ *  TODO get NavigableSetTester to work with new version of PrimeNumber
  */
 public class NavigableSetTester {
 	private static Log log = LogFactory.getLog(NavigableSetTester.class);
@@ -24,10 +25,9 @@ public class NavigableSetTester {
 	{
 		factory : {
 			try {
-				for (int i = 2; i < 100; i++) {
-					PrimeNumberViaDubiousHashMapApproach.isPrime(i);
-				}
-				Collection<Integer> primes = PrimeNumberViaDubiousHashMapApproach.getPrimes();
+				PrimeNumber factory = new PrimeNumber() ;
+				IntStream.rangeClosed(1, 1000).parallel().forEach(i -> factory.isPrime(i));
+				Collection<Integer> primes = factory.getPrimes();
 				ns = new TreeSet<>(primes);
 				log.info( ns ) ;
 			} catch (Exception e) {
