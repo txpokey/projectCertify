@@ -21,6 +21,7 @@ public class ExploreComparisonObjectsTest {
         int c01 = fodder[0].compareTo(fodder[1]);
         int c10 = fodder[1].compareTo(fodder[0]);
         int c02 = fodder[0].compareTo(fodder[2]);
+        assert ( 0 < c01 ) && ( 0 > c10 ) && ( 0 > c02 );
         log.debug("");
     }
 
