@@ -14,10 +14,10 @@ import static org.testng.AssertJUnit.assertEquals;
  */
 @Test
 public class ExploreTestNGDataProvidersTest {
-    @DataProvider
     /**
      * notice that the book has this as a static method, but that's not necessary
      */
+    @DataProvider
     private final Object[][] getMoney() {
         return new Object[][]{
                 {10, "USD"},
