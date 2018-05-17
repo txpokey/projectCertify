@@ -44,4 +44,8 @@ dependencies {
     compile 'org.springframework:spring:2.5.6.SEC02'
 
 }
+javadoc {
+    classpath += sourceSets.test.compileClasspath
+    source += sourceSets.test.allJava
+}
 
