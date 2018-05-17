@@ -2,6 +2,7 @@ package edu.javial.cert.se.core.threading;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import javax.annotation.Nonnull;
@@ -13,6 +14,29 @@ import java.util.concurrent.*;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
+class MyCallable implements Callable<String> {
+    final private int id ;
+    final private long sleeper = new Random().nextInt(1000);
+    final private String payload ;
+
+    MyCallable(int id) {
+        this.id = id ;
+        this.payload = "Callable " + id + ":" + sleeper ;
+    }
+    @Override
+    public String call() throws Exception {
+        Thread.sleep(sleeper);
+        return payload;
+    }
+
+    private int getId() {
+        return id;
+    }
+
+    String getPayload() {
+        return payload;
+    }
+}
 /**
  * prove that futures from executor are returned in the same order as the invokeAll(arg)
  * */
@@ -20,40 +44,20 @@ import java.util.stream.IntStream;
 public class BookExploreExecutorsTest {
     final private int THREADS_USED = 3;
 
-    class MyCallable implements Callable<String> {
-        final private int id ;
-        final private long sleeper = new Random().nextInt(1000);
-        final private String payload ;
-
-        private MyCallable(int id) {
-            this.id = id ;
-            this.payload = "Callable " + id + ":" + sleeper ;
-        }
-        @Override
-        public String call() throws Exception {
-            Thread.sleep(sleeper);
-            return payload;
-        }
-
-        private int getId() {
-            return id;
-        }
-
-        private String getPayload() {
-            return payload;
-        }
+    @DataProvider
+    private final Object[][] getCallables(){
+        final List<MyCallable> callables = new ArrayList<>();
+        IntStream.rangeClosed(1, 10).forEach( i -> callables.add( new MyCallable(i) ));
+        return new Object[][] {
+                {callables},
+        };
     }
 
     /**
      * take a random collection of callables, have them executed, and report on their order of results
-     * */
-    public void exploreExampleExecutorWithNonTrivialPool() {
-        final List<MyCallable> callables = new ArrayList<>();
-        IntStream.rangeClosed(1, 10).forEach( i -> callables.add( new MyCallable(i) ));
-        exploreExampleExecutorWithNonTrivialPool(callables);
-    }
-
-    private void exploreExampleExecutorWithNonTrivialPool(@Nonnull List<MyCallable> callables) {
+     */
+    @Test(dataProvider = "getCallables")
+    public void exploreExampleExecutorWithNonTrivialPool(@Nonnull List<MyCallable> callables) {
         Collections.shuffle(callables);
         List<Future<String>> futures = getFuturesFromExecuteCallables(callables);
         report(callables, futures);
@@ -123,6 +127,7 @@ public class BookExploreExecutorsTest {
         futures.stream().forEach(futureConsumer);
         return seeResults;
     }
+
     private static Log log = LogFactory.getLog(BookExploreExecutorsTest.class);
 }
 /*
