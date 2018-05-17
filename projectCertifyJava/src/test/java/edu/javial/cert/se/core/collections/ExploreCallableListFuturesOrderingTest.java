@@ -1,5 +1,6 @@
 package edu.javial.cert.se.core.collections;
 
+import edu.javial.cert.se.core.threading.BookExploreExecutorsTest;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.annotations.Test;
@@ -10,11 +11,13 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.stream.IntStream;
 
+/**
+ * @see BookExploreExecutorsTest
+ */
 @Test
-public class WhatTheHeckIsIndexOfDoingTest {
-    private static Log log = LogFactory.getLog(WhatTheHeckIsIndexOfDoingTest.class);
+public class ExploreCallableListFuturesOrderingTest {
 
-    public void whatTheHeckIsIndexOfDoing() {
+    public void exploreCallableListOrdering() {
         class PayLoad implements Callable<String> {
 
             private int kept ;
@@ -56,4 +59,6 @@ public class WhatTheHeckIsIndexOfDoingTest {
         log.debug(startingPoint);
         log.debug(startingPoint2);
     }
+    private static Log log = LogFactory.getLog(ExploreCallableListFuturesOrderingTest.class);
+
 }

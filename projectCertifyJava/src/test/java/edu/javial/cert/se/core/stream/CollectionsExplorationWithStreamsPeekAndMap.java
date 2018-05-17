@@ -31,8 +31,11 @@ public class CollectionsExplorationWithStreamsPeekAndMap {
                 .forEach(i -> System.out.format("%d ", i));
     }
     /**
-     * EH Book Ch 17 : fact checking claim about map seeing List<T> instead of <T> on the stream
-     * plus confirming that map() signature is : "<R> Stream<R> map(Function<? super T, ? extends R> var1)"
+     * EH Book Ch 17 : fact checking claim about map seeing {@code List<T>} instead of {@code <T>} on the stream
+     * plus confirming that map() signature is :
+     * <pre>
+     *          {@code <R> Stream<R> map(Function<? super T, ? extends R> var1)}
+     * </pre>
      */
 
     public void discoverTypePedigreeFlowingThroughStreamOfCharacters() {
