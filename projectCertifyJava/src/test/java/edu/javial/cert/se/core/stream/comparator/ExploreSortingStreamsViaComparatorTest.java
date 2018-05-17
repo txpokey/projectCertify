@@ -13,7 +13,7 @@ import java.util.function.Consumer;
 public class ExploreSortingStreamsViaComparatorTest {
 
     /**
-     * using both sorted and foreach to report on a Stream<String> sort result
+     * using both sorted and foreach to report on a {@code Stream<String>} sort result
      * {@code Stream<T> sorted(Comparator<? super T> comparator)}
      * {@code void forEach(Consumer<? super T> action)}
      */
