@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+// TODO : need to test vs. stream requirements - should make a copy and operate on copy
 interface SetTheoreticContract<E> extends Set<E>{
     default boolean subsetOf(Set<E> candidate) {
         Set<E> set = (Set<E>) this;

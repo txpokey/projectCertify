@@ -5,8 +5,9 @@ import org.apache.commons.logging.LogFactory;
 
 import java.util.HashMap;
 
+// TODO : incomplete work ...
+
 public class OracleTutorialQuestion_9<T> {
-    private static Log log = LogFactory.getLog(OracleTutorialQuestion_9.class);
 
 //    public class Singleton<T> {
 //
@@ -26,6 +27,8 @@ public class OracleTutorialQuestion_9<T> {
         return instance;
     }
     private T instance = null;
+    private static Log log = LogFactory.getLog(OracleTutorialQuestion_9.class);
+
 }
 //
 //class OracleTutorialQuestion_9_Refactored<T> {

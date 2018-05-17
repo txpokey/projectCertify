@@ -10,6 +10,8 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
 import java.util.Locale;
 
+// TODO : use logger
+// TODO : meaningful methodnames for tests
 @Test
 public class Chapter22Quiz {
     private static Log log = LogFactory.getLog(Chapter22Quiz.class);

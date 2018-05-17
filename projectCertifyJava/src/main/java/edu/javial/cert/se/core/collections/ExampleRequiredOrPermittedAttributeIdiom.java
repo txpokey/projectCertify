@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+// TODO : move to src/test and get some data to test. inject via TestNG
 public class ExampleRequiredOrPermittedAttributeIdiom {
     final static Log log = LogFactory.getLog(ExampleRequiredOrPermittedAttributeIdiom.class);
 
@@ -18,11 +19,12 @@ public class ExampleRequiredOrPermittedAttributeIdiom {
         valid = isValidVsAttributes(attrs, valid, permittedAttrs, "Illegal attributes: ");
         return valid;
     }
-    private static <K> boolean isValidVsAttributes(Set<K> requiredAttrs, boolean valid, Set<K> attrs, String s) {
+    private static <K> boolean isValidVsAttributes(Set<K> requiredAttrs, boolean valid, Set<K> attrs, String
+            loggerMessage) {
         if (!attrs.containsAll(requiredAttrs)) {
             Set<K> missing = new HashSet<K>(requiredAttrs);
             missing.removeAll(attrs);
-            log.debug(s + missing);
+            log.debug(loggerMessage + missing);
             valid = false;
         }
         return valid;

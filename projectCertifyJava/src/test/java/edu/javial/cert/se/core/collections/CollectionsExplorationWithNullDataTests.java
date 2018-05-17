@@ -16,25 +16,22 @@ import java.util.*;
 public class CollectionsExplorationWithNullDataTests {
 	final static Log log = LogFactory.getLog(CollectionsExplorationWithNullDataTests.class);
 
-	public void hashSetSubSetTest() {
+	public void hashSetSubSetTest() { // TODO : revisit NavigableSetTester
 		NavigableSetTester tool = new NavigableSetTester() ;
 		boolean OK = tool.navsetTest() ;
 		assert OK : "hash set testing subsets failed" ;
 	}
-	public void wasNullBeAccepted() {
+	public void canNullBeAccepted() {
 		HashMap<String,Boolean> results = new HashMap<>();
-		results.put("wasNullBeAcceptedAsHashMapKey" , wasNullBeAcceptedAsHashMapKey() ) ;
-		results.put("wasNullBeAcceptedAsHashSetMember" , wasNullBeAcceptedAsHashSetMember() ) ;
-		results.put("wasNullBeAcceptedAsArrayListElement" , wasNullBeAcceptedAsArrayListElement() ) ;
-		results.put("wasNullBeAcceptedAsTreeMapKey" , wasNullBeAcceptedAsTreeMapKey() ) ;
-		results.put("wasNullBeAcceptedAsTreeSetMember" , wasNullBeAcceptedAsTreeSetMember() ) ;
-		log.debug(results);
+		results.put("canNullBeAcceptedAsHashMapKey" , canNullBeAcceptedAsHashMapKey() ) ;
+		results.put("canNullBeAcceptedAsHashSetMember" , canNullBeAcceptedAsHashSetMember() ) ;
+		results.put("canNullBeAcceptedAsArrayListElement" , canNullBeAcceptedAsArrayListElement() ) ;
+		results.put("canNullBeAcceptedAsTreeMapKey" , canNullBeAcceptedAsTreeMapKey() ) ;
+		results.put("canNullBeAcceptedAsTreeSetMember" , canNullBeAcceptedAsTreeSetMember() ) ;
+		log.debug(results.entrySet());
 	}
-//2018-05-07|20:21:55 CollectionsExplorationWithNullDataTests.wasNullBeAcceptedAsTreeMapKey.41 [DEBUG] null value is not any good to this type:> java.lang.NullPointerException
-//2018-05-07|20:21:55 CollectionsExplorationWithNullDataTests.wasNullBeAcceptedAsTreeSetMember.54 [DEBUG] null value is not any good to this type:> java.lang.NullPointerException
-//2018-05-07|20:21:55 CollectionsExplorationWithNullDataTests.wasNullBeAccepted.31 [DEBUG] {wasNullBeAcceptedAsTreeSetMember=false, wasNullBeAcceptedAsArrayListElement=true, wasNullBeAcceptedAsHashMapKey=true, wasNullBeAcceptedAsHashSetMember=true, wasNullBeAcceptedAsTreeMapKey=false}
-
-	private boolean wasNullBeAcceptedAsTreeMapKey() {
+//2018-05-16|20:43:02 CollectionsExplorationWithNullDataTests.canNullBeAccepted.32 [DEBUG] [canNullBeAcceptedAsHashSetMember=true, canNullBeAcceptedAsHashMapKey=true, canNullBeAcceptedAsTreeSetMember=false, canNullBeAcceptedAsArrayListElement=true, canNullBeAcceptedAsTreeMapKey=false]
+	private boolean canNullBeAcceptedAsTreeMapKey() {
 		TreeMap<String,Integer> map = new TreeMap<>() ;
 		Object candidate = null;
 		boolean ret = false ;
@@ -47,7 +44,7 @@ public class CollectionsExplorationWithNullDataTests {
 		return ret ;
 	}
 
-	private boolean wasNullBeAcceptedAsTreeSetMember() {
+	private boolean canNullBeAcceptedAsTreeSetMember() {
 		TreeSet<String> map = new TreeSet<>() ;
 		Object candidate = null;
 		boolean ret = false ;
@@ -60,19 +57,19 @@ public class CollectionsExplorationWithNullDataTests {
 		return ret ;
 	}
 
-	private boolean wasNullBeAcceptedAsArrayListElement() {
+	private boolean canNullBeAcceptedAsArrayListElement() {
 		List<String> list = new ArrayList<>() ;
 		Boolean candidate = list.add(null) ;
 		return candidate;
 	}
 
-	private boolean wasNullBeAcceptedAsHashSetMember() {
+	private boolean canNullBeAcceptedAsHashSetMember() {
 		HashSet<String> map = new HashSet<>() ;
 		Boolean candidate = map.add(null) ;
 		return candidate;
 	}
 
-	private boolean wasNullBeAcceptedAsHashMapKey() {
+	private boolean canNullBeAcceptedAsHashMapKey() {
 		HashMap<String,LocalDateTime> map = new HashMap<>() ;
 		LocalDateTime now = LocalDateTime.now();
 		Object candidate = map.put(null, null) ;

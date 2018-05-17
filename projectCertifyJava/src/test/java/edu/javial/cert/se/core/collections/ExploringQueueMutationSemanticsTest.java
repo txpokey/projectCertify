@@ -11,9 +11,12 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
+/**
+ * purpose: understand "head" and where the beginning and end of queue
+ */
+// TODO : comments are good not evil
 @Test
 public class ExploringQueueMutationSemanticsTest {
-    private static Log log = LogFactory.getLog(ExploringQueueMutationSemanticsTest.class);
 
     private static List<Integer> originalList = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
 
@@ -90,21 +93,6 @@ public class ExploringQueueMutationSemanticsTest {
         return ret;
     }
 
-    private static <E> String toReport(@Nonnull Collection<E> forReport) {
-        return forReport.toString();
-    }
-
-    private static <E> void report(@Nonnull Collection<E> in, @Nonnull Collection<E> out) {
-        log.debug("original:> " + toReport(in));
-        log.debug("derived:> " + toReport(out));
-    }
-    private static <E> void report(@Nonnull Collection<E> out) {
-        log.debug("original:> " + toReport(originalList));
-        log.debug("derived:> " + toReport(out));
-    }
-    private static <E> void report(@Nonnull String preface, @Nonnull E reported) {
-        log.debug(preface + ":> " + reported);
-    }
 
     @Deprecated
     public void pqTest() {
@@ -132,4 +120,23 @@ public class ExploringQueueMutationSemanticsTest {
     }
     @Deprecated
     private final Comparable<Integer> ignoreTesterForNow = Integer::new ;
+
+    private static Log log = LogFactory.getLog(ExploringQueueMutationSemanticsTest.class);
+    private static <E> String toReport(@Nonnull Collection<E> forReport) {
+        return forReport.toString();
+    }
+
+    private static <E> void report(@Nonnull Collection<E> in, @Nonnull Collection<E> out) {
+        log.debug("original:> " + toReport(in));
+        log.debug("derived:> " + toReport(out));
+    }
+    private static <E> void report(@Nonnull Collection<E> out) {
+        log.debug("original:> " + toReport(originalList));
+        log.debug("derived:> " + toReport(out));
+    }
+    private static <E> void report(@Nonnull String preface, @Nonnull E reported) {
+        log.debug(preface + ":> " + reported);
+    }
+
+
 }

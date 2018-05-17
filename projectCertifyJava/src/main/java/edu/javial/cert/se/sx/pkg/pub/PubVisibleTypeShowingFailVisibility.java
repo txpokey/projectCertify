@@ -12,7 +12,7 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * @author mak
- * @TODO clean up - class has stubbed code all over the place
+ * TODO clean up - class has stubbed code all over the place
  */
 public class PubVisibleTypeShowingFailVisibility {
 	private static Log log = LogFactory.getLog(PubVisibleTypeShowingFailVisibility.class);

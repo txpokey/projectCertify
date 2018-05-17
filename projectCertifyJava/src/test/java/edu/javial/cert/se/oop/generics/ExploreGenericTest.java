@@ -14,7 +14,6 @@ import java.util.List;
  */
 @Test
 public class ExploreGenericTest {
-    private static Log log = LogFactory.getLog(ExploreGenericTest.class);
 
     public <T extends String> void exploreExtendsFinalType() {
         /*
@@ -29,7 +28,7 @@ public class ExploreGenericTest {
 */
         class Printer<T extends String> {
             public T print(T t) {
-                System.out.println(t.toUpperCase()); // OK!
+                log.debug(t.toUpperCase());
                 return (T) t.toUpperCase();
             }
         }
@@ -44,48 +43,53 @@ public class ExploreGenericTest {
     /*
         list.add(new Object()); // 3 // COMPILE : effectively asking Object to be cast down
      */
+        log.debug(list);
+
     }
 
     public void reviewTestQuestion_6_2() {
         class Question_6_2<T extends Number> {
             T t;
 
-            public void main(String[] args) {
+            public void exploreTextendsNumberAsFloat() {
                 Question_6_2 q = new Question_6_2<Integer>(); // 1
 
                 q.t = new Float(1); // 2
-                System.out.println(q.t);
+                log.debug(q.t);
             }
-/*
-            public void main2(String[] args) {
-                Question_6_2 q = new Question_6_2<String>(); // COMPILE : Number is not super String
 
-                q.t = new Float(1); // 2
-                System.out.println(q.t);
-            }
-*/
-            public void main3(String[] args) {
+            /*
+                        public void main2(String[] args) {
+                            Question_6_2 q = new Question_6_2<String>(); // COMPILE : Number is not super String
+
+                            q.t = new Float(1); // 2
+                            System.out.println(q.t);
+                        }
+            */
+            public void exploreTextendsNumberAsFloatOrBigDecimal() {
                 Question_6_2 q = new Question_6_2<Integer>(); // 1
 
                 q.t = new Float(1);
                 q.t = new BigDecimal(11);
-                System.out.println(q.t);
+                log.debug(q.t);
             }
 
-            public <T extends Integer> void main4(String[] args) {
+            public <T extends Integer> void exploreTparameterInTwoDifferentMeanings() {
                 Question_6_2 q = new Question_6_2<Integer>(); // 1
                 T bd;
                 q.t = new Float(1);
                 q.t = new BigDecimal(11);
                 bd = (T) new Integer(22);
-                System.out.println(q.t);
+                log.debug(q.t);
             }
         }
         Question_6_2 q = new Question_6_2<Integer>(); // 1
-        q.main(null);
+        q.exploreTextendsNumberAsFloat();
 //        q.main2(null);
-        q.main3(null);
-        q.main4(null);
+        q.exploreTextendsNumberAsFloatOrBigDecimal();
+        q.exploreTparameterInTwoDifferentMeanings();
     }
+
+    private static Log log = LogFactory.getLog(ExploreGenericTest.class);
 
 }
