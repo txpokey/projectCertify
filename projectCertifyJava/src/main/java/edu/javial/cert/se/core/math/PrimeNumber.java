@@ -13,10 +13,9 @@ import java.util.List;
 import java.util.concurrent.ConcurrentSkipListSet;
 
 /**
- * @author mak This class writes out Prime numbers. A number is prime if it is
- *         divisible by 1 and the number itself and no other number.
- *         http://www.cs
- *         .utexas.edu/users/mitra/uxFall2004/cs303/assgn/prime.html
+ * This class writes out Prime numbers. A number is prime if it is
+ * divisible by 1 and the number itself and no other number.
+ * @see <a href="http://www.cs.utexas.edu/users/mitra/uxFall2004/cs303/assgn/prime.html">Primes Algorithm </a>
  */
 public class PrimeNumber {
     private static Log log = LogFactory.getLog(PrimeNumber.class);
@@ -24,8 +23,8 @@ public class PrimeNumber {
 
     /**
      * This method tests whether a given number is prime or not. (thread-safe?)
-     * @param num
-     * @return
+     * @param num number being tested vs. primes
+     * @return whether prime or not
      */
     public boolean isPrime(int num) {
         boolean prime = false;
