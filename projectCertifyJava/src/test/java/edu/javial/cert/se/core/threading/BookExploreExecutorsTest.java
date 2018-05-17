@@ -14,29 +14,6 @@ import java.util.concurrent.*;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
-class MyCallable implements Callable<String> {
-    final private int id ;
-    final private long sleeper = new Random().nextInt(1000);
-    final private String payload ;
-
-    MyCallable(int id) {
-        this.id = id ;
-        this.payload = "Callable " + id + ":" + sleeper ;
-    }
-    @Override
-    public String call() throws Exception {
-        Thread.sleep(sleeper);
-        return payload;
-    }
-
-    private int getId() {
-        return id;
-    }
-
-    String getPayload() {
-        return payload;
-    }
-}
 /**
  * prove that futures from executor are returned in the same order as the invokeAll(arg)
  * */
@@ -53,8 +30,32 @@ public class BookExploreExecutorsTest {
         };
     }
 
+    class MyCallable implements Callable<String> {
+        final private int id ;
+        final private long sleeper = new Random().nextInt(1000);
+        final private String payload ;
+
+        MyCallable(int id) {
+            this.id = id ;
+            this.payload = "Callable " + id + ":" + sleeper ;
+        }
+        @Override
+        public String call() throws Exception {
+            Thread.sleep(sleeper);
+            return payload;
+        }
+
+        private int getId() {
+            return id;
+        }
+
+        String getPayload() {
+            return payload;
+        }
+    }
     /**
      * take a random collection of callables, have them executed, and report on their order of results
+     * using DataProvider ala TestNG to inject the test data into the use case test
      */
     @Test(dataProvider = "getCallables")
     public void exploreExampleExecutorWithNonTrivialPool(@Nonnull List<MyCallable> callables) {
