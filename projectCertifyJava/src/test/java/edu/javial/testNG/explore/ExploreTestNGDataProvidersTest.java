@@ -52,6 +52,11 @@ public class ExploreTestNGDataProvidersTest {
         }
     }
 
+    /**
+     * smoke test: injecting test data via DataProviders annotation
+     * @param amount money
+     * @param currency species
+     */
     @Test(dataProvider = "getMoney")
     public void constructorShouldSetAmountAndCurrency(
             int amount, String currency) {
