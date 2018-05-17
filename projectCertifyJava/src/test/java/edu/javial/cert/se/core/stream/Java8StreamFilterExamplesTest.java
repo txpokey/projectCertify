@@ -10,12 +10,11 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-/*
- * https://java2blog.com/java-8-stream-filter-examples/
+/**
+ * @see <a href="https://java2blog.com/java-8-stream-filter-examples/">java2blog.com/java-8-stream-filter-examples</a>
  */
 @Test
 public class Java8StreamFilterExamplesTest {
-    private static Log log = LogFactory.getLog(Java8StreamFilterExamplesTest.class);
 
     static class Student {
 
@@ -110,5 +109,6 @@ public class Java8StreamFilterExamplesTest {
     private Predicate<Student> getStudentNamePredicate(@Nonnull String name) {
         return s -> s.getName().equalsIgnoreCase(name);
     }
+    private static Log log = LogFactory.getLog(Java8StreamFilterExamplesTest.class);
 
 }
