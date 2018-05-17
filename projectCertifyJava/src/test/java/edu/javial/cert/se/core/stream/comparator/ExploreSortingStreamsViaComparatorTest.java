@@ -14,8 +14,11 @@ public class ExploreSortingStreamsViaComparatorTest {
 
     /**
      * using both sorted and foreach to report on a {@code Stream<String>} sort result
-     * {@code Stream<T> sorted(Comparator<? super T> comparator)}
-     * {@code void forEach(Consumer<? super T> action)}
+     * <p>viz
+     * <ul>
+     *   <li>{@code Stream<T> sorted(Comparator<? super T> comparator)}</li>
+     *   <li>{@code void forEach(Consumer<? super T> action)}</li>
+     * </ul>
      */
     public void exploreSortingStreamsViaComparator() {
         final List<String> strings =
