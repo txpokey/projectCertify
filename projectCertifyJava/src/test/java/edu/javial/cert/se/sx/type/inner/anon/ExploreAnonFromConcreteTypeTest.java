@@ -49,7 +49,9 @@ public class ExploreAnonFromConcreteTypeTest {
             @Override
             public SampleContractInnerForAnon getContractInnerForAnon() {
                 return () -> {
+                    redoit();
                     log.debug("innerDoit method declared as lambda") ;
+//                    SampleContractInnerForAnon.innerDoitDefault() ;  // COMPILE: cant do in static context
                     assert true ;
                 };
             }
