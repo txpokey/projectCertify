@@ -64,5 +64,6 @@ public class ExploreTestNGDataProvidersTest {
         assertEquals(money.getAmount(), amount);
         assertEquals(money.getCurrency(), currency);
     }
+
 }
 
