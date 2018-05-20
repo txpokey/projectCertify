@@ -1,5 +1,8 @@
 package edu.javial.cert.se.sx.type.enumExplore;
 
+import org.testng.annotations.Test;
+
+@Test
 public enum PlanetEnum {
     MERCURY (3.303e+23, 2.4397e6),
     VENUS   (4.869e+24, 6.0518e6),
@@ -39,5 +42,10 @@ public enum PlanetEnum {
         for (PlanetEnum p : PlanetEnum.values())
             System.out.printf("Your weight on %s is %f%n",
                     p, p.surfaceWeight(mass));
+    }
+    public void exploreEnumPedigree() {
+        Enum e = PlanetEnum.JUPITER ;
+        assert e instanceof Enum ;
+        assert e instanceof PlanetEnum ;
     }
 }
