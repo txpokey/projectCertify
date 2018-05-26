@@ -26,4 +26,8 @@ public class NullExplorationTest {
         Optional<String> test1 = methodReturningOptionalWithNull();
         assert "null" == test1.orElse("null");
     }
+    private void exploreOfNullable() {
+        Optional<String> summary = Optional.ofNullable("A summary");
+        summary.ifPresent(System.out::println);
+    }
 }
