@@ -17,6 +17,9 @@ repositories {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/org.springframework/spring-core
+    compile group: 'org.springframework', name: 'spring-core', version: '5.0.6.RELEASE'
+
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
 
@@ -40,8 +43,8 @@ dependencies {
 
     compile group: 'com.sun.jna', name: 'jna', version: '3.0.9'
     testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
+// https://mvnrepository.com/artifact/commons-logging/commons-logging
     compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
-    compile 'org.springframework:spring:2.5.6.SEC02'
 
 }
 javadoc {
