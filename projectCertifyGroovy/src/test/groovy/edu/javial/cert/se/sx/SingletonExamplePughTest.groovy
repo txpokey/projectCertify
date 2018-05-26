@@ -1,15 +1,12 @@
 package edu.javial.cert.se.sx
-
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
-
 /*
  * Created by mak on 9/13/14.
  * TODO multi-threaded on the bumpCounter
+ * TODO SingletonExamplePugh : dont want it as separate file, but has static methods.... so reverse and let test be
+ * the innner class
  */
-
 class SingletonExamplePughTest extends GroovyTestCase {
-  static Logger logger = LoggerFactory.getLogger(SingletonExamplePughTest.class);
+
   SingletonExamplePugh tool0, tool1;
 
   void setUp() {
@@ -17,8 +14,8 @@ class SingletonExamplePughTest extends GroovyTestCase {
     tool1 = SingletonExamplePugh.getInstance();
   }
   void testOrdinalVaue() {
-    logger.info("INSTANCE ordinal value:tool0> " + tool0);
-    logger.info("INSTANCE ordinal value:tool1> " + tool1);
+    log.info("INSTANCE ordinal value:tool0> " + tool0);
+    log.info("INSTANCE ordinal value:tool1> " + tool1);
   }
 
 
@@ -36,4 +33,5 @@ class SingletonExamplePughTest extends GroovyTestCase {
     assert tool1;
     assert ((tool0 == tool1));
   }
+
 }

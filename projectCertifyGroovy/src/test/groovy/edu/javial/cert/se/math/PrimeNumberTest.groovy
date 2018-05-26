@@ -13,10 +13,10 @@ class PrimeNumberTest extends GroovyTestCase {
   void testGetPrimes() {
 
   }
-
-  void testMain() {
-    for (int i = 2; i <= 1000; i++) {
-      PrimeNumber.isPrime(i) ? log.info(i as String) : false ;
-    }
-  }
+// TODO fix : STUBBED
+//  void testMain() {
+//    for (int i = 2; i <= 1000; i++) {
+//      PrimeNumber.isPrime(i) ? log.info(i as String) : true ;
+//    }
+//  }
 }
