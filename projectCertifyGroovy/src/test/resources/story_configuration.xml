@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+      "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+   <bean id="StoryList" class="edu.javial.cert.se.spring.bean.StoryList">
+      <property name="stories">
+         <list>
+           <ref bean="HelloWorld"/>
+           <ref bean="OnceUpon"/>
+         </list>
+       </property>
+   </bean>
+ 
+   <bean id="HelloWorld" class="edu.javial.cert.se.spring.bean.Story">
+      <property name="title">
+         <value>Hello World!</value>
+      </property>
+      <property name="author">
+         <value>User:Hyad</value>
+      </property>
+      <property name="content">
+         <value>This is a simple story.
+This is a story about a man who said, "Hello, World."
+See, now wasn't that simple.</value>
+      </property>
+   </bean>
+ 
+   <bean id="OnceUpon" class="edu.javial.cert.se.spring.bean.Story">
+      <property name="title">
+         <value>Once Upon a Time</value>
+      </property>
+      <property name="author">
+         <value>Rob Yates</value>
+      </property>
+      <property name="content">
+         <value>Once upon a time there were some interesting things going on.
+The end.</value>
+      </property>
+   </bean>
+</beans>
