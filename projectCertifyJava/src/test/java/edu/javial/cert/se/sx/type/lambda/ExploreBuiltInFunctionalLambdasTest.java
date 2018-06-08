@@ -19,21 +19,25 @@ public class ExploreBuiltInFunctionalLambdasTest {
 
     public void bookEH_consumerAndThenExample() {
         Consumer<String> first = t ->
-                System.out.println("First:" + t);
+                log.debug("First:" + t);
         Consumer<String> second = t ->
-                System.out.println("Second:" + t);
+                log.debug("Second:" + t);
         first.accept("I am 1st!");
         first.andThen(second).accept("Hi");
     }
 
     static class Numbers {
-        public static boolean isMoreThanFifty(int n1, int n2) {
+        public static boolean isMoreThanFiftyIsStatic(int n1, int n2) {
+            return (n1 + n2) > 50;
+        }
+        public boolean isMoreThanFifty(int n1, int n2) {
             return (n1 + n2) > 50;
         }
 
         public List<Integer> findNumbersOriginal(
                 List<Integer> l, BiPredicate<Integer, Integer> p) {
-
+            log.debug("THIS:> " + this );
+            log.debug("SUPER:> " + super.toString() );
             List<Integer> newList = new ArrayList<>();
             for (Integer i : l) {
 
@@ -47,6 +51,9 @@ public class ExploreBuiltInFunctionalLambdasTest {
         public static List<Integer> findNumbers(
                 @Nonnull List<Integer> l,
                 @Nonnull BiPredicate<Integer, Integer> p) {
+//            log.debug("THIS:> " + this );
+//            log.debug("SUPER:> " + super.toString() );
+
             final Integer fudgeFactor = 10;
             Predicate<Integer> predicateWithFudgeFactor = i -> p.test(i, i + fudgeFactor);
             List<Integer> newList = l.stream().filter(predicateWithFudgeFactor).collect(Collectors.toList());
@@ -60,7 +67,23 @@ public class ExploreBuiltInFunctionalLambdasTest {
 
     public void methodReferenceToStaticMethod() {
         final List<Integer> input = Arrays.asList(12, 5, 45, 18, 33, 24, 40);
-        List<Integer> out = Numbers.findNumbers(input, Numbers::isMoreThanFifty);
+        List<Integer> outS = Numbers.findNumbers(input, Numbers::isMoreThanFiftyIsStatic);
+        log.debug(outS);
+        Numbers number = new Numbers() ;
+        List<Integer> out = number.findNumbersOriginal(input, number::isMoreThanFifty);
         log.debug(out);
+        assert out.equals(outS) ;
+    }
+    public void lookAtConsumer() {
+        final List<Integer> input = Arrays.asList(12, 5, 45, 18, 33, 24, 40);
+
+        Consumer<Integer> c = (Integer s) -> {
+            log.debug("THIS:> " + this );
+            log.debug("SUPER:> " + super.getClass() );
+            final String hi = "hello:> ";
+            System.out.println(hi + s);
+        };
+        input.stream().forEach(c);
+        log.debug(c);
     }
 }
