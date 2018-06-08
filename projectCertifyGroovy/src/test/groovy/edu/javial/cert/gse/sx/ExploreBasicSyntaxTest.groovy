@@ -37,8 +37,10 @@ class ExploreBasicSyntaxTest {
         lookupSchoolTerms << [ key: '2018|spring|' , value : schoolTerm0 ]
         lookupSchoolTerms << [ key: '2018|fall|' , value : schoolTerm2 ]
         lookupSchoolTerms << [ keydup: '2018|fall|' , dupvalue : schoolTerm1 ]
-        lookupSchoolTerms value
+
 //        log.debug("schoolYears:> ${lookupSchoolTerms*.value}")
+        log.debug("lookupSchoolTerms.properties:> ${lookupSchoolTerms.properties}")
+        log.debug("lookupSchoolTerms.dump:> ${lookupSchoolTerms.dump()}")
         log.debug("DONE")
     }
 
