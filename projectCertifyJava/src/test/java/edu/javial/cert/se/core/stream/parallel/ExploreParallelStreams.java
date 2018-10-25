@@ -4,6 +4,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -39,6 +41,46 @@ public class ExploreParallelStreams {
                 .forEach(System.out::print);
     }
 
+    static class Person {
+        String name ;
+        Integer age ;
+        Person( String n , Integer a ) {
+            name = n ; age = a ;
+        }
+    }
+    public void examineParallelStreamExampleAlaTutorialByWinterberg() {
+        final List<Person> persons =
+            Arrays.asList(
+                    new Person("Max", 18),
+                    new Person("Peter", 23),
+                    new Person("Pamela", 23),
+                    new Person("David", 12));
+        Integer ageSumSerial = persons
+                .stream()
+                .reduce(0,
+                        (sum, p) -> {
+                            log.debug(String.format("accumulator: sum=%s; person=%s\n", sum, p));
+                            return sum += p.age;
+                        },
+                        (sum1, sum2) -> {
+                            log.debug(String.format("combiner: sum1=%s; sum2=%s\n", sum1, sum2));
+                            return sum1 + sum2;
+                        });
+        log.debug(String.format("ageSumParallel=%s\n", ageSumSerial));
+        Integer ageSumParallel = persons
+                .parallelStream()
+                .reduce(0,
+                        (sum, p) -> {
+                            log.debug(String.format("accumulator: sum=%s; person=%s\n", sum, p));
+                            return sum += p.age;
+                        },
+                        (sum1, sum2) -> {
+                            log.debug(String.format("combiner: sum1=%s; sum2=%s\n", sum1, sum2));
+                            return sum1 + sum2;
+                        });
+        log.debug(String.format("ageSumParallel=%s\n", ageSumParallel));
+        assert ageSumParallel == ageSumSerial ;
+    }
     private static Log log = LogFactory.getLog(ExploreParallelStreams.class);
 
 }

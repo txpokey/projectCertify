@@ -1,8 +1,8 @@
 package sci.jni.jna.wikipedia.examples;
 
-import org.junit.jupiter.api.Test;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.Enumeration;
