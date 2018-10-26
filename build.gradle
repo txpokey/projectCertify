@@ -1,17 +1,10 @@
 
-ext['groovy.version'] = groovyVersionProperty // need for compile groovy to pick up groovy fix
+ext['groovy.version'] = groovyVersion // need for compile groovy to pick up groovy fix
 
 allprojects {
     group = 'com.category.certify'
     version = '0.0.1-SNAPSHOT'
-    ext {
-        springBootVersion = springBootVersionProperty
-        groovyVersion = groovyVersionProperty
-        angularJsVersion = angularJsVersionProperty
-        bootstrapJsVersion = bootstrapJsVersionProperty
-        spockVersion = spockVersionProperty
-        testNgVersion = testNgVersionProperty
-    }
+
     apply plugin: 'groovy'
     apply plugin: 'eclipse'
     apply plugin: 'idea'
@@ -32,8 +25,8 @@ allprojects {
         compile('org.codehaus.groovy:groovy-templates')
         compile('org.springframework.boot:spring-boot-starter-web')
         // -------------------------------------------
-        compile("org.webjars:bootstrap:${latestReleaseProperty}")
-        compile("org.webjars:webjars-locator:${latestReleaseProperty}")
+        compile("org.webjars:bootstrap:${latestRelease}")
+        compile("org.webjars:webjars-locator:${latestRelease}")
         // -------------------------------------------
         runtime('org.springframework.boot:spring-boot-devtools')
         compile('org.springframework.boot:spring-boot-starter-actuator')
@@ -47,10 +40,7 @@ allprojects {
 apply from: "${rootProject.projectDir}/etc/build/gradle/apply/peek.gradle", to: allprojects
 
 buildscript {
-    ext {
-        springBootVersion = springBootVersionProperty
-        groovyVersion = groovyVersionProperty
-    }
+
     repositories {
         mavenCentral()
         mavenLocal()
