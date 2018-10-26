@@ -1,17 +1,16 @@
 
-ext['groovy.version'] = '2.5.2' // need for compile groovy to pick up groovy fix
+ext['groovy.version'] = groovyVersionProperty // need for compile groovy to pick up groovy fix
 
 allprojects {
     group = 'com.category.certify'
     version = '0.0.1-SNAPSHOT'
     ext {
-        groovyVersion = "${groovyVersionProperty}"
-
-        springBootVersion = "${springBootVersionProperty}"
-        angularJsVersion = "${angularJsVersionProperty}"
-        bootstrapJsVersion = "${bootstrapJsVersionProperty}"
-        spockVersion = "${spockVersionProperty}"
-        testNgVersion = "${testNgVersionProperty}"
+        springBootVersion = springBootVersionProperty
+        groovyVersion = groovyVersionProperty
+        angularJsVersion = angularJsVersionProperty
+        bootstrapJsVersion = bootstrapJsVersionProperty
+        spockVersion = spockVersionProperty
+        testNgVersion = testNgVersionProperty
     }
     apply plugin: 'groovy'
     apply plugin: 'eclipse'
@@ -29,8 +28,7 @@ allprojects {
     }
 
     dependencies {
-//        compile("org.codehaus.groovy:groovy-all:${groovyVersion}")
-        compile group: 'org.codehaus.groovy', name: 'groovy-all', version: "${groovyVersion}", ext: 'pom'
+        compile("org.codehaus.groovy:groovy-all")
         compile('org.codehaus.groovy:groovy-templates')
         compile('org.springframework.boot:spring-boot-starter-web')
         // -------------------------------------------
@@ -40,18 +38,18 @@ allprojects {
         runtime('org.springframework.boot:spring-boot-devtools')
         compile('org.springframework.boot:spring-boot-starter-actuator')
         testCompile('org.springframework.boot:spring-boot-starter-test')
-//        testCompile("org.spockframework:spock-core:${spockVersion}")
+        testCompile("org.spockframework:spock-core:${spockVersion}")
         testCompile("org.testng:testng:${testNgVersion}")
         runtime('com.h2database:h2')
     }
 }
 
-//apply from: "${rootProject.projectDir}/etc/gradle/apply/ngTasks.gradle", to: allprojects
-//apply plugin: 'io.spring.dependency-management'
+apply from: "${rootProject.projectDir}/etc/build/gradle/apply/peek.gradle", to: allprojects
+
 buildscript {
     ext {
-        springBootVersion = "${springBootVersionProperty}"
-        groovyVersion = "${groovyVersionProperty}"
+        springBootVersion = springBootVersionProperty
+        groovyVersion = groovyVersionProperty
     }
     repositories {
         mavenCentral()
@@ -61,20 +59,8 @@ buildscript {
         maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-//        classpath("org.codehaus.groovy:groovy-all")
-//        classpath("org.codehaus.groovy:groovy-all:${groovyVersion}")
-//        classpath("org.codehaus.groovy:groovy-all:2.5.0-rc-1")
-//        classpath("org.codehaus.groovy:groovy:${groovyVersion}")
-//        classpath("org.codehaus.groovy:groovy")
-        classpath group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.5.2', ext: 'pom'
-
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersionProperty"
+        classpath("org.codehaus.groovy:groovy:${groovyVersion}")
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
         classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
-    }
-}
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudDependenciesVersion}"
-        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:${springCloudServicesVersion}"
     }
 }
