@@ -25,3 +25,6 @@ include 'jhunt:interview:interviewGroovy'
 include 'jhunt:interview:interviewJava'
 
 rootProject.name = 'projectCertify'
+include 'projectCertifySpring'
+findProject(':projectCertifySpring')?.name = 'spring'
+
