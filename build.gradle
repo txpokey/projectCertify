@@ -39,7 +39,7 @@ allprojects {
     }
 }
 
-apply from: "${rootProject.projectDir}/etc/build/gradle/apply/peek.gradle", to: allprojects
+apply from: "${rootProject.projectDir}/etc/gradle/apply/peek.gradle", to: allprojects
 
 buildscript {
 
