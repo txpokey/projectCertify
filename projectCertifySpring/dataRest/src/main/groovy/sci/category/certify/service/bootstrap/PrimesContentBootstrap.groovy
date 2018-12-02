@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import sci.category.certify.domain.Primes
 import sci.category.certify.service.PrimesContentBaseService
-import sci.category.certify.service.PrimesContentServiceUsingH2
 
 @Component("primesContentBootstrap")
 class PrimesContentBootstrap implements BootstrapContract {
