@@ -11,11 +11,6 @@ import sci.category.certify.repo.PrimesContentRepoForH2
 @EnableJpaRepositories(basePackages = ["sci.category.certify"])
 class RepositoryConfig {
 
-//    @Bean("bootstrapTool")
-//    BootstrapDataService getBootstreapBean() {
-//        def spinner = new BootstrapDataService()
-//    }
-
     @Autowired
     PrimesContentRepoForH2 primesContentRepoForH2
 

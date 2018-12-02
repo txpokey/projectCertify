@@ -13,13 +13,12 @@ interface BootstrapContract {
 }
 
 @Slf4j
-//@Repository
 @Service("bootstrapTool")
 class BootstrapDataService implements BootstrapContract {
 
-//    @Autowired
-//    @Qualifier("primesContentBootstrap")
-//    BootstrapContract primesContentBootstrap
+    @Autowired
+    @Qualifier("primesContentBootstrap")
+    BootstrapContract primesContentBootstrap
 
     boolean spinUp() {
         final def bootstrapingList = [ primesContentBootstrap ]

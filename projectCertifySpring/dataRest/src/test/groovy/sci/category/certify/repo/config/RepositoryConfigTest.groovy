@@ -21,11 +21,4 @@ class RepositoryConfigTest extends AbstractTestNGSpringContextTests {
         assert primesContentRepoForH2
         log.debug("")
     }
-
-    void testGetH2Repo() {
-
-    }
-
-
-
 }

@@ -6,7 +6,7 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-class Primes{
+class Primes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
