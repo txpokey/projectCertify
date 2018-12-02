@@ -26,7 +26,7 @@ include 'jhunt:interview:interviewJava'
 
 rootProject.name = 'projectCertify'
 include 'projectCertifySpring'
-findProject(':projectCertifySpring')?.name = 'spring'
+//findProject(':projectCertifySpring')?.name = 'spring'
 include 'projectCertifySpring:webflux'
 findProject(':projectCertifySpring:webflux')?.name = 'webflux'
 include 'projectCertifySpring:dataRest'

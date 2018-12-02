@@ -1,15 +1,40 @@
-plugins {
-    id 'groovy'
+//plugins {
+//    id 'groovy'
+//}
+//
+//group 'sci.category.certify'
+//version '0.0.1-SNAPSHOT'
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+//    testCompile group: 'junit', name: 'junit', version: '4.12'
+//}
+//
+
+buildscript {
+    rootProject.buildscript
 }
 
-group 'sci.category.certify'
-version '0.0.1-SNAPSHOT'
-
-repositories {
-    mavenCentral()
+bootJar {
+    baseName = project.name
+    version =  '2018Q4-1.0.0'
+//    into('META-INF/resources') {
+//        from "./src/main/resources/META-INF/resources"
+//    }
+//    exclude("**/resources/**")
 }
 
+springBoot {
+//    mainClassName = 'com.category.fans.App'
+}
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.11'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    // --
+
+
 }
