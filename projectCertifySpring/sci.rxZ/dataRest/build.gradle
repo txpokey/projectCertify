@@ -1,0 +1,28 @@
+buildscript {
+    rootProject.buildscript
+}
+
+bootJar {
+    baseName = project.name
+    version =  '2018Q4-1.0.0'
+//    into('META-INF/resources') {
+//        from "./src/main/resources/META-INF/resources"
+//    }
+//    exclude("**/resources/**")
+}
+
+springBoot {
+//    mainClassName = 'com.category.fans.App'
+}
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+// ----------------------------------------------------------------
+//    implementation('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
+//    implementation('org.springframework.boot:spring-boot-starter-webflux')
+//    implementation('org.codehaus.groovy:groovy')
+//    testImplementation('org.springframework.boot:spring-boot-starter-test')
+//    testImplementation('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+//    testImplementation('io.projectreactor:reactor-test')
+
+}
