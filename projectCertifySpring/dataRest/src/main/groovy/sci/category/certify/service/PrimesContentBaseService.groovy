@@ -3,7 +3,7 @@ package sci.category.certify.service
 import edu.javial.cert.se.core.math.PrimeNumberGroovy
 import org.springframework.lang.NonNull
 import sci.category.certify.domain.Primes
-import sci.category.certify.repo.PrimesContentRepo
+import sci.category.certify.rx.repo.PrimesContentRepo
 
 interface PrimesContentServiceContract extends PrimesContentRepo {
 

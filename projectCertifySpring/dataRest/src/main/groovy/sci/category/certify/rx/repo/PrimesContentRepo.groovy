@@ -1,4 +1,4 @@
-package sci.category.certify.repo
+package sci.category.certify.rx.repo
 
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository

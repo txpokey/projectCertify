@@ -36,6 +36,9 @@ allprojects {
         testCompile group: 'org.mockito', name: 'mockito-core'
         compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
         runtime('com.h2database:h2')
+        // -------------------------------------------
+        implementation group: 'org.codehaus.groovy', name: 'groovy-all', version: "${groovyVersion}", ext: 'pom'
+
     }
 }
 
