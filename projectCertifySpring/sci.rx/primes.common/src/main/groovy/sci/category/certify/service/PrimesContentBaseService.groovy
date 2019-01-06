@@ -13,7 +13,7 @@ interface PrimesContentServiceContract extends PrimesContentRepo {
 
 abstract class PrimesContentBaseService implements PrimesContentServiceContract {
 
-    @Override
+//    @Override
     Primes save(@NonNull Primes p) {
         Primes saved = getRepository().save( p )
         saved

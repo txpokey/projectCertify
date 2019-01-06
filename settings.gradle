@@ -15,7 +15,7 @@ include 'api'
 include 'services:webservice'
 */
 
-
+rootProject.name = 'projectCertify'
 include 'projectCertifyGroovy'
 include 'projectCertifyJava'
 include 'jhunt:thoughtWorks'
@@ -26,14 +26,8 @@ include 'jhunt:interview:interviewJava'
 
 include 'projectCertifySpring'
 include 'projectCertifySpring:sci.rx'
-include 'projectCertifySpring:sci.rx:primes:common'
+include 'projectCertifySpring:sci.rx:primes.common'
 include 'projectCertifySpring:sci.rx:sci.repos.rx'
 include 'projectCertifySpring:sci.rx:sci.repos.sync'
-////findProject(':projectCertifySpring')?.name = 'spring'
-//include 'projectCertifySpring:webflux'
-//findProject(':projectCertifySpring:webflux')?.name = 'webflux'
-//include 'projectCertifySpring:dataRest'
-//findProject(':projectCertifySpring:dataRest')?.name = 'spring-data-rest'
-//include 'sci.rx'
 
-rootProject.name = 'projectCertify'
+

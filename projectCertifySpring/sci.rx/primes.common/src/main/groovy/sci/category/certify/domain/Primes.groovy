@@ -1,14 +1,15 @@
-package domain
+package sci.category.certify.domain
 
-import org.springframework.data.mongodb.core.mapping.Document
+//import javax.persistence.Entity
+//import org.springframework.data.mongodb.core.mapping.Document
 
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 
 //@Entity
-@Document
-class PrimesRx{
+//@Document
+class Primes{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id

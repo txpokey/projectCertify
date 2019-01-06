@@ -1,4 +1,4 @@
-package sci.category.certify.repo.config
+package sci.category.certify.rx.repo.config
 
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
-import sci.category.certify.repo.PrimesContentRepoUsingRxMongo
+import sci.category.certify.rx.repo.PrimesUsingRxRepoContractMongo
 
 @Test
 @Slf4j
@@ -15,7 +15,7 @@ class RepositoryConfigTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
     @Qualifier("primesContentRepoUsingRxMongo")
-    PrimesContentRepoUsingRxMongo primesContentRepoUsingRxMongo
+    PrimesUsingRxRepoContractMongo primesContentRepoUsingRxMongo
 
     void sanityCheck() {
         assert primesContentRepoUsingRxMongo

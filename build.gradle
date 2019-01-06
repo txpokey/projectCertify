@@ -13,7 +13,9 @@ allprojects {
 
     sourceCompatibility = javaVersion
     targetCompatibility = javaVersion
-//    version 'unspecified'
+
+    version =  "${outputLibVersion}"
+
 
     repositories {
         mavenCentral()
@@ -21,23 +23,24 @@ allprojects {
     }
 
     dependencies {
-        compile("org.codehaus.groovy:groovy-all")
-        compile('org.codehaus.groovy:groovy-templates')
-        compile('org.springframework.boot:spring-boot-starter-web')
-        // -------------------------------------------
-        compile("org.webjars:bootstrap:${latestRelease}")
-        compile("org.webjars:webjars-locator:${latestRelease}")
-        // -------------------------------------------
         runtime('org.springframework.boot:spring-boot-devtools')
-        compile('org.springframework.boot:spring-boot-starter-actuator')
-        testCompile('org.springframework.boot:spring-boot-starter-test')
-        testCompile("org.spockframework:spock-core:${spockVersion}")
-        testCompile("org.testng:testng:${testNgVersion}")
-        testCompile group: 'org.mockito', name: 'mockito-core'
-        compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
-        runtime('com.h2database:h2')
+//        runtime('com.h2database:h2')
         // -------------------------------------------
-        implementation group: 'org.codehaus.groovy', name: 'groovy-all', version: "${groovyVersion}", ext: 'pom'
+
+        implementation("org.codehaus.groovy:groovy-all:${groovyVersion}")
+        implementation('org.codehaus.groovy:groovy-templates')
+        implementation('org.springframework.boot:spring-boot-starter-web')
+        // -------------------------------------------
+        implementation("org.webjars:bootstrap:${latestRelease}")
+        implementation("org.webjars:webjars-locator:${latestRelease}")
+        // -------------------------------------------
+        implementation('org.springframework.boot:spring-boot-starter-actuator')
+        implementation('com.google.code.findbugs:jsr305:latest.integration')
+
+        testImplementation('org.springframework.boot:spring-boot-starter-test')
+        testImplementation("org.spockframework:spock-core:${spockVersion}")
+        testImplementation("org.testng:testng:${testNgVersion}")
+        testImplementation group: 'org.mockito', name: 'mockito-core'
 
     }
 }
