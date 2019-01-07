@@ -1,11 +1,11 @@
-package sci.category.certify.rx.repo.config
+package sci.category.certify.repo.config
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 import sci.category.certify.repo.PrimesRepoContract
-import sci.category.certify.rx.repo.PrimesRepoContractForH2
+import sci.category.certify.repo.PrimesRepoContractForH2
 
 @Configuration
 @EnableJpaRepositories(basePackages = ["sci.category.certify"])

@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication(scanBasePackages = ["sci.category.certify"])
 
-class App{
+class AppForSyncH2{
     static void main(String[] args) {
-        SpringApplication.run App, args
+        SpringApplication.run AppForSyncH2, args
     }
 //    @Autowired
 //    @Qualifier("bootstrapTool")

@@ -6,8 +6,8 @@ interface PrimesContentRepo {
 
 }
 
-interface PrimesRepoContract extends PrimesContentRepo {
-
-    Primes save(Primes p )
-
-}
+//interface PrimesRepoContract extends PrimesContentRepo {
+//
+//    Primes save(Primes p )
+//
+//}

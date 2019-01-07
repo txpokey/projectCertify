@@ -7,7 +7,7 @@ import sci.category.certify.service.PrimesContentBaseService
 
 class PrimesContentServiceUsingRxMongo extends PrimesContentBaseService {
     @Autowired
-    @Qualifier("primesContentRepoUsingH2")
+    @Qualifier("primesContentRepoUsingMongo")
     private PrimesContentRepo primesContentRepo
 
     @Override

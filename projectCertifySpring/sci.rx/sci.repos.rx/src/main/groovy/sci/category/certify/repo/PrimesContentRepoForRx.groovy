@@ -1,4 +1,4 @@
-package sci.category.certify.rx.repo
+package sci.category.certify.repo
 
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository
 import org.springframework.stereotype.Repository

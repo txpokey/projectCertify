@@ -24,7 +24,6 @@ allprojects {
 
     dependencies {
         runtime('org.springframework.boot:spring-boot-devtools')
-//        runtime('com.h2database:h2')
         // -------------------------------------------
 
         implementation("org.codehaus.groovy:groovy-all:${groovyVersion}")
