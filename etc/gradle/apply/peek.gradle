@@ -25,3 +25,6 @@ task printProps {
 //task wrapper(type: Wrapper) {
 //    gradleVersion = '4.10.1'
 //}
+clean {
+    delete 'out'
+}
