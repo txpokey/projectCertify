@@ -16,7 +16,7 @@ debug:
   false
 
 server:
-  port: 8081
+  port: 8085
 #  port: 0 # random port
 
 
