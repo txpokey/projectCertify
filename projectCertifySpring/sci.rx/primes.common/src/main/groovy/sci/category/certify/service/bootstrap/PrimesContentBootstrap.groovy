@@ -1,7 +1,5 @@
 package sci.category.certify.service.bootstrap
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Component
 import sci.category.certify.domain.Primes
 import sci.category.certify.service.PrimesContentBaseService
