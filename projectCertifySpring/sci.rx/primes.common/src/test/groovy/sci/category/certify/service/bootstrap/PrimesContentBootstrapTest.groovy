@@ -13,9 +13,9 @@ import sci.category.certify.service.PrimesContentBaseService
 @SpringBootTest
 class PrimesContentBootstrapTest extends AbstractTestNGSpringContextTests {
 
-    @Autowired
-    @Qualifier("primesContentServiceUsingH2")
-    PrimesContentBaseService primesContentServiceUsingH2
+//    @Autowired
+//    @Qualifier("primesContentServiceUsingH2")
+//    PrimesContentBaseService primesContentServiceUsingH2
 
     @Autowired
     @Qualifier("primesContentBootstrap")
@@ -23,7 +23,7 @@ class PrimesContentBootstrapTest extends AbstractTestNGSpringContextTests {
 
 
     void sanityCheck() {
-        assert primesContentServiceUsingH2
+//        assert primesContentServiceUsingH2
         assert primesContentBootstrap
         log.debug("")
     }

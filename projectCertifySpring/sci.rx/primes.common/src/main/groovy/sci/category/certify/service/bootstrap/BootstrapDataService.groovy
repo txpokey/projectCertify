@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 import java.time.format.DateTimeFormatter
 
 interface BootstrapContract {
-    final static def MONTH_DATE_YEAR_FORMATTER = DateTimeFormatter.ofPattern("M/d/yyyy" )
+    final static def MONTH_DATE_YEAR_FORMATTER = DateTimeFormatter.ofPattern("MM/dd/yyyy" )
     boolean spinUp()
 }
 
