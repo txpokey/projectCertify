@@ -16,8 +16,8 @@ interface BootstrapContract {
 @Service("bootstrapTool")
 class BootstrapDataService implements BootstrapContract {
 
-    @Autowired
-    @Qualifier("primesContentBootstrap")
+//    @Autowired
+//    @Qualifier("primesContentBootstrap")
     BootstrapContract primesContentBootstrap
 
     boolean spinUp() {

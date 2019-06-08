@@ -9,8 +9,8 @@ import sci.category.certify.service.PrimesContentBaseService
 @Component("primesContentBootstrap")
 class PrimesContentBootstrap implements BootstrapContract {
 
-    @Autowired
-    @Qualifier("primesContentService")
+//    @Autowired
+//    @Qualifier("primesContentService")
     private PrimesContentBaseService primesContentService
 
     boolean spinUp() {
