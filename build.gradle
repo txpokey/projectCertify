@@ -28,18 +28,19 @@ allprojects {
 
         implementation("org.codehaus.groovy:groovy-all:${groovyVersion}")
         implementation('org.codehaus.groovy:groovy-templates')
-        implementation('org.springframework.boot:spring-boot-starter-web')
         // -------------------------------------------
         implementation("org.webjars:bootstrap:${latestRelease}")
         implementation("org.webjars:webjars-locator:${latestRelease}")
         // -------------------------------------------
-        implementation('org.springframework.boot:spring-boot-starter-actuator')
-        implementation('com.google.code.findbugs:jsr305:latest.integration')
-
+        implementation('org.springframework.boot:spring-boot-starter-web')
         testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+        // -------------------------------------------
+
         testImplementation("org.spockframework:spock-core:${spockVersion}")
         testImplementation("org.testng:testng:${testNgVersion}")
         testImplementation group: 'org.mockito', name: 'mockito-core'
+        implementation('com.google.code.findbugs:jsr305:latest.integration')
 
     }
 }

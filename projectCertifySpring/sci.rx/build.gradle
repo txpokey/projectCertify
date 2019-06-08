@@ -11,5 +11,8 @@ springBoot {
 }
 
 dependencies {
-//    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    // -------------------------------------------
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    //    compile('org.springframework.boot:spring-boot-starter-data-rest')
+
 }
