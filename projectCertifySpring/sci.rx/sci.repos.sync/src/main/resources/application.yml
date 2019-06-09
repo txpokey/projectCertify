@@ -27,7 +27,7 @@ logging:
   level:
     org.springframework.web: INFO
     com.category.fans: DEBUG
-  file: logs/dev_app.log
+  file: /dev/null
   pattern:
     console: "%date{HH:mm:ss.SSS} [%thread] | %logger{10}.%method.%L : %msg%n"
     file: "%d %-5level [%thread] %logger : %msg%n || %logger{10}.%method.%L"
