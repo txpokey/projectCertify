@@ -9,7 +9,6 @@ import org.testng.annotations.Test
 @Slf4j
 @SpringBootTest
 class PrimesContentBaseServiceTest extends AbstractTestNGSpringContextTests {
-//class PrimesContentBaseServiceTest  {
 
     void testSave() {
     }
