@@ -8,11 +8,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 class RepositoryConfig {
 
 //    @Autowired
-//    PrimesRepoContractForH2 primesContentRepoForH2
+//    PrimesRepoForH2 PrimesRepoForH2
 //
 //    @Bean("primesContentRepoUsingH2")
-//    PrimesRepoContract getH2Repo() {
-//        def repo = primesContentRepoForH2
+//    PrimesSynchronousRepoMethods getH2Repo() {
+//        def repo = PrimesRepoForH2
 //        repo
 //    }
 

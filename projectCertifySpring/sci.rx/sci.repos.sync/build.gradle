@@ -9,6 +9,20 @@ sourceSets {
         }
     }
 }
+//sourceSets {
+//    integrationTest {
+//        groovy {
+//            compileClasspath += main.output + test.output
+//            runtimeClasspath += main.output + test.output
+//            srcDir file('projectCertifySpring/sci.rx/primes.common/src/main/groovy')
+//        }
+//        resources.srcDir file('src/main/resources')
+//    }
+//}
+configurations {
+    integrationTestCompile.extendsFrom testCompile
+    integrationTestRuntime.extendsFrom testRuntime
+}
 dependencies {
 
     runtime('com.h2database:h2')

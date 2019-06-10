@@ -3,24 +3,18 @@ package sci.category.certify.service
 import edu.javial.cert.se.core.math.PrimeNumberGroovy
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.lang.NonNull
+import org.springframework.stereotype.Component
 import sci.category.certify.domain.Primes
-import sci.category.certify.repo.PrimesRepoContract
+import sci.category.certify.repo.PrimesSynchronousRepoMethods
 
-//interface PrimesContentServiceContract extends PrimesContentRepo {
-//
-//    PrimesContentRepo getRepository()
-//
-//}
+@Component("PrimesContentBaseService")
 
-//abstract class PrimesContentBaseService implements PrimesContentServiceContract {
 class PrimesContentBaseService  {
     @Autowired
-    PrimesRepoContract primesRepoContract
+    PrimesSynchronousRepoMethods primesRepoContract
 
-//    @Override
     Primes save(@NonNull Primes p) {
         Primes saved = primesRepoContract.save( p )
-//        Primes saved = getRepository().save( p )
         assert saved
         saved
     }

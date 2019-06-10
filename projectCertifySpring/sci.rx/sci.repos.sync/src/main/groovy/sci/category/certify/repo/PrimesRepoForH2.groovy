@@ -5,10 +5,5 @@ import org.springframework.stereotype.Repository
 import sci.category.certify.domain.Primes
 
 
-interface PrimesSynchronousRepoMethods{
-
-    Primes save( Primes p )
-
-}
 @Repository
-interface PrimesRepoForH2 extends PrimesSynchronousRepoMethods, JpaRepository<Primes,Long>{}
+interface PrimesRepoForH2 extends PrimesSynchronousRepoMethods , JpaRepository<Primes,Long> {}
