@@ -4,7 +4,6 @@ import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.context.annotation.Profile
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
 import sci.category.certify.service.PrimesContentBaseService
@@ -12,32 +11,25 @@ import sci.category.certify.service.PrimesContentBaseService
 @Test
 @Slf4j
 @SpringBootTest
-@Profile(["NFG"])
 class PrimesContentBootstrapTest extends AbstractTestNGSpringContextTests {
 
-//    @Autowired
-//    @Qualifier("primesContentServiceUsingH2")
-//    PrimesContentBaseService primesContentServiceUsingH2
+    @Autowired
+    @Qualifier("PrimesContentBaseService")
+    PrimesContentBaseService primesContentBaseService
 
     @Autowired
     @Qualifier("primesContentBootstrap")
     PrimesContentBootstrap primesContentBootstrap
 
-
     void sanityCheck() {
-//        assert primesContentServiceUsingH2
+        assert primesContentBaseService
         assert primesContentBootstrap
-        log.debug("")
     }
     void featureCheck() {
         sanityCheck()
         def result = primesContentBootstrap.spinUp()
-        result
-        log.debug("")
+        assert result
+        def findAll = primesContentBaseService.primesRepoContract.findAll()
+        assert findAll
     }
 }
-
-//    @Bean("bootstrapTool")
-//    BootstrapDataService getBootstreapBean() {
-//        def spinner = new BootstrapDataService()
-//    }
