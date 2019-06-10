@@ -1,4 +1,4 @@
-package sci.category.certify.service
+package sci.category.certify.service.config
 
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
@@ -6,31 +6,31 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
-import sci.category.certify.domain.Primes
 import sci.category.certify.repo.PrimesSynchronousRepoMethods
+import sci.category.certify.service.PrimesContentBaseService
+
 
 @Test
 @Slf4j
 @SpringBootTest
-class PrimesContentBaseServiceForSyncTest extends AbstractTestNGSpringContextTests {
+/**
+ * synchronous repo configuration test
+ */
+
+class PrimesSynchronousReposConfigTest extends AbstractTestNGSpringContextTests{
+
+    @Autowired
+    PrimesSynchronousRepoMethods primesRepoContract
 
     @Autowired
     @Qualifier("PrimesContentBaseService")
     PrimesContentBaseService primesContentBaseService
 
-    void testSave() {
+    void sanityCheck() {
+        assert primesRepoContract
         assert primesContentBaseService
         assert primesContentBaseService.primesRepoContract
-        List<Primes> primes = PrimesContentBaseService.getPrimesInRange(range)
-        def myPrimePick = primes[6]
-        def candidate = primesContentBaseService.save(myPrimePick)
-        assert candidate
+        assert primesContentBaseService.primesRepoContract == primesRepoContract
     }
-
-    void testGetPrimesInRange() {
-        def captured = PrimesContentBaseService.getPrimesInRange(range)
-        captured
-    }
-    private final Range<Integer> range = 1..20
 
 }

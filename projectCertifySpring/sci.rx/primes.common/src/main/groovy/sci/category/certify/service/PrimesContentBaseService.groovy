@@ -8,7 +8,6 @@ import sci.category.certify.domain.Primes
 import sci.category.certify.repo.PrimesSynchronousRepoMethods
 
 @Component("PrimesContentBaseService")
-
 class PrimesContentBaseService  {
     @Autowired
     PrimesSynchronousRepoMethods primesRepoContract
