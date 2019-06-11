@@ -8,7 +8,7 @@ import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 @Test
 @Slf4j
 @SpringBootTest
-class PrimesContentBootstrapTest extends PrimesSynchronousReposConfigTest {
+class PrimesSynchronousReposBootstrapTest extends PrimesSynchronousReposConfigTest {
 
     void sanityCheck() {
         assert primesContentBaseService
