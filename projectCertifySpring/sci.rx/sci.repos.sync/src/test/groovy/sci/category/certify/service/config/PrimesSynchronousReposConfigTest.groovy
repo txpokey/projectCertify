@@ -8,6 +8,7 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
 import sci.category.certify.repo.PrimesSynchronousRepoMethods
 import sci.category.certify.service.PrimesContentBaseService
+import sci.category.certify.service.bootstrap.PrimesContentBootstrap
 
 
 @Test
@@ -25,11 +26,18 @@ class PrimesSynchronousReposConfigTest extends AbstractTestNGSpringContextTests{
     @Qualifier("PrimesContentBaseService")
     PrimesContentBaseService primesContentBaseService
 
+    @Autowired
+    @Qualifier("primesContentBootstrap")
+    PrimesContentBootstrap primesContentBootstrap
+
     void sanityCheck() {
         assert primesRepoContract
         assert primesContentBaseService
         assert primesContentBaseService.primesRepoContract
         assert primesContentBaseService.primesRepoContract == primesRepoContract
+        assert primesContentBootstrap
+        assert primesContentBootstrap.primesContentBaseService == primesContentBaseService
+
     }
 
 }
