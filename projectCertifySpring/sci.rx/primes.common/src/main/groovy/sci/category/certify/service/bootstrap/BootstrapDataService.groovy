@@ -16,12 +16,14 @@ interface BootstrapContract {
 @Service("bootstrapTool")
 class BootstrapDataService implements BootstrapContract {
 
-//    @Autowired
-//    @Qualifier("primesContentBootstrap")
-    BootstrapContract primesContentBootstrap
+    private final List<BootstrapContract>  bootstrapingList
+
+    BootstrapDataService( List<BootstrapContract> list ) {
+        bootstrapingList = list
+    }
 
     boolean spinUp() {
-        final def bootstrapingList = [ primesContentBootstrap ]
+//        final def bootstrapingList = [ primesContentBootstrap ]
 
         bootstrapingList.each { member ->
             def result = member.spinUp()
