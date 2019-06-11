@@ -19,8 +19,6 @@ class BootstrapDataService implements BootstrapContract {
     }
 
     boolean spinUp() {
-//        final def bootstrapingList = [ primesContentBootstrap ]
-
         bootstrapingList.each { member ->
             def result = member.spinUp()
             assert result

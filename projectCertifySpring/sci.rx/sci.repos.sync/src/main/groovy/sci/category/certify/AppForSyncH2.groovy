@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import sci.category.certify.service.bootstrap.BootstrapDataService
-import sci.category.certify.service.bootstrap.PrimesContentBootstrap
 
 import javax.annotation.PostConstruct
 
@@ -16,15 +15,14 @@ class AppForSyncH2{
         SpringApplication.run AppForSyncH2, args
     }
 
-//    @Autowired
-//    @Qualifier("primesContentBootstrap")
-//    private PrimesContentBootstrap spinner
+    @Autowired
+    @Qualifier("synchronousRepoBootstrapTool")
+    private BootstrapDataService spinner
 
-//    @PostConstruct
-//    void postConstruct() {
-//        assert spinner
-//        BootstrapDataService bootstrap = new BootstrapDataService([spinner])
-//        def result = bootstrap.spinUp()
-//        assert result
-//    }
+    @PostConstruct
+    void postConstruct() {
+        assert spinner
+        def result = spinner.spinUp()
+        assert result
+    }
 }
