@@ -13,13 +13,16 @@ import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 @Test
 @Slf4j
 @SpringBootTest
-class PrimesContentBaseServiceForSyncTest extends PrimesSynchronousReposConfigTest {
+class PrimesContentBaseServiceForSyncTest extends PrimesSynchronousReposConfigTest{
 
     void testSave() {
         assert primesContentBaseService
         assert primesContentBaseService.primesRepoContract
+        assert range.size() >= TESTED_PRIME_INDEX
         List<Primes> primes = PrimesContentBaseService.getPrimesInRange(range)
-        def myPrimePick = primes[6]
+        assert primes
+        assert primes.size() >= TESTED_PRIME_INDEX
+        def myPrimePick = primes[TESTED_PRIME_INDEX]
         def candidate = primesContentBaseService.save(myPrimePick)
         assert candidate
     }
@@ -29,5 +32,5 @@ class PrimesContentBaseServiceForSyncTest extends PrimesSynchronousReposConfigTe
         captured
     }
     private final Range<Integer> range = 1..20
-
+    private final TESTED_PRIME_INDEX = 6
 }
