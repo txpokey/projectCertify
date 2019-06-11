@@ -8,15 +8,12 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
 import sci.category.certify.domain.Primes
 import sci.category.certify.repo.PrimesSynchronousRepoMethods
+import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 
 @Test
 @Slf4j
 @SpringBootTest
-class PrimesContentBaseServiceForSyncTest extends AbstractTestNGSpringContextTests {
-
-    @Autowired
-    @Qualifier("PrimesContentBaseService")
-    PrimesContentBaseService primesContentBaseService
+class PrimesContentBaseServiceForSyncTest extends PrimesSynchronousReposConfigTest {
 
     void testSave() {
         assert primesContentBaseService

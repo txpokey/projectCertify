@@ -16,7 +16,6 @@ import sci.category.certify.service.PrimesContentBaseService
 /**
  * synchronous repo configuration test
  */
-
 class PrimesSynchronousReposConfigTest extends AbstractTestNGSpringContextTests{
 
     @Autowired
