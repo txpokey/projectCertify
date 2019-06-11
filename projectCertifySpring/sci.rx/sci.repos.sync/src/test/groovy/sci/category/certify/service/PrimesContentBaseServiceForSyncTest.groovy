@@ -16,6 +16,7 @@ import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 class PrimesContentBaseServiceForSyncTest extends PrimesSynchronousReposConfigTest{
 
     void testSave() {
+        sanityCheck()
         assert primesContentBaseService
         assert primesContentBaseService.primesRepoContract
         assert range.size() >= TESTED_PRIME_INDEX
