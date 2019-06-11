@@ -16,15 +16,15 @@ class AppForSyncH2{
         SpringApplication.run AppForSyncH2, args
     }
 
-    @Autowired
-    @Qualifier("primesContentBootstrap")
-    private PrimesContentBootstrap spinner
+//    @Autowired
+//    @Qualifier("primesContentBootstrap")
+//    private PrimesContentBootstrap spinner
 
-    @PostConstruct
-    void postConstruct() {
-        assert spinner
-        BootstrapDataService bootstrap = new BootstrapDataService([spinner])
-        def result = bootstrap.spinUp()
-        assert result
-    }
+//    @PostConstruct
+//    void postConstruct() {
+//        assert spinner
+//        BootstrapDataService bootstrap = new BootstrapDataService([spinner])
+//        def result = bootstrap.spinUp()
+//        assert result
+//    }
 }
