@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 import sci.category.certify.domain.Primes
 import sci.category.certify.repo.PrimesSynchronousRepoMethods
 
-@Component("PrimesContentBaseService")
+@Component("primesContentBaseService")
 class PrimesContentBaseService  {
     @Autowired
     PrimesSynchronousRepoMethods primesRepoContract
