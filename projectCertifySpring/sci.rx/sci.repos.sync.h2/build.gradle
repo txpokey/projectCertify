@@ -5,7 +5,8 @@ buildscript {
 sourceSets {
     main {
         groovy {
-            source project(':projectCertifySpring:sci.rx:primes.common').sourceSets.main.groovy
+//            source project(':projectCertifySpring:sci.rx:primes.common').sourceSets.main.groovy
+            source project(':projectCertifySpring:sci.rx:sci.repos.sync').sourceSets.main.groovy
         }
     }
 }

@@ -29,5 +29,6 @@ include 'projectCertifySpring:sci.rx'
 include 'projectCertifySpring:sci.rx:primes.common'
 include 'projectCertifySpring:sci.rx:sci.repos.rx'
 include 'projectCertifySpring:sci.rx:sci.repos.sync'
+include 'projectCertifySpring:sci.rx:sci.repos.sync.h2'
 
 
