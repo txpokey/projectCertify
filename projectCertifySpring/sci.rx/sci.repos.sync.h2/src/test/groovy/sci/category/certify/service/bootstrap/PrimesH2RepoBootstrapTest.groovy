@@ -8,16 +8,10 @@ import org.testng.annotations.Test
 @Slf4j
 @SpringBootTest
 class PrimesH2RepoBootstrapTest extends PrimesSynchronousReposBootstrapTest {
-
     void sanityCheck() {
-        assert primesContentBaseService
-        assert primesContentBootstrap
+        super.sanityCheck()
     }
     void featureCheck() {
-        sanityCheck()
-        def result = primesContentBootstrap.spinUp()
-        assert result
-        def findAll = primesContentBaseService.primesRepoContract.findAll()
-        assert findAll
+        super.featureCheck()
     }
 }

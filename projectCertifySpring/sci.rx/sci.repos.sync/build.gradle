@@ -1,7 +1,13 @@
 buildscript {
     rootProject.buildscript
 }
-
+sourceSets {
+    main {
+        groovy {
+            source project(':projectCertifySpring:sci.rx:primes.common').sourceSets.main.groovy
+        }
+    }
+}
 dependencies {
 
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')

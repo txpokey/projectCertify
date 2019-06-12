@@ -13,7 +13,7 @@ import sci.category.certify.service.bootstrap.PrimesContentBootstrap
 
 @Test
 @Slf4j
-@SpringBootTest
+//@SpringBootTest
 /**
  * synchronous repo configuration test
  */
