@@ -2,18 +2,6 @@ buildscript {
     rootProject.buildscript
 }
 
-sourceSets {
-    main {
-        groovy {
-            source project(':projectCertifySpring:sci.rx:primes.common').sourceSets.main.groovy
-        }
-    }
-}
-
-//configurations {
-//    integrationTestCompile.extendsFrom testCompile
-//    integrationTestRuntime.extendsFrom testRuntime
-//}
 dependencies {
 
     runtime('com.h2database:h2')

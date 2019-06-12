@@ -1,32 +1,9 @@
 buildscript {
     rootProject.buildscript
 }
-
-bootJar {
-    baseName = project.name
-}
-
-springBoot {
-//    mainClassName = 'com.category.fans.App'
-}
-//sourceSets {
-//    integrationTest {
-//        java {
-//            compileClasspath += main.output + test.output
-//            runtimeClasspath += main.output + test.output
-//            srcDir file('projectCertifySpring/sci.rx/primes.common/src/main/groovy')
-//        }
-//        resources.srcDir file('src/main/resources')
-//    }
-//}
-//configurations {
-//    integrationTestCompile.extendsFrom testCompile
-//    integrationTestRuntime.extendsFrom testRuntime
-//}
 dependencies {
     // -------------------------------------------
     implementation('org.springframework.boot:spring-boot-starter-actuator')
-
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('org.springframework.boot:spring-boot-starter-data-rest')
 }
