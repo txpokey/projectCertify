@@ -10,7 +10,7 @@ import sci.category.certify.service.bootstrap.PrimesSynchronousReposBootstrapTes
 
 @Test
 @Slf4j
-@SpringBootTest
+//@SpringBootTest
 class SynchronousServicesConfigTest extends PrimesSynchronousReposBootstrapTest {
 
     @Autowired

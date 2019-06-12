@@ -1,4 +1,4 @@
-package sci.category.certify.service.bootstrap
+package sci.category.certify.service.config
 
 import groovy.util.logging.Slf4j
 import org.springframework.boot.test.context.SpringBootTest
@@ -7,11 +7,10 @@ import org.testng.annotations.Test
 @Test
 @Slf4j
 @SpringBootTest
-class PrimesH2RepoBootstrapTest extends PrimesSynchronousReposBootstrapTest {
+class H2SynchronousServicesConfigTest extends SynchronousServicesConfigTest {
+
     void sanityCheck() {
         super.sanityCheck()
     }
-    void featureCheck() {
-        super.featureCheck()
-    }
+
 }

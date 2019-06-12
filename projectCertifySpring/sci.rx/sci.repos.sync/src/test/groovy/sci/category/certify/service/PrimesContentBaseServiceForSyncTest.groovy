@@ -12,7 +12,7 @@ import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 
 @Test
 @Slf4j
-@SpringBootTest
+//@SpringBootTest
 class PrimesContentBaseServiceForSyncTest extends PrimesSynchronousReposConfigTest{
 
     void testSave() {
