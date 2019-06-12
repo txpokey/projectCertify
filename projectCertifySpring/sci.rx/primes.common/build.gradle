@@ -16,11 +16,10 @@ springBoot {
 }
 dependencies {
 //    compile('org.springframework.boot:spring-boot-starter-data-rest')
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+//    compile('org.springframework.boot:spring-boot-starter-data-jpa')
 // ----------------------------------------------------------------
 
     compile('org.eclipse.persistence:javax.persistence:latest.integration')
-    runtime('com.h2database:h2')
 
 // ----------------------------------------------------------------
 //    implementation('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
