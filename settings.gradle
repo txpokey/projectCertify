@@ -31,4 +31,8 @@ include 'projectCertifySpring:sci.rx:sci.repos.rx'
 include 'projectCertifySpring:sci.rx:sci.repos.sync'
 include 'projectCertifySpring:sci.rx:sci.repos.sync.h2'
 
-
+project(':projectCertifySpring:sci.rx:sci.repos.sync.h2') {
+    dependencies {
+        compile project(':projectCertifySpring:sci.rx:sci.repos.sync')
+    }
+}

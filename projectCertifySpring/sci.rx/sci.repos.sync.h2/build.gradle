@@ -1,21 +1,29 @@
 buildscript {
     rootProject.buildscript
 }
-
-sourceSets {
-    main {
-        groovy {
-//            source project(':projectCertifySpring:sci.rx:primes.common').sourceSets.main.groovy
-            source project(':projectCertifySpring:sci.rx:sci.repos.sync').sourceSets.main.groovy
-        }
-    }
-}
+//
+//sourceSets {
+//    main {
+//        groovy {
+////            source project(':projectCertifySpring:sci.rx:primes.common').sourceSets.main.groovy
+//            source project(':projectCertifySpring:sci.rx:sci.repos.sync').sourceSets.main.groovy
+//        }
+//    }
+//    test {
+//        groovy {
+////            source project(':projectCertifySpring:sci.rx:primes.common').sourceSets.main.groovy
+//            source project(':projectCertifySpring:sci.rx:sci.repos.sync').sourceSets.test.groovy
+//        }
+//    }
+//}
 
 //configurations {
 //    integrationTestCompile.extendsFrom testCompile
 //    integrationTestRuntime.extendsFrom testRuntime
 //}
 dependencies {
+//    compile project(':projectCertifySpring:sci.rx:sci.repos.sync')
+//    testCompile project(':projectCertifySpring:sci.rx:sci.repos.sync')
 
     runtime('com.h2database:h2')
 
