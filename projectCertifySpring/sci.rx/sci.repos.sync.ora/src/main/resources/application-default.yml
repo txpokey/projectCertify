@@ -1,0 +1,18 @@
+debug: false
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:sys as sysdba/Oradoc_db1@localhost:1521:ORCLCDB
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    internal_logon: sysdba
+#    password: Oradoc_db1
+#    username: sys
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    show-sql: true
+    hibernate:
+    ## use create when running the app for the first time
+    ## then change to "update" which just updates the schema when necessary
+      ddl-auto: create
