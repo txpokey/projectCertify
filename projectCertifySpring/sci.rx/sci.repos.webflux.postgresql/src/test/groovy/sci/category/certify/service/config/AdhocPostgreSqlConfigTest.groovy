@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
-import sci.category.certify.repo.PrimesWebfluxRepoPostgreSql
+import sci.category.certify.repo.PrimesRepoMethods
 
 @Test
 @Slf4j
@@ -13,7 +13,7 @@ import sci.category.certify.repo.PrimesWebfluxRepoPostgreSql
 class AdhocPostgreSqlConfigTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
-    PrimesWebfluxRepoPostgreSql repository
+    PrimesRepoMethods repository
 
     void sanityCheck() {
         assert true
