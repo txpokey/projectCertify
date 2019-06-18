@@ -3,10 +3,10 @@ package sci.category.certify.repo.config
 import io.r2dbc.postgresql.PostgresqlConnectionConfiguration
 import io.r2dbc.postgresql.PostgresqlConnectionFactory
 import io.r2dbc.spi.ConnectionFactory
-
-//
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.EnableConfigurationProperties
+
+//
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.r2dbc.config.AbstractR2dbcConfiguration
@@ -17,6 +17,7 @@ import org.springframework.data.r2dbc.dialect.Dialect
 import org.springframework.data.r2dbc.dialect.PostgresDialect
 import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories
 import org.springframework.data.r2dbc.repository.support.R2dbcRepositoryFactory
+import sci.category.certify.repo.PrimesRepoMethods
 import sci.category.certify.repo.PrimesWebfluxRepoPostgreSql
 
 @Configuration
@@ -30,8 +31,8 @@ class PostgresR2dbcRepoConfig extends AbstractR2dbcConfiguration{
     String host
     String port
 
-    @Bean
-    PrimesWebfluxRepoPostgreSql repository(R2dbcRepositoryFactory repositoryFactory) {
+    @Bean(name = "primesRepoMethods")
+    PrimesRepoMethods getRepository(R2dbcRepositoryFactory repositoryFactory) {
         def candidate = repositoryFactory.getRepository(PrimesWebfluxRepoPostgreSql.class)
         candidate
     }
