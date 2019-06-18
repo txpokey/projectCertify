@@ -5,6 +5,6 @@ buildscript {
 dependencies {
 // ----------------------------------------------------------------
 
-    compile('org.eclipse.persistence:javax.persistence:latest.integration')
+    implementation('org.eclipse.persistence:javax.persistence:latest.integration')
 
 }
