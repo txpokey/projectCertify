@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
 import sci.category.certify.domain.Primes
-import sci.category.certify.repo.PrimesSynchronousRepoMethods
+import sci.category.certify.repo.PrimesRepoMethods
 import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 
 @Test

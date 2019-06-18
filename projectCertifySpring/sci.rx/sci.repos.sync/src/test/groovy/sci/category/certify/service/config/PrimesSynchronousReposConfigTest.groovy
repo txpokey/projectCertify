@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
-import sci.category.certify.repo.PrimesSynchronousRepoMethods
+import sci.category.certify.repo.PrimesRepoMethods
 import sci.category.certify.service.PrimesContentBaseService
 import sci.category.certify.service.bootstrap.PrimesContentBootstrap
 
@@ -20,7 +20,7 @@ import sci.category.certify.service.bootstrap.PrimesContentBootstrap
 class PrimesSynchronousReposConfigTest extends AbstractTestNGSpringContextTests{
 
     @Autowired
-    PrimesSynchronousRepoMethods primesRepoContract
+    PrimesRepoMethods primesRepoContract
 
     @Autowired
     @Qualifier("primesContentBaseService")

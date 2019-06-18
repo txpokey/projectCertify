@@ -6,4 +6,4 @@ import sci.category.certify.domain.Primes
 
 
 @Repository
-interface PrimesSynchronousRepoForH2 extends PrimesSynchronousRepoMethods , JpaRepository<Primes,Long> {}
+interface PrimesSynchronousRepoForH2 extends PrimesRepoMethods , JpaRepository<Primes,Long> {}

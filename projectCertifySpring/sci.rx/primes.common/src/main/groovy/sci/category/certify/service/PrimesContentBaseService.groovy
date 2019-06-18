@@ -5,12 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.lang.NonNull
 import org.springframework.stereotype.Component
 import sci.category.certify.domain.Primes
-import sci.category.certify.repo.PrimesSynchronousRepoMethods
+import sci.category.certify.repo.PrimesRepoMethods
 
 @Component("primesContentBaseService")
 class PrimesContentBaseService  {
     @Autowired
-    PrimesSynchronousRepoMethods primesRepoContract
+    PrimesRepoMethods primesRepoContract
 
     Primes save(@NonNull Primes p) {
         Primes saved = primesRepoContract.save( p )
