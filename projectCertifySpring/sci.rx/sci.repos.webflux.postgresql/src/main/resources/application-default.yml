@@ -8,7 +8,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     database: postgres
     host: localhost
-    port: postgres
+    port: 5432
     password: pokey0
     username: postgres
   jpa:
