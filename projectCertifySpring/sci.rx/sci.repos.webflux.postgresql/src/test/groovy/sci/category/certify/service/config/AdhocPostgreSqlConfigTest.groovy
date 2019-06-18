@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
 import sci.category.certify.repo.PrimesRepoMethods
+import sci.category.certify.service.bootstrap.BootstrapDataService
 
 @Test
 @Slf4j
@@ -17,7 +18,12 @@ class AdhocPostgreSqlConfigTest extends AbstractTestNGSpringContextTests {
     @Qualifier("primesRepoMethods")
     PrimesRepoMethods repository
 
+    @Autowired
+    @Qualifier("bootstrapTool")
+    private BootstrapDataService spinner
+
     void sanityCheck() {
-        assert true
+        assert repository
+        assert spinner
     }
 }
