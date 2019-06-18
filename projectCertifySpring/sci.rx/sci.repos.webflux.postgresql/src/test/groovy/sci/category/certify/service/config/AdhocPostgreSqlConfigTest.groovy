@@ -9,7 +9,9 @@ import org.testng.annotations.Test
 @Slf4j
 @SpringBootTest
 class AdhocPostgreSqlConfigTest extends AbstractTestNGSpringContextTests {
-//class AdhocPostgreSqlConfigTest{
+
+//    @Autowired
+//    PrimesWebfluxRepoPostgreSql repository
 
     void sanityCheck() {
         assert true

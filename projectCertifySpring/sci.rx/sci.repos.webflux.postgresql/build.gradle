@@ -31,5 +31,4 @@ dependencies {
     implementation group: 'io.r2dbc', name: 'r2dbc-postgresql', version: '1.0.0.M7'
     implementation group: 'org.springframework.data', name: 'spring-data-r2dbc', version: '1.0.0.M2'
     implementation group: 'org.springframework.data', name: 'spring-data-commons', version: '2.1.9.RELEASE'
-
 }
