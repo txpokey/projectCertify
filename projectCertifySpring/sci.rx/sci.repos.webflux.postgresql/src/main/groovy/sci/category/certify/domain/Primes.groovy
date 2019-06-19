@@ -18,7 +18,7 @@ class Primes{
     Integer prime
     Boolean truth
     String species
-    String toString() { "[${prime},${species}]"}
+    String toString() { "[${prime},${species}, ${truth}]"}
     static Primes of(@NonNull Integer p, String species = "TBD") {
         def primeAsMap = [ prime: p , species: species ]
         def primeRx = new Primes(primeAsMap)
