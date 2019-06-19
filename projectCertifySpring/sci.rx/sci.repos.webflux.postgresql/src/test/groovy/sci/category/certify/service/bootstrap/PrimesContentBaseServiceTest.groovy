@@ -41,5 +41,11 @@ class PrimesContentBaseServiceTest extends AbstractTestNGSpringContextTests{
         assert first
         def what = repository.save(first)
         assert what
+        def whatNext = what.subscribe(report())
+        whatNext
+    }
+
+    private report() {
+        { it -> log.debug(it) }
     }
 }
