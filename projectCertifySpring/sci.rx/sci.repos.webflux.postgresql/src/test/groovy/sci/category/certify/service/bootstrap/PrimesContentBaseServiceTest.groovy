@@ -33,8 +33,11 @@ class PrimesContentBaseServiceTest extends AbstractTestNGSpringContextTests{
     }
 
     void featureSanityCheck() {
-        def s = repository.species
-        def allAsList = PrimesContentBaseService.getPrimesInRange(1..11, repository.species)
+        def species = repository.species
+        assert species
+        def allAsList = PrimesContentBaseService.getPrimesInRange(1..11, species)
         assert allAsList
+        def first = allAsList[0]
+        assert first
     }
 }
