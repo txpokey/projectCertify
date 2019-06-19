@@ -15,6 +15,11 @@ class PrimesContentBaseService  {
     PrimesRepoMethods primesRepoMethods
 
     Primes save(@NonNull Primes p) {
+        def saved = primesRepoMethods.save( p )
+        assert saved
+        saved
+    }
+   Primes save0(@NonNull Primes p) {
         Primes saved = primesRepoMethods.save( p )
         assert saved
         saved

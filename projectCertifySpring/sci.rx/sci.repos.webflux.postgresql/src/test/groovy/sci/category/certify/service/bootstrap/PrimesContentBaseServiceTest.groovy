@@ -39,5 +39,7 @@ class PrimesContentBaseServiceTest extends AbstractTestNGSpringContextTests{
         assert allAsList
         def first = allAsList[0]
         assert first
+        def what = repository.save(first)
+        assert what
     }
 }
