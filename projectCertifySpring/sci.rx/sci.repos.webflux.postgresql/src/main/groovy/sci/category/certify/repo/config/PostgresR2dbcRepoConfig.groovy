@@ -5,52 +5,65 @@ import io.r2dbc.postgresql.PostgresqlConnectionFactory
 import io.r2dbc.spi.ConnectionFactory
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.EnableConfigurationProperties
-
-//
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.data.r2dbc.config.AbstractR2dbcConfiguration
-import org.springframework.data.r2dbc.core.DatabaseClient
-import org.springframework.data.r2dbc.core.DefaultReactiveDataAccessStrategy
-import org.springframework.data.r2dbc.core.ReactiveDataAccessStrategy
-import org.springframework.data.r2dbc.dialect.Dialect
-import org.springframework.data.r2dbc.dialect.PostgresDialect
-import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories
+import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories
+import org.springframework.data.r2dbc.function.DatabaseClient
 import org.springframework.data.r2dbc.repository.support.R2dbcRepositoryFactory
+import org.springframework.data.relational.core.mapping.RelationalMappingContext
 import sci.category.certify.repo.PrimesRepoMethods
+
+//
 import sci.category.certify.repo.PrimesWebfluxRepoPostgreSql
 
 @Configuration
-@EnableR2dbcRepositories(basePackages = ["sci.category.certify"])
+@EnableJdbcRepositories(basePackages = ["sci.category.certify"])
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "spring.datasource")
-class PostgresR2dbcRepoConfig extends AbstractR2dbcConfiguration{
+//class PostgresR2dbcRepoConfig extends AbstractR2dbcConfiguration{
+class PostgresR2dbcRepoConfig {
     String database
     String username
     String password
     String host
     String port
 
+//    @Bean(name = "primesRepoMethods")
+//    PrimesRepoMethods getRepository(R2dbcRepositoryFactory repositoryFactory) {
+//        def candidate = repositoryFactory.getRepository(PrimesWebfluxRepoPostgreSql.class)
+//        candidate
+//    }
+//
+//    @Bean
+//    R2dbcRepositoryFactory repositoryFactory(DatabaseClient databaseClient) {
+//        Dialect dialect = new PostgresDialect()
+//        ReactiveDataAccessStrategy strategy = new DefaultReactiveDataAccessStrategy(dialect)
+//        def candidate = new R2dbcRepositoryFactory(databaseClient, strategy)
+//        candidate
+//    }
+//
+//    @Bean
+//    DatabaseClient databaseClient(ConnectionFactory connectionFactory) {
+//        def candidate = DatabaseClient.builder().connectionFactory(connectionFactory).build()
+//        candidate
+//    }
     @Bean(name = "primesRepoMethods")
-    PrimesRepoMethods getRepository(R2dbcRepositoryFactory repositoryFactory) {
-        def candidate = repositoryFactory.getRepository(PrimesWebfluxRepoPostgreSql.class)
+    def  PrimesRepoMethods repository(R2dbcRepositoryFactory factory ){
+        def candidate = factory.getRepository(PrimesWebfluxRepoPostgreSql.class)
         candidate
     }
-
     @Bean
-    R2dbcRepositoryFactory repositoryFactory(DatabaseClient databaseClient) {
-        Dialect dialect = new PostgresDialect()
-        ReactiveDataAccessStrategy strategy = new DefaultReactiveDataAccessStrategy(dialect)
-        def candidate = new R2dbcRepositoryFactory(databaseClient, strategy)
+    R2dbcRepositoryFactory factory(DatabaseClient client)  {
+        def context = new RelationalMappingContext()
+        context.afterPropertiesSet()
+        def candidate = new R2dbcRepositoryFactory(client, context)
         candidate
     }
-
     @Bean
-    DatabaseClient databaseClient(ConnectionFactory connectionFactory) {
-        def candidate = DatabaseClient.builder().connectionFactory(connectionFactory).build()
+    DatabaseClient databaseClient(ConnectionFactory factory)  {
+        def candidate =  DatabaseClient.builder().connectionFactory(factory).build()
         candidate
     }
-
     @Bean
     PostgresqlConnectionFactory connectionFactory() {
         final def dbPort = port as Integer
