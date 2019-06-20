@@ -5,7 +5,8 @@ logging:
   level:
     org.springframework.web: INFO
     sci.category.certify: DEBUG
-
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: trace
 spring:
   datasource:
     url: jdbc:postgresql://127.0.0.1:5432/postgres
@@ -22,4 +23,6 @@ spring:
     ## use create when running the app for the first time
     ## then change to "update" which just updates the schema when necessary
       ddl-auto: create
-    properties.hibernate.jdbc.lob.non_contextual_creation: true
+    properties.hibernate:
+      format_sql: true
+      jdbc.lob.non_contextual_creation: true
