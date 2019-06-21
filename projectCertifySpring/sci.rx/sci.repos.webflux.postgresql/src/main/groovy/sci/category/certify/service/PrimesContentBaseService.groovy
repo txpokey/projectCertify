@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.lang.NonNull
 import org.springframework.stereotype.Component
+import reactor.core.publisher.Mono
 import sci.category.certify.domain.Primes
 import sci.category.certify.repo.PrimesRepoMethods
 
@@ -14,7 +15,7 @@ class PrimesContentBaseService  {
     @Qualifier("primesRepoMethods")
     PrimesRepoMethods primesRepoMethods
 
-    Primes save(@NonNull Primes p) {
+    Mono<Primes> save(@NonNull Primes p) {
         def saved = primesRepoMethods.save( p )
         assert saved
         saved

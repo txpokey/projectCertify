@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Profile
 import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories
 import org.springframework.data.r2dbc.function.DatabaseClient
 import org.springframework.data.r2dbc.repository.support.R2dbcRepositoryFactory
@@ -20,7 +21,7 @@ import sci.category.certify.repo.PrimesWebfluxRepoPostgreSql
 @EnableJdbcRepositories(basePackages = ["sci.category.certify"])
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "spring.datasource")
-//class PostgresR2dbcRepoConfig extends AbstractR2dbcConfiguration{
+@Profile("default")
 class PostgresR2dbcRepoConfig {
     String database
     String username
@@ -60,8 +61,8 @@ class PostgresR2dbcRepoConfig {
         candidate
     }
     @Bean
-    DatabaseClient databaseClient(ConnectionFactory factory)  {
-        def candidate =  DatabaseClient.builder().connectionFactory(factory).build()
+    DatabaseClient databaseClient(ConnectionFactory connectionFactory)  {
+        def candidate =  DatabaseClient.builder().connectionFactory(connectionFactory).build()
         candidate
     }
     @Bean
