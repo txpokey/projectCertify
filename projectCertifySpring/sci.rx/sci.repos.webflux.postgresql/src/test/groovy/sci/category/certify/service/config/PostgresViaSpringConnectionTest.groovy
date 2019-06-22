@@ -46,7 +46,7 @@ class PostgresViaSpringConnectionTest extends AbstractTestNGSpringContextTests{
         }
     }
 
-    private getStatementFromDataSourcedConnection() {
+    protected getStatementFromDataSourcedConnection() {
         final def dsConstructorMap = [
                 user    : username,
                 password: password,
@@ -59,12 +59,16 @@ class PostgresViaSpringConnectionTest extends AbstractTestNGSpringContextTests{
         [stmt, conn1]
     }
 
-    private reportOnListUsersQuery(ResultSet rs) {
+    protected reportOnListUsersQuery(ResultSet rs) {
 
         fieldsForReporting.each { f -> reportOnFieldReturnedFromListUsersQuery(rs, f) }
     }
+    protected reportOnListPrimesQuery(ResultSet rs) {
 
-    private reportOnFieldReturnedFromListUsersQuery(ResultSet rs, String field) {
+        fieldsForReportingPrimes.each { f -> reportOnFieldReturnedFromListUsersQuery(rs, f) }
+    }
+
+    protected reportOnFieldReturnedFromListUsersQuery(ResultSet rs, String field) {
         def candidate = rs.getString(field)
         log.debug(candidate)
         candidate
@@ -73,5 +77,11 @@ class PostgresViaSpringConnectionTest extends AbstractTestNGSpringContextTests{
             'user_id',
             'username',
             'password_md5',
+    ]
+    final static def fieldsForReportingPrimes = [
+            'id',
+            'prime',
+            'truth',
+            'species',
     ]
 }
