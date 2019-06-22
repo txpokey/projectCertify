@@ -29,25 +29,6 @@ class PostgresR2dbcRepoConfig {
     String host
     String port
 
-//    @Bean(name = "primesRepoMethods")
-//    PrimesRepoMethods getRepository(R2dbcRepositoryFactory repositoryFactory) {
-//        def candidate = repositoryFactory.getRepository(PrimesWebfluxRepoPostgreSql.class)
-//        candidate
-//    }
-//
-//    @Bean
-//    R2dbcRepositoryFactory repositoryFactory(DatabaseClient databaseClient) {
-//        Dialect dialect = new PostgresDialect()
-//        ReactiveDataAccessStrategy strategy = new DefaultReactiveDataAccessStrategy(dialect)
-//        def candidate = new R2dbcRepositoryFactory(databaseClient, strategy)
-//        candidate
-//    }
-//
-//    @Bean
-//    DatabaseClient databaseClient(ConnectionFactory connectionFactory) {
-//        def candidate = DatabaseClient.builder().connectionFactory(connectionFactory).build()
-//        candidate
-//    }
     @Bean(name = "primesRepoMethods")
     def  PrimesRepoMethods repository(R2dbcRepositoryFactory factory ){
         def candidate = factory.getRepository(PrimesWebfluxRepoPostgreSql.class)

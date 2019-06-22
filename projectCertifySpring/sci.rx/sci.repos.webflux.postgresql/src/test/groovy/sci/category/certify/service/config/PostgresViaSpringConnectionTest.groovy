@@ -2,6 +2,8 @@ package sci.category.certify.service.config
 
 import groovy.util.logging.Slf4j
 import org.postgresql.ds.PGSimpleDataSource
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
 import sci.category.certify.repo.util.SqlWork
 
@@ -11,9 +13,8 @@ import java.sql.Statement
 
 @Test
 @Slf4j
-//@SpringBootTest
-//class AdhocPostgreSqlConnectionTest extends AbstractTestNGSpringContextTests {
-class AdhocPostgreSqlConnectionTest {
+@SpringBootTest
+class PostgresViaSpringConnectionTest extends AbstractTestNGSpringContextTests {
 
     final static def LIST_USERS = SqlWork.LIST_USERS
 
