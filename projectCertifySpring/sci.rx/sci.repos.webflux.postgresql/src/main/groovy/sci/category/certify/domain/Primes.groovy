@@ -2,19 +2,18 @@ package sci.category.certify.domain
 
 import org.springframework.lang.NonNull
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+//import javax.persistence.Entity
+//import javax.persistence.GeneratedValue
+//import javax.persistence.GenerationType
+//import javax.persistence.Id
 
 //import org.springframework.data.mongodb.core.mapping.Document
-@Entity
+//@Entity
 //@Document
 class Primes{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id
-
     Integer prime
     Boolean truth
     String species

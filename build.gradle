@@ -23,7 +23,6 @@ allprojects {
     }
 
     dependencies {
-        runtime('org.springframework.boot:spring-boot-devtools')
         // -------------------------------------------
 
         implementation("org.codehaus.groovy:groovy-all:${groovyVersion}")
@@ -32,8 +31,9 @@ allprojects {
         implementation("org.webjars:bootstrap:${latestRelease}")
         implementation("org.webjars:webjars-locator:${latestRelease}")
         // -------------------------------------------
-        implementation('org.springframework.boot:spring-boot-starter-web')
-        testImplementation('org.springframework.boot:spring-boot-starter-test')
+//        implementation('org.springframework.boot:spring-boot-starter-web')
+//        testImplementation('org.springframework.boot:spring-boot-starter-test')
+//        runtime('org.springframework.boot:spring-boot-devtools')
 
         // -------------------------------------------
 

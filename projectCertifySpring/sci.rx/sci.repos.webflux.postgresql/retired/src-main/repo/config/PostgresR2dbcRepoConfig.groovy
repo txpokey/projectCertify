@@ -18,34 +18,16 @@ import sci.category.certify.repo.PrimesRepoMethods
 import sci.category.certify.repo.PrimesWebfluxRepoPostgreSql
 
 @Configuration
-@EnableJdbcRepositories(basePackages = ["sci.category.certify"])
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "spring.datasource")
 @Profile("default")
-class PostgresR2dbcRepoConfig {
+class PostgresConnectionConfig {
     String database
     String username
     String password
     String host
     String port
 
-    @Bean(name = "primesRepoMethods")
-    def  PrimesRepoMethods repository(R2dbcRepositoryFactory factory ){
-        def candidate = factory.getRepository(PrimesWebfluxRepoPostgreSql.class)
-        candidate
-    }
-    @Bean
-    R2dbcRepositoryFactory factory(DatabaseClient client)  {
-        def context = new RelationalMappingContext()
-        context.afterPropertiesSet()
-        def candidate = new R2dbcRepositoryFactory(client, context)
-        candidate
-    }
-    @Bean
-    DatabaseClient databaseClient(ConnectionFactory connectionFactory)  {
-        def candidate =  DatabaseClient.builder().connectionFactory(connectionFactory).build()
-        candidate
-    }
     @Bean
     PostgresqlConnectionFactory connectionFactory() {
         final def dbPort = port as Integer
