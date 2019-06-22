@@ -2,42 +2,76 @@ package sci.category.certify.service.config
 
 import groovy.util.logging.Slf4j
 import org.postgresql.ds.PGSimpleDataSource
+import org.springframework.boot.context.properties.ConfigurationProperties
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.context.annotation.Profile
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
 import sci.category.certify.repo.util.SqlWork
 
 import javax.sql.DataSource
+import java.sql.Connection
 import java.sql.ResultSet
 import java.sql.Statement
 
 @Test
 @Slf4j
 @SpringBootTest
-class PostgresViaSpringConnectionTest extends AbstractTestNGSpringContextTests {
+@EnableConfigurationProperties
+@ConfigurationProperties(prefix = "spring.datasource")
+@Profile("default")
+class PostgresViaSpringConnectionTest extends AbstractTestNGSpringContextTests{
+    String username
+    String password
+    String url
 
+    void sanityCheck() {
+        assert username
+        assert password
+        assert url
+    }
     final static def LIST_USERS = SqlWork.LIST_USERS
 
     void connectionTest() {
         try {
-            def driver = Class.forName("org.postgresql.Driver")
-            String DB_URL="jdbc:postgresql://127.0.0.1:5432/postgres"
-            DataSource ds=new PGSimpleDataSource()
-            ds.setUser("postgres")
-            ds.setPassword("pokey0")
-            ds.setURL(DB_URL)
-            def conn1 = ds.getConnection()
-            Statement stmt = conn1.createStatement()
+            def (Statement stmt, Connection conn1) = getStatementFromDataSourcedConnection()
             ResultSet rs = stmt.executeQuery(LIST_USERS as String)
-            while (rs.next())
-            {
-                System.out.println(rs.getString("user_id"))
-                System.out.println(rs.getString("username"))
-                System.out.println(rs.getString("password_md5"))
+            while (rs.next()) {
+                reportOnListUsersQuery(rs)
             }
             conn1.close()
         } catch (Exception e) {
-            System.err.println(e)
+            log.error( e as String )
         }
     }
+
+    private getStatementFromDataSourcedConnection() {
+        final def dsConstructorMap = [
+                user    : username,
+                password: password,
+                url     : url,
+        ]
+
+        final DataSource ds = new PGSimpleDataSource(dsConstructorMap)
+        def conn1 = ds.getConnection()
+        Statement stmt = conn1.createStatement()
+        [stmt, conn1]
+    }
+
+    private reportOnListUsersQuery(ResultSet rs) {
+
+        fieldsForReporting.each { f -> reportOnFieldReturnedFromListUsersQuery(rs, f) }
+    }
+
+    private reportOnFieldReturnedFromListUsersQuery(ResultSet rs, String field) {
+        def candidate = rs.getString(field)
+        log.debug(candidate)
+        candidate
+    }
+    final static def fieldsForReporting = [
+            'user_id',
+            'username',
+            'password_md5',
+    ]
 }

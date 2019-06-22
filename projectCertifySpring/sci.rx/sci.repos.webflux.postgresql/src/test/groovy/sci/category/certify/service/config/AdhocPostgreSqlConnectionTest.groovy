@@ -11,15 +11,13 @@ import java.sql.Statement
 
 @Test
 @Slf4j
-//@SpringBootTest
-//class AdhocPostgreSqlConnectionTest extends AbstractTestNGSpringContextTests {
+
 class AdhocPostgreSqlConnectionTest {
 
     final static def LIST_USERS = SqlWork.LIST_USERS
 
     void connectionTest() {
         try {
-            def driver = Class.forName("org.postgresql.Driver")
             String DB_URL="jdbc:postgresql://127.0.0.1:5432/postgres"
             DataSource ds=new PGSimpleDataSource()
             ds.setUser("postgres")
