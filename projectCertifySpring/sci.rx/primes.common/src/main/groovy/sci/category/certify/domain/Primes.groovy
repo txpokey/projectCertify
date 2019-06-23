@@ -1,6 +1,7 @@
 package sci.category.certify.domain
 
-import org.springframework.lang.NonNull
+import javax.annotation.Nonnull
+
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -20,7 +21,7 @@ class Primes{
     Boolean truth
     String species
     String toString() { "[${prime},${species}]"}
-    static Primes of(@NonNull Integer p, String species = "TBD") {
+    static Primes of(@Nonnull Integer p, String species = "TBD") {
         def primeAsMap = [ prime: p , species: species ]
         def primeRx = new Primes(primeAsMap)
         primeRx
