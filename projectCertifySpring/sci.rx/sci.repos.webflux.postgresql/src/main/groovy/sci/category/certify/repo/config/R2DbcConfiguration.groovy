@@ -6,7 +6,7 @@ import org.springframework.data.r2dbc.config.AbstractR2dbcConfiguration
 import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories
 
 @Configuration
-@EnableR2dbcRepositories
+@EnableR2dbcRepositories(basePackages = ["sci.category.certify"])
 class R2DbcConfiguration extends AbstractR2dbcConfiguration {
 
     private final ConnectionFactory connectionFactory
