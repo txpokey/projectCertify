@@ -28,7 +28,7 @@ class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContext
 
     void featureCheck() {
         sanityCheck()
-        Flux<Primes> all = repository.findAll()
+        Flux<Primes> all = repository.findAll().log()
 
         StepVerifier
                 .create(all)
