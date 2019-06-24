@@ -19,4 +19,9 @@ class PostgresPrimesSynchApplicationBootstrapDataServicesTest extends SynchAppli
         super.featureCheck()
         assert true
     }
+    void confirmFullBootstrap() {
+        sanityCheck()
+        super.confirmFullBootstrap()
+        assert true
+    }
 }

@@ -22,7 +22,7 @@ class AppForSyncPostgreSql {
     @PostConstruct
     void postConstruct() {
         assert bootspinner
-//        def result = bootspinner.spinUp()
-//        assert result
+        def result = bootspinner.spinUp()
+        assert result
     }
 }

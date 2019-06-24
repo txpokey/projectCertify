@@ -28,6 +28,7 @@ class SyncBootstrapDataServicesConfigTest extends PrimesSynchronousReposConfigTe
         def findAll = primesContentBaseService.primesRepoContract.findAll()
         assert findAll
     }
+
 //    void testGetSyncRepoSpinner() {
 //    }
 }

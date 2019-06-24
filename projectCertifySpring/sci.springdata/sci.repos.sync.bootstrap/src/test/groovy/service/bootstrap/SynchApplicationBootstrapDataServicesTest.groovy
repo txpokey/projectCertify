@@ -28,6 +28,10 @@ class SynchApplicationBootstrapDataServicesTest extends PrimesSynchronousReposCo
         def findAll = primesContentBaseService.primesRepoContract.findAll()
         assert findAll
     }
+    void confirmFullBootstrap() {
+        def findAll = primesContentBaseService.primesRepoContract.findAll()
+        assert findAll.size() == 100
+    }
 //    void testGetSyncRepoSpinner() {
 //    }
 }
