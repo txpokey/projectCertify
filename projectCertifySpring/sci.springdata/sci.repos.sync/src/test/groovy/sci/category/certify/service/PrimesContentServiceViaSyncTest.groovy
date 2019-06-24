@@ -39,6 +39,6 @@ class PrimesContentServiceViaSyncTest extends PrimesSynchronousReposConfigTest{
         def captured = PrimesContentBaseService.getPrimesInRange(range)
         captured
     }
-    private final Range<Integer> range = 100..120
-    private final TESTED_PRIME_INDEX = 6
+    private final Range<Integer> range = 101..120
+    private final TESTED_PRIME_INDEX = 0
 }

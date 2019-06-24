@@ -14,6 +14,11 @@ class PrimesContentBootstrap implements BootstrapContract {
 
 
     boolean spinUp() {
+
+        def species = primesContentBaseService.primesRepoContract.species
+        assert species
+        final def all = PrimesContentBaseService.getPrimesInRange(RANGE,species)
+
         all.each { primePreimage ->
             def primeImage = primesContentBaseService.save(primePreimage)
             assert null != primeImage.id
@@ -21,5 +26,5 @@ class PrimesContentBootstrap implements BootstrapContract {
         true
     }
     private final static def RANGE = 1..100
-    private final static def all = PrimesContentBaseService.getPrimesInRange(RANGE)
+//    private final static def all = PrimesContentBaseService.getPrimesInRange(RANGE)
 }

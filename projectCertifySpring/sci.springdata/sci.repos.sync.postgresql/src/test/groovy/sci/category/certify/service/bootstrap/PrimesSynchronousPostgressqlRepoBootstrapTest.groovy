@@ -13,6 +13,9 @@ class PrimesSynchronousPostgreSqlRepoBootstrapTest extends PrimesSynchronousRepo
         super.sanityCheck()
     }
     void featureCheck() {
+        this.sanityCheck()
+        log.debug("PING")
         super.featureCheck()
+        assert true
     }
 }

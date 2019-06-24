@@ -15,6 +15,8 @@ class PrimesSynchronousReposBootstrapTest extends PrimesSynchronousReposConfigTe
         super.sanityCheck()
         assert primesContentBaseService
         assert primesContentBootstrap
+        def species = primesContentBaseService.primesRepoContract.species
+        assert species
     }
     void featureCheck() {
         sanityCheck()
