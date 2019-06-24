@@ -13,6 +13,7 @@ import org.testng.annotations.Test
 class PrimesPostgreSqlSynchronousReposConfigTest extends PrimesSynchronousReposConfigTest {
 
     void sanityCheck() {
+        log.debug("PING")
         super.sanityCheck()
     }
 

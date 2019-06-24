@@ -33,7 +33,7 @@ class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContext
 
     void featureCheck() {
         sanityCheck()
-//        proveCorrectCountOfPrimesInDatabase(100)
+        proveCorrectCountOfPrimesInDatabase(100)
         showConversionFluxToIterableOnAllPrimesInDatabase()
     }
     void checkSaveAllFeature() {

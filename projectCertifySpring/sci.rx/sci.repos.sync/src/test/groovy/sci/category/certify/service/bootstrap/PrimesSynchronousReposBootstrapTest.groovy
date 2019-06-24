@@ -11,6 +11,8 @@ import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 class PrimesSynchronousReposBootstrapTest extends PrimesSynchronousReposConfigTest {
 
     void sanityCheck() {
+        log.debug("PING")
+        super.sanityCheck()
         assert primesContentBaseService
         assert primesContentBootstrap
     }

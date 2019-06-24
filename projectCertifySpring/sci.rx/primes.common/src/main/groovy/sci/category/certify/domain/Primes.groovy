@@ -12,7 +12,7 @@ import javax.persistence.Id
 
 @Entity
 //@Document
-class Primes{
+class Primes{ // TODO: need to adopt features from the webflux version of Primes
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id
@@ -20,7 +20,7 @@ class Primes{
     Integer prime
     Boolean truth
     String species
-    String toString() { "[${prime},${species}]"}
+    String toString() { "[${species}, ${prime}, ${truth}]"}
     static Primes of(@Nonnull Integer p, String species = "TBD") {
         def primeAsMap = [ prime: p , species: species ]
         def primeRx = new Primes(primeAsMap)

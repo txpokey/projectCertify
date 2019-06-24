@@ -1,7 +1,8 @@
 package edu.javial.cert.se.core.math
 
 import groovy.util.logging.Slf4j
-import org.springframework.lang.NonNull
+
+import javax.annotation.Nonnull
 
 import java.util.concurrent.ConcurrentSkipListSet
 
@@ -9,7 +10,7 @@ import java.util.concurrent.ConcurrentSkipListSet
 class PrimeNumberGroovy{
 
 
-    static boolean isPrime( @NonNull Integer p ) {
+    static boolean isPrime( @Nonnull Integer p ) {
         final def specials = 1..3
         def candidate = specials.contains(p) ? true : privateIsPrime(p)
         candidate

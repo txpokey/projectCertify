@@ -18,13 +18,13 @@ class PrimesContentBaseService  {
         saved
     }
 
-    static List<Primes> getPrimesInRange(@NonNull Range<Integer> range) {
-        def candidate = (range).collect { i -> getPrimeViaConstructorOnMap(i) }
+    static List<Primes> getPrimesInRange(@NonNull Range<Integer> range, @NonNull String species = 'default') {
+        def candidate = (range).collect { i -> getPrimeViaConstructorOnMap(i,species) }
         candidate
     }
 
-    private static getPrimeViaConstructorOnMap(int i) {
-        Map m = [prime: i, truth: PrimeNumberGroovy.isPrime(i)]
+    private static getPrimeViaConstructorOnMap(@NonNull int i, @NonNull String species) {
+        Map m = [prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species]
         def p = new Primes(m)
     }
 }

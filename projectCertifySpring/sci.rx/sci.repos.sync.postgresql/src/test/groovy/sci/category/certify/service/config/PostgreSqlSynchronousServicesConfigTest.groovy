@@ -10,6 +10,7 @@ import org.testng.annotations.Test
 class PostgreSqlSynchronousServicesConfigTest extends SynchronousServicesConfigTest {
 
     void sanityCheck() {
+        log.debug("PING")
         super.sanityCheck()
     }
 

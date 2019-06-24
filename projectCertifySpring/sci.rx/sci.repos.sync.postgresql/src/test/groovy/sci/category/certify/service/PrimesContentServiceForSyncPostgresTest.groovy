@@ -7,10 +7,18 @@ import org.testng.annotations.Test
 @Test
 @Slf4j
 @SpringBootTest
-class PrimesContentBaseServiceForPostgreSqlSyncRepoTest extends PrimesContentBaseServiceForSyncTest{
+class PrimesContentServiceViaSyncPostgresTest extends PrimesContentServiceViaSyncTest {
+
+    void sanityCheck() {
+        log.debug("PING")
+        log.debug(java.util.UUID.randomUUID() as String)
+        super.sanityCheck()
+    }
 
     void testSave() {
+        sanityCheck()
         super.testSave()
+        assert true
     }
 
     void testGetPrimesInRange() {

@@ -22,7 +22,7 @@ class AppForSyncH2{
     @PostConstruct
     void postConstruct() {
         assert spinner
-        def result = spinner.spinUp()
-        assert result
+//        def result = spinner.spinUp()
+//        assert result
     }
 }

@@ -9,6 +9,7 @@ import org.testng.annotations.Test
 @SpringBootTest
 class PrimesSynchronousPostgreSqlRepoBootstrapTest extends PrimesSynchronousReposBootstrapTest {
     void sanityCheck() {
+        log.debug("PING")
         super.sanityCheck()
     }
     void featureCheck() {

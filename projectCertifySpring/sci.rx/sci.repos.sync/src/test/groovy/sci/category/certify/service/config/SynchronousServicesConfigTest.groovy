@@ -18,6 +18,8 @@ class SynchronousServicesConfigTest extends PrimesSynchronousReposBootstrapTest 
     private BootstrapDataService bootspinner
 
     void sanityCheck() {
+        log.debug("PING")
+        super.sanityCheck()
         assert bootspinner
     }
     void testGetSyncRepoSpinner() {

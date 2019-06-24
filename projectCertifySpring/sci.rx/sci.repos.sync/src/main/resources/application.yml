@@ -26,7 +26,7 @@ server:
 logging:
   level:
     org.springframework.web: INFO
-    com.category.fans: DEBUG
+    sci.category.certify: DEBUG
   file: /dev/null
   pattern:
     console: "%date{HH:mm:ss.SSS} [%thread] | %logger{10}.%method.%L : %msg%n"

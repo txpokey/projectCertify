@@ -13,7 +13,7 @@ import sci.category.certify.service.bootstrap.PrimesContentBootstrap
 
 @Test
 @Slf4j
-//@SpringBootTest
+@SpringBootTest
 /**
  * synchronous repo configuration test
  */
@@ -31,6 +31,7 @@ class PrimesSynchronousReposConfigTest extends AbstractTestNGSpringContextTests{
     PrimesContentBootstrap primesContentBootstrap
 
     void sanityCheck() {
+        log.debug("PING")
         assert primesRepoContract
         assert primesContentBaseService
         assert primesContentBaseService.primesRepoContract
