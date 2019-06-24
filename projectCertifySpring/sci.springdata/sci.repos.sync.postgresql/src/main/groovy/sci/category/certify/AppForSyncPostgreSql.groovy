@@ -16,13 +16,13 @@ class AppForSyncPostgreSql {
     }
 
     @Autowired
-    @Qualifier("synchronousRepoBootstrapTool")
-    private BootstrapDataService spinner
+    @Qualifier("syncBootstrapDataServices")
+    private BootstrapDataService bootspinner
 
     @PostConstruct
     void postConstruct() {
-        assert spinner
-//        def result = spinner.spinUp()
+        assert bootspinner
+//        def result = bootspinner.spinUp()
 //        assert result
     }
 }

@@ -13,7 +13,7 @@ import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 @Test
 @Slf4j
 @SpringBootTest
-class PrimesContentServiceViaSyncTest extends PrimesSynchronousReposConfigTest{
+class PrimesSyncContentBaseServiceTest extends PrimesSynchronousReposConfigTest{
 
     void sanityCheck() {
         log.debug("PING")

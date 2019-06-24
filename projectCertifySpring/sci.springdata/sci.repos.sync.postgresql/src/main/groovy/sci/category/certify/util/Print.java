@@ -1,4 +1,4 @@
-package sci.category.certify.repo.util;
+package sci.category.certify.util;
 
 import java.util.function.Consumer;
 

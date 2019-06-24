@@ -7,7 +7,7 @@ import org.testng.annotations.Test
 @Test
 @Slf4j
 @SpringBootTest
-class PrimesContentServiceViaSyncPostgresTest extends PrimesContentServiceViaSyncTest {
+class PostgresPrimesSyncContentBaseServiceTest extends PrimesSyncContentBaseServiceTest {
 
     void sanityCheck() {
         log.debug("PING")

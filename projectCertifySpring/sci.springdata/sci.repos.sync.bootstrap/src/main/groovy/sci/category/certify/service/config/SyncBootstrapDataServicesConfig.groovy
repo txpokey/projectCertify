@@ -8,13 +8,13 @@ import sci.category.certify.service.bootstrap.BootstrapDataService
 import sci.category.certify.service.bootstrap.PrimesContentBootstrap
 
 @Configuration
-class SynchronousServicesConfig {
+class SyncBootstrapDataServicesConfig{
 
     @Autowired
     @Qualifier("primesContentBootstrap")
     private PrimesContentBootstrap spinner
 
-    @Bean(name = "synchronousRepoBootstrapTool")
+    @Bean(name = "syncBootstrapDataServices")
     BootstrapDataService getSyncRepoSpinner() {
         assert spinner
         BootstrapDataService bootstrap = new BootstrapDataService([spinner])

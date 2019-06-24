@@ -5,15 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.testng.annotations.Test
 import sci.category.certify.service.bootstrap.BootstrapDataService
-import service.bootstrap.PrimesSynchronousReposBootstrapTest
+import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 
 @Test
 @Slf4j
 //@SpringBootTest
-class SynchronousServicesConfigTest extends PrimesSynchronousReposBootstrapTest {
+class SyncBootstrapDataServicesConfigTest extends PrimesSynchronousReposConfigTest {
 
     @Autowired
-    @Qualifier("synchronousRepoBootstrapTool")
+    @Qualifier("syncBootstrapDataServices")
     private BootstrapDataService bootspinner
 
     void sanityCheck() {
@@ -21,6 +21,13 @@ class SynchronousServicesConfigTest extends PrimesSynchronousReposBootstrapTest 
         super.sanityCheck()
         assert bootspinner
     }
-    void testGetSyncRepoSpinner() {
+    void featureCheck() {
+        sanityCheck()
+        def result = bootspinner.spinUp()
+        assert result
+        def findAll = primesContentBaseService.primesRepoContract.findAll()
+        assert findAll
     }
+//    void testGetSyncRepoSpinner() {
+//    }
 }

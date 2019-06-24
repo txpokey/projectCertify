@@ -3,12 +3,14 @@ package sci.category.certify.service.config
 import groovy.util.logging.Slf4j
 import org.springframework.boot.test.context.SpringBootTest
 import org.testng.annotations.Test
-import service.config.SynchronousServicesConfigTest
 
 @Test
 @Slf4j
 @SpringBootTest
-class PostgreSqlSynchronousServicesConfigTest extends SynchronousServicesConfigTest {
+/**
+ * synchronous repo configuration test
+ */
+class PostgresPrimesSynchReposConfigTest extends PrimesSynchronousReposConfigTest {
 
     void sanityCheck() {
         log.debug("PING")
