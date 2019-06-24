@@ -1,7 +1,6 @@
-package sci.category.certify.service.bootstrap
+package service.bootstrap
 
 import groovy.util.logging.Slf4j
-import org.springframework.boot.test.context.SpringBootTest
 import org.testng.annotations.Test
 import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 

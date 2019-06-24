@@ -3,6 +3,7 @@ package sci.category.certify.service.bootstrap
 import groovy.util.logging.Slf4j
 import org.springframework.boot.test.context.SpringBootTest
 import org.testng.annotations.Test
+import service.bootstrap.PrimesSynchronousReposBootstrapTest
 
 @Test
 @Slf4j
