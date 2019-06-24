@@ -12,9 +12,9 @@ spring:
     database-platform: org.hibernate.dialect.ProgressDialect
     show-sql: true
     hibernate:
-    ## use create when running the app for the first time
+    ## use "create" when running the app for the first time
     ## then change to "update" which just updates the schema when necessary
-      ddl-auto: create
+      ddl-auto: update
     properties.hibernate.jdbc.lob.non_contextual_creation: true
 logging:
   level:

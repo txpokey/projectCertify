@@ -40,10 +40,10 @@ class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContext
         final def currentRange = 101..120
         final def sizeExpected = currentRange.size()
         final List<Primes> list = getPrimesInRange( currentRange, repository.species )
-        final Flux<Primes> all = repository.saveAll(list)
+        final Flux<Primes> all = repository.saveAll(list).log()
         StepVerifier
                 .create(all)
-                .expectNextCount(1)
+                .expectNextCount(sizeExpected)
                 .verifyComplete()
         showConversionFluxToIterableOnAllPrimesInDatabase()
     }
@@ -53,7 +53,9 @@ class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContext
     }
     private static getPrimeViaConstructorOnMap(@NonNull int i, @NonNull String species) {
         def guid = java.util.UUID.randomUUID() as String
-        Map m = [id: guid, prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species ]
+//        Map m = [id: guid, prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species ]
+        Map m = [id: i, prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species ]
+//        Map m = [            prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species ]
         def p = new Primes(m)
     }
     private showConversionFluxToIterableOnAllPrimesInDatabase() {
