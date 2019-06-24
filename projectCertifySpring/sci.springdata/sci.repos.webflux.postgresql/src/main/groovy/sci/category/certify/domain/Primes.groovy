@@ -11,7 +11,7 @@ import javax.persistence.Entity
 class Primes{
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
-    String id
+    Long id
     Integer prime
     Boolean truth
     String species

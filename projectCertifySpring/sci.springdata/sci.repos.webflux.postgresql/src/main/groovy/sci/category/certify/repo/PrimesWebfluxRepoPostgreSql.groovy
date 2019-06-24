@@ -7,7 +7,7 @@ import sci.category.certify.domain.Primes
 @Repository
 interface PrimesWebfluxRepoPostgreSql
         extends PrimesRepoMethods,
-                R2dbcRepository<Primes, String>{
-    def species = "postgres"
+                R2dbcRepository<Primes, Long>{
+    def species = "postgres-r2dbc"
 
 }
