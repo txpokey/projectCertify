@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Profile
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
 import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 import reactor.test.StepVerifier
 import reactor.util.annotation.NonNull
 import sci.category.certify.domain.Primes
@@ -34,6 +35,23 @@ class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContext
     void featureCheck() {
         sanityCheck()
         proveCorrectCountOfPrimesInDatabase(100)
+        showConversionFluxToIterableOnAllPrimesInDatabase()
+    }
+    void checkSaveOneFeature() {
+        final def currentRange = 101..101
+        final def sizeExpected = currentRange.size()
+        final List<Primes> list = getPrimesInRange( currentRange, repository.species )
+        final Mono<Primes> allSaved = repository.save(list[0]).log()
+
+        StepVerifier
+                .create(allSaved)
+                .expectNextCount(sizeExpected)
+                .verifyComplete()
+        Flux<Primes> allVerify = getAllPrimesInDatabase().log()
+        StepVerifier
+                .create(allVerify)
+                .expectNextCount(100)
+                .verifyComplete()
         showConversionFluxToIterableOnAllPrimesInDatabase()
     }
     void checkSaveAllFeature() {
