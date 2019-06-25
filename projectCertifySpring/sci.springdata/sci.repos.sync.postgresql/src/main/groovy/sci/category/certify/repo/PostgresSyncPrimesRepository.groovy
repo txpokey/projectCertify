@@ -6,6 +6,6 @@ import sci.category.certify.domain.Primes
 
 
 @Repository
-interface PrimesSynchronousRepoForPostgreSql extends PrimesRepoMethods , JpaRepository<Primes,Long> {
-    def species = "postgres-sync"
+interface PostgresSyncPrimesRepository extends PrimesRepositoryContract , JpaRepository<Primes,Long> {
+//    String species = "postgres-sync"
 }

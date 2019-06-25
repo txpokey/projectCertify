@@ -1,0 +1,143 @@
+12:28:30.827 [main] | o.h.e.j.e.i.LobCreatorBuilderImpl.useContextualLobCreation.85 : HHH000421: Disabling contextual LOB creation as hibernate.jdbc.lob.non_contextual_creation is true
+Hibernate: drop table hibernate_sequence
+Hibernate: drop table primes
+Hibernate: create table hibernate_sequence (next_val numeric)
+Hibernate: insert into hibernate_sequence values ( 1 )
+Hibernate: create table primes (id numeric not null, prime integer, species varchar(255), truth boolean, primary key (id))
+12:28:31.408 [main] | o.h.t.s.i.SchemaCreatorImpl.applyImportSources.489 : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6eede35e'
+12:28:31.410 [main] | o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory.415 : Initialized JPA EntityManagerFactory for persistence unit 'default'
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into primes (prime, species, truth, id) values (?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+
+....

@@ -5,11 +5,11 @@ import org.testng.annotations.Test
 
 @Test
 @Slf4j
-class PrimesContentBaseServiceTest {
+class PrimesRepositoryServiceTest{
 
     void testGetPrimesInRange() {
         final Range<Integer> range = 1..20
-        def captured = PrimesContentBaseService.getPrimesInRange(range)
+        def captured = PrimesRepositoryService.getPrimesInRange(range)
         captured
     }
 }

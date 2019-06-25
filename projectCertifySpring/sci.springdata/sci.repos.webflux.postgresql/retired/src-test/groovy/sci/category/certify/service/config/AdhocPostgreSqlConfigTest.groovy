@@ -27,11 +27,11 @@ class AdhocPostgreSqlConfigTest extends AbstractTestNGSpringContextTests {
     PrimesRepoMethods repository
 
     @Autowired
-    @Qualifier("primesContentBaseService")
+    @Qualifier("primesRepositoryService")
     private PrimesContentBaseService service
 
     @Autowired
-    @Qualifier("bootstrapTool")
+    @Qualifier("applicationContentBootstrap")
     private BootstrapDataService spinner
 
     @Autowired

@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Component
 import sci.category.certify.service.PrimesContentBaseService
 
-@Component("primesContentBootstrap")
+@Component("primesBootstrapService")
 class PrimesContentBootstrap implements BootstrapContract {
 
     @Autowired
-    @Qualifier("primesContentBaseService")
+    @Qualifier("primesRepositoryService")
     PrimesContentBaseService primesContentBaseService
 
 

@@ -18,7 +18,7 @@ class PrimesContentBootstrapTest extends AbstractTestNGSpringContextTests {
     PrimesContentBaseService primesContentServiceUsingH2
 
     @Autowired
-    @Qualifier("primesContentBootstrap")
+    @Qualifier("primesBootstrapService")
     PrimesContentBootstrap primesContentBootstrap
 
 
@@ -35,7 +35,7 @@ class PrimesContentBootstrapTest extends AbstractTestNGSpringContextTests {
     }
 }
 
-//    @Bean("bootstrapTool")
+//    @Bean("applicationContentBootstrap")
 //    BootstrapDataService getBootstreapBean() {
 //        def spinner = new BootstrapDataService()
 //    }

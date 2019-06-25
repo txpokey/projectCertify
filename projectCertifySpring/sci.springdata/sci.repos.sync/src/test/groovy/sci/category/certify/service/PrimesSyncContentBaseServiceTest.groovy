@@ -1,13 +1,9 @@
 package sci.category.certify.service
 
 import groovy.util.logging.Slf4j
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
 import sci.category.certify.domain.Primes
-import sci.category.certify.repo.PrimesRepoMethods
 import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 
 @Test
@@ -18,25 +14,35 @@ class PrimesSyncContentBaseServiceTest extends PrimesSynchronousReposConfigTest{
     void sanityCheck() {
         log.debug("PING")
         super.sanityCheck()
-        assert primesContentBaseService
-        assert primesContentBaseService.primesRepoContract
-        assert primesContentBaseService.primesRepoContract.species
+        assert primesRepositoryService
+        assert primesRepositoryService.primesRepoContract
+        assert primesRepositoryService.species
     }
     void testSave() {
         sanityCheck()
-        final def species = primesContentBaseService.primesRepoContract.species
+        final def species = getRepositorySpecies()
 
         assert range.size() >= TESTED_PRIME_INDEX
-        List<Primes> primes = PrimesContentBaseService.getPrimesInRange(range,species)
+        List<Primes> primes = getPrimesInRange(range,species)
         assert primes
         assert primes.size() >= TESTED_PRIME_INDEX
         def myPrimePick = primes[TESTED_PRIME_INDEX]
-        def candidate = primesContentBaseService.save(myPrimePick)
+        def candidate = primesRepositoryService.save(myPrimePick)
         assert candidate
     }
 
+    private getRepositorySpecies() {
+        primesRepositoryService.primesRepoContract.species
+    }
+
+    private getPrimesInRange(Range range, String species) {
+        List<Primes> primes = PrimesRepositoryService.getPrimesInRange(range, species)
+        primes
+    }
+
     void testGetPrimesInRange() {
-        def captured = PrimesContentBaseService.getPrimesInRange(range)
+        final def species = getRepositorySpecies()
+        def captured = PrimesRepositoryService.getPrimesInRange(range, species)
         captured
     }
     private final Range<Integer> range = 101..120

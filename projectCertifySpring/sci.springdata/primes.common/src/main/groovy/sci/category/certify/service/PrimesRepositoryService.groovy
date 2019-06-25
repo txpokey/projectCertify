@@ -2,20 +2,34 @@ package sci.category.certify.service
 
 import edu.javial.cert.se.core.math.PrimeNumberGroovy
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.lang.NonNull
 import org.springframework.stereotype.Component
 import sci.category.certify.domain.Primes
-import sci.category.certify.repo.PrimesRepoMethods
+import sci.category.certify.repo.PrimesRepositoryContract
+import sci.category.certify.repo.PrimesServicesContract
 
-@Component("primesContentBaseService")
-class PrimesContentBaseService  {
+@Component("primesRepositoryService")
+class PrimesRepositoryService implements PrimesServicesContract {
     @Autowired
-    PrimesRepoMethods primesRepoContract
+    PrimesRepositoryContract primesRepoContract
+
+    private String species
+
+    @Autowired
+    PrimesRepositoryService( @Qualifier("primesRepositorySpecies") String species ) {
+        this.species = species
+    }
 
     Primes save(@NonNull Primes p) {
         Primes saved = primesRepoContract.save( p )
         assert saved
         saved
+    }
+
+    @Override
+    String getSpecies() {
+        return species
     }
 
     static List<Primes> getPrimesInRange(@NonNull Range<Integer> range, @NonNull String species = 'default') {

@@ -3,6 +3,7 @@ package sci.category.certify.service.config
 import groovy.util.logging.Slf4j
 import org.springframework.boot.test.context.SpringBootTest
 import org.testng.annotations.Test
+import sci.category.certify.repo.PostgresSyncPrimesRepository
 
 @Test
 @Slf4j
@@ -15,6 +16,10 @@ class PostgresPrimesSynchReposConfigTest extends PrimesSynchronousReposConfigTes
     void sanityCheck() {
         log.debug("PING")
         super.sanityCheck()
+        PostgresSyncPrimesRepository repo = primesRepositoryService.primesRepoContract
+        assert repo
+        def species = primesRepositoryService.species
+        assert species
     }
 
 }

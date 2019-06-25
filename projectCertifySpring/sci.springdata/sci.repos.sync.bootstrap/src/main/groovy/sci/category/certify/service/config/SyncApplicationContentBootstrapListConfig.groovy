@@ -4,20 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import sci.category.certify.service.bootstrap.BootstrapDataService
-import sci.category.certify.service.bootstrap.PrimesContentBootstrap
+import sci.category.certify.service.bootstrap.ApplicationContentBootstrapContract
+import sci.category.certify.service.bootstrap.PrimesBootstrapService
 
 @Configuration
-class ReactiveServicesConfig {
+class SyncApplicationContentBootstrapListConfig{
 
     @Autowired
     @Qualifier("primesBootstrapService")
-    private PrimesContentBootstrap spinner
+    private PrimesBootstrapService spinner
 
-    @Bean(name = "reactiveRepoBootstrapTool")
-    BootstrapDataService getSyncRepoSpinner() {
+    @Bean(name = "applicationContentBootstrapList")
+    List<ApplicationContentBootstrapContract> getSyncRepoSpinner() {
         assert spinner
-        BootstrapDataService bootstrap = new BootstrapDataService([spinner])
+        [spinner]
     }
 
 }

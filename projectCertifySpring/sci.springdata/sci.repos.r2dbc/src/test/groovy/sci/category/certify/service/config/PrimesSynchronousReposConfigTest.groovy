@@ -23,11 +23,11 @@ class PrimesSynchronousReposConfigTest extends AbstractTestNGSpringContextTests{
 //    PrimesRepoMethods primesRepoContract
 //
 //    @Autowired
-//    @Qualifier("primesContentBaseService")
+//    @Qualifier("primesRepositoryService")
 //    PrimesContentBaseService primesContentBaseService
 //
 //    @Autowired
-//    @Qualifier("primesContentBootstrap")
+//    @Qualifier("primesBootstrapService")
 //    PrimesContentBootstrap primesContentBootstrap
 //
 //    void sanityCheck() {

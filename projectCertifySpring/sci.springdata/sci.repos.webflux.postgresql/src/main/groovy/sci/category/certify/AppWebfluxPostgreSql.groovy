@@ -11,7 +11,7 @@ class AppWebfluxPostgreSql {
     }
 
 //    @Autowired
-//    @Qualifier("bootstrapTool")
+//    @Qualifier("applicationContentBootstrap")
 //    private BootstrapDataService spinner
 //
 //    @PostConstruct

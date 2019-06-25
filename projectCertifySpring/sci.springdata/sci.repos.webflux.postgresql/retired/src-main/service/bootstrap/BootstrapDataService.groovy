@@ -9,7 +9,7 @@ interface BootstrapContract {
     boolean spinUp()
 }
 
-@Component("bootstrapTool")
+@Component("applicationContentBootstrap")
 class BootstrapDataService implements BootstrapContract {
 
     private final List<BootstrapContract>  bootstrapingList

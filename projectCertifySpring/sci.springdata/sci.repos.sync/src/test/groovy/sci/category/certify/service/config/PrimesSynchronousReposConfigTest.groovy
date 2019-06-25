@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
-import sci.category.certify.repo.PrimesRepoMethods
-import sci.category.certify.service.PrimesContentBaseService
-import sci.category.certify.service.bootstrap.PrimesContentBootstrap
-
+import sci.category.certify.repo.PrimesRepositoryContract
+import sci.category.certify.service.PrimesRepositoryService
 
 @Test
 @Slf4j
@@ -20,24 +18,24 @@ import sci.category.certify.service.bootstrap.PrimesContentBootstrap
 class PrimesSynchronousReposConfigTest extends AbstractTestNGSpringContextTests{
 
     @Autowired
-    PrimesRepoMethods primesRepoContract
+    PrimesRepositoryContract primesRepoContract
 
     @Autowired
-    @Qualifier("primesContentBaseService")
-    PrimesContentBaseService primesContentBaseService
+    @Qualifier("primesRepositoryService")
+    PrimesRepositoryService primesRepositoryService
 
-    @Autowired
-    @Qualifier("primesContentBootstrap")
-    PrimesContentBootstrap primesContentBootstrap
+//    @Autowired
+//    @Qualifier("primesBootstrapService")
+//    PrimesBootstrapService primesBootstrapService
 
     void sanityCheck() {
         log.debug("PING")
         assert primesRepoContract
-        assert primesContentBaseService
-        assert primesContentBaseService.primesRepoContract
-        assert primesContentBaseService.primesRepoContract == primesRepoContract
-        assert primesContentBootstrap
-        assert primesContentBootstrap.primesContentBaseService == primesContentBaseService
+        assert primesRepositoryService
+        assert primesRepositoryService.primesRepoContract
+        assert primesRepositoryService.primesRepoContract == primesRepoContract
+//        assert primesBootstrapService
+//        assert primesBootstrapService.primesRepositoryService == primesRepositoryService
 
     }
 

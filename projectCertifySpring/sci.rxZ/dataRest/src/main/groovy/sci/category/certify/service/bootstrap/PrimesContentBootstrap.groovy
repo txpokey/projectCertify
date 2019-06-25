@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component
 import sci.category.certify.domain.Primes
 import sci.category.certify.service.PrimesContentBaseService
 
-@Component("primesContentBootstrap")
+@Component("primesBootstrapService")
 class PrimesContentBootstrap implements BootstrapContract {
 
     @Autowired

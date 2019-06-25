@@ -10,7 +10,7 @@ class App{
         SpringApplication.run App, args
     }
 //    @Autowired
-//    @Qualifier("bootstrapTool")
+//    @Qualifier("applicationContentBootstrap")
 //    private BootstrapDataService spinner
 //
 //    @PostConstruct

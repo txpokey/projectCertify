@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono
 import sci.category.certify.domain.Primes
 import sci.category.certify.repo.PrimesRepoMethods
 
-@Component("primesContentBaseService")
+@Component("primesRepositoryService")
 class PrimesContentBaseService  {
     @Autowired
     @Qualifier("primesRepoMethods")

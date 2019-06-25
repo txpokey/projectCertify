@@ -25,11 +25,11 @@ class PrimesContentBaseServiceTest extends AbstractTestNGSpringContextTests{
 //    PrimesRepoMethods repository
 
     @Autowired
-    @Qualifier("primesContentBaseService")
+    @Qualifier("primesRepositoryService")
     private PrimesContentBaseService service
 
     @Autowired
-    @Qualifier("bootstrapTool")
+    @Qualifier("applicationContentBootstrap")
     private BootstrapDataService spinner
 
     void sanityCheck() {
