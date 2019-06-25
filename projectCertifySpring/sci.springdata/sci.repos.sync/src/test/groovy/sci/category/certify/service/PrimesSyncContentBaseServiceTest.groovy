@@ -32,7 +32,7 @@ class PrimesSyncContentBaseServiceTest extends PrimesSynchronousReposConfigTest{
     }
 
     private getRepositorySpecies() {
-        primesRepositoryService.primesRepoContract.species
+        primesRepositoryService.species
     }
 
     private getPrimesInRange(Range range, String species) {

@@ -1,4 +1,4 @@
-package sci.category.certify.service.config
+package sci.category.certify.service.connectivity
 
 import groovy.util.logging.Slf4j
 import oracle.jdbc.driver.OracleConnection

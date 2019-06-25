@@ -10,10 +10,13 @@ import org.testng.annotations.Test
 /**
  * synchronous repo configuration test
  */
-class PrimesOraSynchronousReposConfigTest extends PrimesSynchronousReposConfigTest {
+class H2PrimesSynchReposConfigTest extends PrimesSynchronousReposConfigTest {
 
     void sanityCheck() {
+        log.debug("PING")
         super.sanityCheck()
+        def species = primesRepositoryService.species
+        assert species
     }
 
 }
