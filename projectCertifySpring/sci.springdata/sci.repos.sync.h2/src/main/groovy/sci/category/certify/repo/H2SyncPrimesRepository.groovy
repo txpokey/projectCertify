@@ -6,6 +6,6 @@ import sci.category.certify.domain.Primes
 
 
 @Repository
-interface PrimesSynchronousRepoForH2 extends PrimesRepoMethods , JpaRepository<Primes,Long> {
-    def species = "H2-sync"
+interface H2SyncPrimesRepository extends PrimesRepositoryContract , JpaRepository<Primes,Long> {
+//    def species = "H2-sync"
 }

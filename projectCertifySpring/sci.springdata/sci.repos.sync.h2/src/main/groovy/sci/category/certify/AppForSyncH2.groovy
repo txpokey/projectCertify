@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import sci.category.certify.service.bootstrap.BootstrapDataService
+import sci.category.certify.service.bootstrap.ApplicationContentBootstrapService
 
 import javax.annotation.PostConstruct
 
@@ -16,13 +16,13 @@ class AppForSyncH2{
     }
 
     @Autowired
-    @Qualifier("syncBootstrapDataServices")
-    private BootstrapDataService spinner
+    @Qualifier("applicationContentBootstrap")
+    private ApplicationContentBootstrapService bootspinner
 
     @PostConstruct
     void postConstruct() {
-        assert spinner
-        def result = spinner.spinUp()
+        assert bootspinner
+        def result = bootspinner.spinUp()
         assert result
     }
 }
