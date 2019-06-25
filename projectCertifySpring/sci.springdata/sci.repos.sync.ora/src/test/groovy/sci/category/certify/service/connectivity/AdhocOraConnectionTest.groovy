@@ -13,6 +13,25 @@ import java.sql.Statement
 class AdhocOraConnectionTest{
     void connectionTest() {
         try {
+            def c = Class.forName("oracle.jdbc.driver.OracleDriver")
+            assert c
+            String DB_URL="jdbc:oracle:thin:sys as sysdba/Oradoc_db1@localhost:1521:ORCLCDB"
+            OracleDataSource ds1=new OracleDataSource()
+            ds1.setURL(DB_URL)
+            OracleConnection conn1 = (OracleConnection)ds1.getConnection()
+            Statement stmt = conn1.createStatement()
+            ResultSet rs = stmt.executeQuery("select * from dba_users")
+            while (rs.next())
+            {
+                log.debug(rs.getString(1))
+            }
+            conn1.close()
+        } catch (Exception e) {
+            log.error(e as String)
+        }
+    }
+    void connectionTest0() {
+        try {
             Class.forName("oracle.jdbc.driver.OracleDriver")
             String DB_URL="jdbc:oracle:thin:@localhost:1521:ORCLCDB"
             OracleDataSource ds1=new OracleDataSource()

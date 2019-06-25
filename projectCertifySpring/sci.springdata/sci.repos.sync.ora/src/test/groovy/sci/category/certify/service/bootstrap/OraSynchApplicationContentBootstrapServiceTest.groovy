@@ -17,6 +17,7 @@ class OraSynchApplicationContentBootstrapServiceTest extends SynchApplicationCon
         this.sanityCheck()
         log.debug("PING")
         super.featureCheck()
+        super.confirmFullBootstrap()
         assert true
     }
     void confirmFullBootstrap() {
