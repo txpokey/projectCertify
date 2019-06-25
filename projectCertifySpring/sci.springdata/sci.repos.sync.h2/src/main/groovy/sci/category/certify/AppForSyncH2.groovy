@@ -16,13 +16,13 @@ class AppForSyncH2{
     }
 
     @Autowired
-    @Qualifier("synchronousRepoBootstrapTool")
+    @Qualifier("syncBootstrapDataServices")
     private BootstrapDataService spinner
 
     @PostConstruct
     void postConstruct() {
         assert spinner
-//        def result = spinner.spinUp()
-//        assert result
+        def result = spinner.spinUp()
+        assert result
     }
 }

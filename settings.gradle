@@ -24,9 +24,10 @@ include 'projectCertifySpring:sci.springdata:sci.repos.sync'
 include 'projectCertifySpring:sci.springdata:sci.repos.sync.bootstrap'
 
 //include 'projectCertifySpring:sci.springdata:sci.repos.r2dbc'
-//include 'projectCertifySpring:sci.springdata:sci.repos.sync.h2'
+include 'projectCertifySpring:sci.springdata:sci.repos.sync.h2'
 //include 'projectCertifySpring:sci.springdata:sci.repos.sync.ora'
 include 'projectCertifySpring:sci.springdata:sci.repos.sync.postgresql'
 include 'projectCertifySpring:sci.springdata:sci.repos.webflux.postgresql'
+include 'projectCertifySpring:sci.springdata:sci.repos.webflux.h2'
 //include 'projectCertifySpring:sci.springdata:sci.repos.rx'
 
