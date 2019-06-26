@@ -1,14 +1,13 @@
 package sci.category.certify.service
 
 import groovy.util.logging.Slf4j
-import org.springframework.boot.test.context.SpringBootTest
 import org.testng.annotations.Test
 import sci.category.certify.domain.Primes
 import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
 
 @Test
 @Slf4j
-@SpringBootTest
+//@SpringBootTest
 class PrimesSyncContentBaseServiceTest extends PrimesSynchronousReposConfigTest{
 
     void sanityCheck() {
@@ -40,11 +39,11 @@ class PrimesSyncContentBaseServiceTest extends PrimesSynchronousReposConfigTest{
         primes
     }
 
-    void testGetPrimesInRange() {
+    protected testGetPrimesInRange() {
         final def species = getRepositorySpecies()
         def captured = PrimesRepositoryService.getPrimesInRange(range, species)
         captured
     }
-    private final Range<Integer> range = 101..120
+    protected final Range<Integer> range = 101..120
     private final TESTED_PRIME_INDEX = 0
 }
