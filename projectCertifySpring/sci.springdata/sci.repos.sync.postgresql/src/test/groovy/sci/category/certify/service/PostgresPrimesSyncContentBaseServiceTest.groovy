@@ -21,8 +21,11 @@ class PostgresPrimesSyncContentBaseServiceTest extends PrimesSyncContentBaseServ
         assert true
     }
 
-    void testGetPrimesInRange() {
-        super.testGetPrimesInRange()
+    void testGetPrimesInRangeClient() {
+        def candidate = super.testGetPrimesInRange()
+        assert candidate
+        assert super.range.size() == candidate.size()
+        log.debug("size of primesInRange: ${candidate.size()}")
     }
 
 }

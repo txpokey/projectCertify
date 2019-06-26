@@ -34,14 +34,14 @@ class PrimesSyncContentBaseServiceTest extends PrimesSynchronousReposConfigTest{
         primesRepositoryService.species
     }
 
-    private getPrimesInRange(Range range, String species) {
+    private List<Primes> getPrimesInRange(Range range, String species) {
         List<Primes> primes = PrimesRepositoryService.getPrimesInRange(range, species)
         primes
     }
 
-    protected testGetPrimesInRange() {
+    protected List<Primes> testGetPrimesInRange() {
         final def species = getRepositorySpecies()
-        def captured = PrimesRepositoryService.getPrimesInRange(range, species)
+        def captured = getPrimesInRange(range, species)
         captured
     }
     protected final Range<Integer> range = 101..120

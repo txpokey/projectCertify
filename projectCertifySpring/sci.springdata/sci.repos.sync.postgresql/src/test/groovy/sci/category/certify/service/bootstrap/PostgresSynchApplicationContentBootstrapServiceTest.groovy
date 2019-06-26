@@ -16,6 +16,7 @@ class PostgresSynchApplicationContentBootstrapServiceTest extends SynchApplicati
         this.sanityCheck()
         log.debug("PING")
         super.featureCheck()
+//        super.confirmFullBootstrap()
         assert true
     }
     void confirmFullBootstrap() {

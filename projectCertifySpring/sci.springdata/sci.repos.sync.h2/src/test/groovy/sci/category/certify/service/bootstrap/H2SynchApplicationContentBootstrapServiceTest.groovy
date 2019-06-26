@@ -16,6 +16,7 @@ class H2SynchApplicationContentBootstrapServiceTest extends SynchApplicationCont
         this.sanityCheck()
         log.debug("PING")
         super.featureCheck()
+//        super.confirmFullBootstrap()
         assert true
     }
     void confirmFullBootstrap() {
