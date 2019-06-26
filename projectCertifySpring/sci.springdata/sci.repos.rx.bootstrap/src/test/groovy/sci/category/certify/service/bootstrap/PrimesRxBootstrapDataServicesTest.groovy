@@ -4,16 +4,16 @@ import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.testng.annotations.Test
-import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
+import sci.category.certify.service.config.PrimesRxSynchronousReposConfigTest
 
 @Test
 @Slf4j
 //@SpringBootTest
-class PrimesSynchBootstrapDataServicesTest extends PrimesSynchronousReposConfigTest {
+class PrimesRxBootstrapDataServicesTest extends PrimesRxSynchronousReposConfigTest {
 
     @Autowired
     @Qualifier("primesBootstrapService")
-    PrimesBootstrapService primesBootstrapService
+    PrimesRxBootstrapService primesBootstrapService
 
     void sanityCheck() {
         log.debug("PING")

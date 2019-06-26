@@ -4,12 +4,12 @@ import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.testng.annotations.Test
-import sci.category.certify.service.config.PrimesSynchronousReposConfigTest
+import sci.category.certify.service.config.PrimesRxSynchronousReposConfigTest
 
 @Test
 @Slf4j
 //@SpringBootTest
-class SynchApplicationContentBootstrapServiceTest extends PrimesSynchronousReposConfigTest {
+class RxApplicationContentBootstrapServiceTest extends PrimesRxSynchronousReposConfigTest {
 
     @Autowired
     @Qualifier("applicationContentBootstrap")

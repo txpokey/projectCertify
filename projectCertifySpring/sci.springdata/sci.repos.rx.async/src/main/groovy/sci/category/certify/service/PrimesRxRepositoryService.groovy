@@ -6,18 +6,18 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.lang.NonNull
 import org.springframework.stereotype.Component
 import sci.category.certify.domain.PrimesRx
-import sci.category.certify.repo.PrimesRepositoryContract
-import sci.category.certify.repo.PrimesServicesContract
+import sci.category.certify.repo.PrimesRxRepositoryContract
+import sci.category.certify.repo.PrimesRxServicesContract
 
 @Component("primesRepositoryService")
-class PrimesRepositoryService implements PrimesServicesContract {
+class PrimesRxRepositoryService implements PrimesRxServicesContract {
     @Autowired
-    PrimesRepositoryContract primesRepoContract
+    PrimesRxRepositoryContract primesRepoContract
 
     private String species
 
     @Autowired
-    PrimesRepositoryService( @Qualifier("primesRepositorySpecies") String species ) {
+    PrimesRxRepositoryService(@Qualifier("primesRepositorySpecies") String species ) {
         this.species = species
     }
 

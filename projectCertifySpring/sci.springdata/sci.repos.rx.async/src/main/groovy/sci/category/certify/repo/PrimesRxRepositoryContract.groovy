@@ -1,6 +1,6 @@
 package sci.category.certify.repo
 
-interface PrimesRepositoryContract{
+interface PrimesRxRepositoryContract{
 //
 //    PrimesRx save( PrimesRx p )
 //

@@ -3,26 +3,25 @@ package sci.category.certify.service.config
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
-import sci.category.certify.repo.PrimesRepositoryContract
-import sci.category.certify.service.PrimesRepositoryService
+import sci.category.certify.repo.PrimesRxRepositoryContract
+import sci.category.certify.service.PrimesRxRepositoryService
 
 @Test
 @Slf4j
-@SpringBootTest
+//@SpringBootTest
 /**
  * synchronous repo configuration test
  */
 class PrimesRxSynchronousReposConfigTest extends AbstractTestNGSpringContextTests{
 
     @Autowired
-    PrimesRepositoryContract primesRepoContract
+    PrimesRxRepositoryContract primesRepoContract
 
     @Autowired
     @Qualifier("primesRepositoryService")
-    PrimesRepositoryService primesRepositoryService
+    PrimesRxRepositoryService primesRepositoryService
 
     void sanityCheck() {
         log.debug("PING")

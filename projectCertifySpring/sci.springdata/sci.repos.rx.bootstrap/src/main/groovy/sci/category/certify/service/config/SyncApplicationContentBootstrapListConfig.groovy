@@ -5,17 +5,17 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import sci.category.certify.service.bootstrap.ApplicationContentBootstrapContract
-import sci.category.certify.service.bootstrap.PrimesBootstrapService
+import sci.category.certify.service.bootstrap.PrimesRxBootstrapService
 
 @Configuration
 class SyncApplicationContentBootstrapListConfig{
 
     @Autowired
     @Qualifier("primesBootstrapService")
-    private PrimesBootstrapService spinner
+    private PrimesRxBootstrapService spinner
 
     @Bean(name = "applicationContentBootstrapList")
-    List<ApplicationContentBootstrapContract> getSyncRepoSpinner() {
+    List<ApplicationContentBootstrapContract> getRxRepoSpinner() {
         assert spinner
         [spinner]
     }

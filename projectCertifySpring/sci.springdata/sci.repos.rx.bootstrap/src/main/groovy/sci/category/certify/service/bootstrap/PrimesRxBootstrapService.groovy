@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 import sci.category.certify.service.PrimesRepositoryService
 
 @Component("primesBootstrapService")
-class PrimesBootstrapService implements BootstrapContract {
+class PrimesRxBootstrapService implements BootstrapContract {
 
     @Autowired
     @Qualifier("primesRepositoryService")

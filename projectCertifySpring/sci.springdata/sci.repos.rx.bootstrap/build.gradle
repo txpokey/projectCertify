@@ -5,13 +5,13 @@ sourceSets {
     main {
         groovy {
             source project(':projectCertifySpring:sci.springdata:primes.common').sourceSets.main.groovy
-            source project(':projectCertifySpring:sci.springdata:sci.repos.sync').sourceSets.main.groovy
+            source project(':projectCertifySpring:sci.springdata:sci.repos.rx.async').sourceSets.main.groovy
         }
     }
     test {
         groovy {
             source project(':projectCertifySpring:sci.springdata:primes.common').sourceSets.test.groovy
-            source project(':projectCertifySpring:sci.springdata:sci.repos.sync').sourceSets.test.groovy
+            source project(':projectCertifySpring:sci.springdata:sci.repos.rx.async').sourceSets.test.groovy
         }
     }
 }
