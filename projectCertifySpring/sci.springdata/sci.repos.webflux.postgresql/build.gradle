@@ -31,9 +31,9 @@ dependencies { // ala Josh Long video
     implementation group: 'io.r2dbc', name: 'r2dbc-postgresql', version: '1.0.0.M6'
     implementation('org.springframework.boot:spring-boot-starter-webflux')
     testCompile('io.projectreactor:reactor-test')
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+//    testImplementation('org.springframework.boot:spring-boot-starter-test')
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
-    implementation('org.eclipse.persistence:javax.persistence:latest.integration')
+//    implementation('org.eclipse.persistence:javax.persistence:latest.integration')
 
 }
 // ===================================== PRE postgres-1-2 =============================

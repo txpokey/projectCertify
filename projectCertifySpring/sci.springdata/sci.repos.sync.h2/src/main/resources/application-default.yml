@@ -4,10 +4,6 @@ server:
 
 spring:
   datasource:
-#    url: jdbc:postgresql://127.0.0.1:5432/postgres
-#    driver-class-name: org.postgresql.Driver
-#    password: pokey0
-#    username: postgres
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true

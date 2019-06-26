@@ -45,6 +45,11 @@ allprojects {
         implementation('com.google.code.findbugs:jsr305:latest.integration')
 
     }
+    buildDir="$projectDir/out"
+    clean {
+        delete 'out'
+        delete 'build'
+    }
 }
 
 apply from: "${rootProject.projectDir}/etc/gradle/apply/peek.gradle", to: allprojects

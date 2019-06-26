@@ -24,19 +24,12 @@ class PrimesSynchronousReposConfigTest extends AbstractTestNGSpringContextTests{
     @Qualifier("primesRepositoryService")
     PrimesRepositoryService primesRepositoryService
 
-//    @Autowired
-//    @Qualifier("primesBootstrapService")
-//    PrimesBootstrapService primesBootstrapService
-
     void sanityCheck() {
         log.debug("PING")
         assert primesRepoContract
         assert primesRepositoryService
         assert primesRepositoryService.primesRepoContract
         assert primesRepositoryService.primesRepoContract == primesRepoContract
-//        assert primesBootstrapService
-//        assert primesBootstrapService.primesRepositoryService == primesRepositoryService
-
     }
 
 }

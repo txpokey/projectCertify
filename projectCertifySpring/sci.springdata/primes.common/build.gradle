@@ -5,6 +5,8 @@ buildscript {
 dependencies {
 // ----------------------------------------------------------------
 
-    implementation('org.eclipse.persistence:javax.persistence:latest.integration')
+//    implementation('org.eclipse.persistence:javax.persistence:latest.integration')
+//    implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+
 
 }
