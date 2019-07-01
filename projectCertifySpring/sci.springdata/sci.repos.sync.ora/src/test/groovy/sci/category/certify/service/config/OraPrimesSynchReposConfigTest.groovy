@@ -16,9 +16,9 @@ class OraPrimesSynchReposConfigTest extends PrimesSynchronousReposConfigTest {
     void sanityCheck() {
         log.debug("PING")
         super.sanityCheck()
-        PrimesRepositoryContract repo = primesRepositoryService.primesRepoContract
+        PrimesRepositoryContract repo = PrimesService.primesRepoContract
         assert repo
-        def species = primesRepositoryService.species
+        def species = PrimesService.species
         assert species
     }
 

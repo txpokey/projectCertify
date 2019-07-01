@@ -16,9 +16,9 @@ class PostgresPrimesSynchReposConfigTest extends PrimesSynchronousReposConfigTes
     void sanityCheck() {
         log.debug("PING")
         super.sanityCheck()
-        PostgresSyncPrimesRepository repo = primesRepositoryService.primesRepoContract
+        PostgresSyncPrimesRepository repo = PrimesService.primesRepoContract
         assert repo
-        def species = primesRepositoryService.species
+        def species = PrimesService.species
         assert species
     }
 

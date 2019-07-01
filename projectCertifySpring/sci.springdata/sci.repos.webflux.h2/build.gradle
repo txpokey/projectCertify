@@ -1,22 +1,22 @@
 buildscript {
     rootProject.buildscript
 }
-repositories {
-    maven { url "https://repo.spring.io/libs-milestone" }
-}
+//repositories {
+//    maven { url "https://repo.spring.io/libs-milestone" }
+//}
 sourceSets {
     main {
         groovy {
             source project(':projectCertifySpring:sci.springdata:primes.common').sourceSets.main.groovy
-//            source project(':projectCertifySpring:sci.springdata:sci.repos.rx').sourceSets.main.groovy
-//            source project(':projectCertifySpring:sci.springdata:sci.repos.sync.bootstrap').sourceSets.main.groovy
+            source project(':projectCertifySpring:sci.springdata:sci.repos.rx.async').sourceSets.main.groovy
+            source project(':projectCertifySpring:sci.springdata:sci.repos.rx.bootstrap').sourceSets.main.groovy
         }
     }
     test {
         groovy {
-            source project(':projectCertifySpring:sci.springdata:primes.common').sourceSets.main.groovy
-//            source project(':projectCertifySpring:sci.springdata:sci.repos.rx').sourceSets.main.groovy
-//            source project(':projectCertifySpring:sci.springdata:sci.repos.sync.bootstrap').sourceSets.test.groovy
+            source project(':projectCertifySpring:sci.springdata:primes.common').sourceSets.test.groovy
+            source project(':projectCertifySpring:sci.springdata:sci.repos.rx.async').sourceSets.test.groovy
+            source project(':projectCertifySpring:sci.springdata:sci.repos.rx.bootstrap').sourceSets.test.groovy
         }
     }
 }
@@ -24,11 +24,7 @@ dependencies {
     implementation('com.h2database:h2')
     implementation group: 'org.springframework.data', name: 'spring-data-r2dbc', version: '1.0.0.M1'
     implementation group: 'io.r2dbc', name: 'r2dbc-h2', version: '1.0.0.M7'
-//    implementation('io.r2dbc:r2dbc-h2')
     implementation('org.springframework.boot:spring-boot-starter-webflux')
     testCompile('io.projectreactor:reactor-test')
-//    testImplementation('org.springframework.boot:spring-boot-starter-test')
-//    implementation('org.eclipse.persistence:javax.persistence:latest.integration')
-//    implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
 
 }

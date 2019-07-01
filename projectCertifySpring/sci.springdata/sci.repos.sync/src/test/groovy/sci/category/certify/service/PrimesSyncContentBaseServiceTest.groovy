@@ -13,9 +13,9 @@ class PrimesSyncContentBaseServiceTest extends PrimesSynchronousReposConfigTest{
     void sanityCheck() {
         log.debug("PING")
         super.sanityCheck()
-        assert primesRepositoryService
-        assert primesRepositoryService.primesRepoContract
-        assert primesRepositoryService.species
+        assert PrimesService
+        assert PrimesService.primesRepoContract
+        assert PrimesService.species
     }
     void testSave() {
         sanityCheck()
@@ -26,16 +26,16 @@ class PrimesSyncContentBaseServiceTest extends PrimesSynchronousReposConfigTest{
         assert primes
         assert primes.size() >= TESTED_PRIME_INDEX
         def myPrimePick = primes[TESTED_PRIME_INDEX]
-        def candidate = primesRepositoryService.save(myPrimePick)
+        def candidate = PrimesService.save(myPrimePick)
         assert candidate
     }
 
     private getRepositorySpecies() {
-        primesRepositoryService.species
+        PrimesService.species
     }
 
     private List<Primes> getPrimesInRange(Range range, String species) {
-        List<Primes> primes = PrimesRepositoryService.getPrimesInRange(range, species)
+        List<Primes> primes = PrimesService.getPrimesInRange(range, species)
         primes
     }
 

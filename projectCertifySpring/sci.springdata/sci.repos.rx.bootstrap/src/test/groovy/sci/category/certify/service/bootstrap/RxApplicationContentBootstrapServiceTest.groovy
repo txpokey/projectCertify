@@ -24,11 +24,11 @@ class RxApplicationContentBootstrapServiceTest extends PrimesRxSynchronousReposC
         sanityCheck()
         def result = bootspinner.spinUp()
         assert result
-        def findAll = primesRepositoryService.primesRepoContract.findAll()
+        def findAll = PrimesService.primesRepoContract.findAll()
         assert findAll
     }
     void confirmFullBootstrap() {
-        def findAll = primesRepositoryService.primesRepoContract.findAll()
+        def findAll = PrimesService.primesRepoContract.findAll()
         assert findAll.size() == 100
     }
 //    void testGetSyncRepoSpinner() {

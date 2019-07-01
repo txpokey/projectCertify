@@ -25,7 +25,7 @@ class PrimesContentBaseServiceTest extends AbstractTestNGSpringContextTests{
 //    PrimesRepoMethods repository
 
     @Autowired
-    @Qualifier("primesRepositoryService")
+    @Qualifier("primesService")
     private PrimesContentBaseService service
 
     @Autowired

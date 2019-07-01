@@ -11,9 +11,8 @@ import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import reactor.test.StepVerifier
 import reactor.util.annotation.NonNull
-import sci.category.certify.domain.Primes
-import sci.category.certify.repo.PrimesRepoMethods
-import sci.category.certify.repo.PrimesRxServicesContract
+import sci.category.certify.domain.PrimesRx
+import sci.category.certify.repo.PrimesRxRepositoryContract
 
 @Test
 @Slf4j
@@ -22,49 +21,49 @@ import sci.category.certify.repo.PrimesRxServicesContract
 class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContextTests{
 
     @Autowired
-    PrimesRxServicesContract repository
+    PrimesRxRepositoryContract repository
 
     void sanityCheck() {
         assert repository
-        def species = "H2-sync"
+        def species = "H2-rx"
         assert species
         log.debug(species)
     }
 
     void featureCheck() {
         sanityCheck()
-        proveCorrectCountOfPrimesInDatabase(100)
-        showConversionFluxToIterableOnAllPrimesInDatabase()
+        proveCorrectCountOfPrimesRxInDatabase(100)
+        showConversionFluxToIterableOnAllPrimesRxInDatabase()
     }
     void checkSaveOneFeature() {
         final def currentRange = 101..101
         final def sizeExpected = currentRange.size()
-        final List<Primes> list = getPrimesInRange( currentRange, repository.species )
-        final Mono<Primes> allSaved = repository.save(list[0]).log()
+        final List<PrimesRx> list = getPrimesRxInRange( currentRange, repository.species )
+        final Mono<PrimesRx> allSaved = repository.save(list[0]).log()
 
         StepVerifier
                 .create(allSaved)
                 .expectNextCount(sizeExpected)
                 .verifyComplete()
-        Flux<Primes> allVerify = getAllPrimesInDatabase().log()
+        Flux<PrimesRx> allVerify = getAllPrimesRxInDatabase().log()
         StepVerifier
                 .create(allVerify)
                 .expectNextCount(100)
                 .verifyComplete()
-        showConversionFluxToIterableOnAllPrimesInDatabase()
+        showConversionFluxToIterableOnAllPrimesRxInDatabase()
     }
     void checkSaveAllFeature() {
         final def currentRange = 101..120
         final def sizeExpected = currentRange.size()
-        final List<Primes> list = getPrimesInRange( currentRange, repository.species )
-        final Flux<Primes> all = repository.saveAll(list).log()
+        final List<PrimesRx> list = getPrimesRxInRange( currentRange, repository.species )
+        final Flux<PrimesRx> all = repository.saveAll(list).log()
         StepVerifier
                 .create(all)
                 .expectNextCount(sizeExpected)
                 .verifyComplete()
-        showConversionFluxToIterableOnAllPrimesInDatabase()
+        showConversionFluxToIterableOnAllPrimesRxInDatabase()
     }
-    static List<Primes> getPrimesInRange(@NonNull Range<Integer> range, @NonNull String species ) {
+    static List<PrimesRx> getPrimesRxInRange(@NonNull Range<Integer> range, @NonNull String species ) {
         def candidate = (range).collect { i -> getPrimeViaConstructorOnMap(i, species) }
         candidate
     }
@@ -73,18 +72,18 @@ class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContext
 //        Map m = [id: guid, prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species ]
         Map m = [id: i, prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species ]
 //        Map m = [            prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species ]
-        def p = new Primes(m)
+        def p = new PrimesRx(m)
     }
-    private showConversionFluxToIterableOnAllPrimesInDatabase() {
-        Flux<Primes> all = getAllPrimesInDatabase()
+    private showConversionFluxToIterableOnAllPrimesRxInDatabase() {
+        Flux<PrimesRx> all = getAllPrimesRxInDatabase()
         def reduxAll = all.toIterable()
         reduxAll.each {
             p -> log.debug(p as String)
         }
     }
 
-    private proveCorrectCountOfPrimesInDatabase(def limit) {
-        Flux<Primes> all = getAllPrimesInDatabase().log()
+    private proveCorrectCountOfPrimesRxInDatabase(def limit) {
+        Flux<PrimesRx> all = getAllPrimesRxInDatabase().log()
 
         StepVerifier
                 .create(all)
@@ -92,8 +91,8 @@ class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContext
                 .verifyComplete()
     }
 
-    private getAllPrimesInDatabase() {
-        Flux<Primes> all = repository.findAll()
+    private getAllPrimesRxInDatabase() {
+        Flux<PrimesRx> all = repository.findAll()
         all
     }
 

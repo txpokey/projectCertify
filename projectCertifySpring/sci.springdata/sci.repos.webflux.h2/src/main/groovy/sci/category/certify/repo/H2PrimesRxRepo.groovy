@@ -6,6 +6,6 @@ import sci.category.certify.domain.PrimesRx
 
 @Repository
 interface H2PrimesRxRepo
-        extends PrimesRxServicesContract,
+        extends PrimesRxRepositoryContract,
                 R2dbcRepository<PrimesRx, Long>{
 }

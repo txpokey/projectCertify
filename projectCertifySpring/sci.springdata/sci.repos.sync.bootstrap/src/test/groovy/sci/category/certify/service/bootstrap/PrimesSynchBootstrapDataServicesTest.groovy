@@ -18,17 +18,17 @@ class PrimesSynchBootstrapDataServicesTest extends PrimesSynchronousReposConfigT
     void sanityCheck() {
         log.debug("PING")
         super.sanityCheck()
-        assert primesRepositoryService
+        assert PrimesService
         assert primesBootstrapService
-        assert primesBootstrapService.primesRepositoryService == primesRepositoryService
-        def species = primesRepositoryService.species
+        assert primesBootstrapService.PrimesService == PrimesService
+        def species = PrimesService.species
         assert species
     }
     void featureCheck() {
         sanityCheck()
         def result = primesBootstrapService.spinUp()
         assert result
-        def findAll = primesRepositoryService.primesRepoContract.findAll()
+        def findAll = PrimesService.primesRepoContract.findAll()
         assert findAll
     }
 }

@@ -2,8 +2,9 @@ debug: false
 server:
   port: 8080
 
-#spring:
-#  datasource:
+spring:
+  datasource:
+    inMemory: projectCertify
 #  jpa:
 #    database-platform: org.hibernate.dialect.H2Dialect
 #    show-sql: true

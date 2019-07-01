@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
 import sci.category.certify.repo.PrimesRxRepositoryContract
-import sci.category.certify.service.PrimesRxRepositoryService
+import sci.category.certify.service.PrimesRxService
 
 @Test
 @Slf4j
@@ -20,15 +20,15 @@ class PrimesRxSynchronousReposConfigTest extends AbstractTestNGSpringContextTest
     PrimesRxRepositoryContract primesRepoContract
 
     @Autowired
-    @Qualifier("primesRepositoryService")
-    PrimesRxRepositoryService primesRepositoryService
+    @Qualifier("primesService")
+    PrimesRxService PrimesService
 
     void sanityCheck() {
         log.debug("PING")
         assert primesRepoContract
-        assert primesRepositoryService
-        assert primesRepositoryService.primesRepoContract
-        assert primesRepositoryService.primesRepoContract == primesRepoContract
+        assert PrimesService
+        assert PrimesService.primesRepoContract
+        assert PrimesService.primesRepoContract == primesRepoContract
     }
 
 }

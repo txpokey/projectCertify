@@ -5,24 +5,24 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.lang.NonNull
 import org.springframework.stereotype.Component
-import sci.category.certify.domain.PrimesRx
-import sci.category.certify.repo.PrimesRxRepositoryContract
-import sci.category.certify.repo.PrimesRxServicesContract
+import sci.category.certify.domain.Primes
+import sci.category.certify.repo.PrimesRepositoryContract
+import sci.category.certify.repo.PrimesServiceContract
 
-@Component("primesRepositoryService")
-class PrimesRxRepositoryService implements PrimesRxServicesContract {
+@Component("primesService")
+class PrimesService implements PrimesServiceContract {
     @Autowired
-    PrimesRxRepositoryContract primesRepoContract
+    PrimesRepositoryContract primesRepoContract
 
     private String species
 
     @Autowired
-    PrimesRxRepositoryService(@Qualifier("primesRepositorySpecies") String species ) {
+    PrimesService( @Qualifier("primesRepositorySpecies") String species ) {
         this.species = species
     }
 
-    PrimesRx save(@NonNull PrimesRx p) {
-        PrimesRx saved = primesRepoContract.save( p )
+    Primes save(@NonNull Primes p) {
+        Primes saved = primesRepoContract.save( p )
         assert saved
         saved
     }
@@ -32,13 +32,13 @@ class PrimesRxRepositoryService implements PrimesRxServicesContract {
         return species
     }
 
-    static List<PrimesRx> getPrimesInRange(@NonNull Range<Integer> range, @NonNull String species = 'default') {
+    static List<Primes> getPrimesInRange(@NonNull Range<Integer> range, @NonNull String species = 'default') {
         def candidate = (range).collect { i -> getPrimeViaConstructorOnMap(i,species) }
         candidate
     }
 
     private static getPrimeViaConstructorOnMap(@NonNull int i, @NonNull String species) {
         Map m = [prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species]
-        def p = new PrimesRx(m)
+        def p = new Primes(m)
     }
 }

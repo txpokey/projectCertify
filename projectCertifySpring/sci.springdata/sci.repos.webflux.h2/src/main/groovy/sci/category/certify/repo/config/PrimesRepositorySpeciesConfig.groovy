@@ -10,6 +10,7 @@ class PrimesRepositorySpeciesConfig{
 
     @Bean(name = "primesRepositorySpecies")
     String getSpecies() {
-        final String species = "H2-sync"
+        final String species = "H2-rx"
     }
+
 }

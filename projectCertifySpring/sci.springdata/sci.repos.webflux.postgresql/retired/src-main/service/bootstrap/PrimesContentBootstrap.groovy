@@ -9,7 +9,7 @@ import sci.category.certify.service.PrimesContentBaseService
 class PrimesContentBootstrap implements BootstrapContract {
 
     @Autowired
-    @Qualifier("primesRepositoryService")
+    @Qualifier("primesService")
     PrimesContentBaseService primesContentBaseService
 
 
