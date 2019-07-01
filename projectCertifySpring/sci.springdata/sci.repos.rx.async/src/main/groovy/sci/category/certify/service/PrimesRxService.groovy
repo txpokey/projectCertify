@@ -3,11 +3,14 @@ package sci.category.certify.service
 import edu.javial.cert.se.core.math.PrimeNumberGroovy
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
-import org.springframework.lang.NonNull
 import org.springframework.stereotype.Component
+import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 import sci.category.certify.domain.PrimesRx
 import sci.category.certify.repo.PrimesRxRepositoryContract
 import sci.category.certify.repo.PrimesRxServiceContract
+
+import javax.annotation.Nonnull
 
 @Component("primesService")
 class PrimesRxService implements PrimesRxServiceContract {
@@ -21,10 +24,16 @@ class PrimesRxService implements PrimesRxServiceContract {
         this.species = species
     }
 
-    PrimesRx save(@NonNull PrimesRx p) {
-        PrimesRx saved = primesRepoContract.save( p )
+    Mono<PrimesRx> save(@Nonnull PrimesRx p) {
+        Mono<PrimesRx> saved = primesRepoContract.save( p )
         assert saved
         saved
+    }
+
+    @Override
+    Flux<PrimesRx> saveAll(@Nonnull List<PrimesRx> plist) {
+        def candidate = primesRepoContract.saveAll( plist )
+        candidate
     }
 
     @Override
@@ -32,12 +41,12 @@ class PrimesRxService implements PrimesRxServiceContract {
         return species
     }
 
-    static List<PrimesRx> getPrimesInRange(@NonNull Range<Integer> range, @NonNull String species = 'default') {
+    static List<PrimesRx> getPrimesInRange(@Nonnull Range<Integer> range, @Nonnull String species = 'default') {
         def candidate = (range).collect { i -> getPrimeViaConstructorOnMap(i,species) }
         candidate
     }
 
-    private static getPrimeViaConstructorOnMap(@NonNull int i, @NonNull String species) {
+    private static getPrimeViaConstructorOnMap(@Nonnull int i, @Nonnull String species) {
         Map m = [prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species]
         def p = new PrimesRx(m)
     }

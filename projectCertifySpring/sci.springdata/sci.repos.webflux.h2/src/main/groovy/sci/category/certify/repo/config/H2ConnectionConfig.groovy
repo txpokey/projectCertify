@@ -22,9 +22,6 @@ class H2ConnectionConfig{
                 .inMemory(inMemory)
                 .build())
         connectionFactory
-//
-//        Mono<Connection> connection = connectionFactory.create()
-//        connection
     }
 }
 
