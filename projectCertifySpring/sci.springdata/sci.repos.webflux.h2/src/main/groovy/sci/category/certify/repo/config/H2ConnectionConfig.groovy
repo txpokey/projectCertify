@@ -15,12 +15,17 @@ import org.springframework.context.annotation.Profile
 @Profile("default")
 class H2ConnectionConfig{
     String inMemory
-
+    String username
+//    H2ConnectionConfiguration{password='null', url='mem:testdb', username='null'}
     @Bean
     ConnectionFactory connectionFactory() {
-        ConnectionFactory connectionFactory = new H2ConnectionFactory(H2ConnectionConfiguration.builder()
+        def connectionConfig = H2ConnectionConfiguration.builder()
                 .inMemory(inMemory)
-                .build())
+                .username(username)
+                .password('')
+                .build()
+        def peeker = connectionConfig.toString()
+        ConnectionFactory connectionFactory = new H2ConnectionFactory(connectionConfig)
         connectionFactory
     }
 }

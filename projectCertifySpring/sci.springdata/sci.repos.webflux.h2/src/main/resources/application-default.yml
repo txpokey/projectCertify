@@ -4,7 +4,8 @@ server:
 
 spring:
   datasource:
-    inMemory: projectCertify
+    inMemory: testdb
+    username: sa
 #  jpa:
 #    database-platform: org.hibernate.dialect.H2Dialect
 #    show-sql: true

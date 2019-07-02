@@ -12,6 +12,10 @@ spring:
     ## then change to "update" which just updates the schema when necessary
       ddl-auto: create
     properties.hibernate.jdbc.lob.non_contextual_creation: true
+  h2:
+    console:
+      enabled: true
+      path: /h2
 logging:
   level:
     org.springframework.web: INFO

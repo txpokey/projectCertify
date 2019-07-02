@@ -15,7 +15,7 @@ class H2PrimesSynchReposConfigTest extends PrimesSynchronousReposConfigTest {
     void sanityCheck() {
         log.debug("PING")
         super.sanityCheck()
-        def species = PrimesService.species
+        def species = primesService.species
         assert species
     }
 
