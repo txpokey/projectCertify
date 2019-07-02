@@ -18,18 +18,18 @@ import sci.category.certify.repo.PrimesRxRepositoryContract
 @Slf4j
 @SpringBootTest
 @Profile("default")
-class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContextTests{
+class H2RxSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContextTests{
+    def species = "H2-rx"
 
     @Autowired
     PrimesRxRepositoryContract repository
 
     void sanityCheck() {
         assert repository
-        def species = "H2-rx"
         assert species
         log.debug(species)
     }
-
+//    @Transactional
     void featureCheck() {
         sanityCheck()
         proveCorrectCountOfPrimesRxInDatabase(100)
@@ -38,7 +38,7 @@ class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContext
     void checkSaveOneFeature() {
         final def currentRange = 101..101
         final def sizeExpected = currentRange.size()
-        final List<PrimesRx> list = getPrimesRxInRange( currentRange, repository.species )
+        final List<PrimesRx> list = getPrimesRxInRange( currentRange, species )
         final Mono<PrimesRx> allSaved = repository.save(list[0]).log()
 
         StepVerifier
@@ -55,7 +55,7 @@ class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContext
     void checkSaveAllFeature() {
         final def currentRange = 101..120
         final def sizeExpected = currentRange.size()
-        final List<PrimesRx> list = getPrimesRxInRange( currentRange, repository.species )
+        final List<PrimesRx> list = getPrimesRxInRange( currentRange, species )
         final Flux<PrimesRx> all = repository.saveAll(list).log()
         StepVerifier
                 .create(all)
@@ -69,9 +69,7 @@ class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContext
     }
     private static getPrimeViaConstructorOnMap(@NonNull int i, @NonNull String species) {
         def guid = java.util.UUID.randomUUID() as String
-//        Map m = [id: guid, prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species ]
         Map m = [id: i, prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species ]
-//        Map m = [            prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species ]
         def p = new PrimesRx(m)
     }
     private showConversionFluxToIterableOnAllPrimesRxInDatabase() {

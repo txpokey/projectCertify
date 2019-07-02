@@ -15,7 +15,9 @@ spring:
 #    properties.hibernate.jdbc.lob.non_contextual_creation: true
 logging:
   level:
-    org.springframework.web: INFO
+    org.springframework:
+      web: INFO
+      data.r2dbc: DEBUG
     sci.category.certify: DEBUG
   file: /dev/null
   pattern:
