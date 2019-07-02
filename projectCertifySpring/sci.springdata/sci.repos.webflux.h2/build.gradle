@@ -22,7 +22,7 @@ sourceSets {
 }
 dependencies {
     implementation('com.h2database:h2')
-    implementation group: 'org.springframework.data', name: 'spring-data-r2dbc', version: '1.0.0.M1'
+    implementation group: 'org.springframework.data', name: 'spring-data-r2dbc', version: '1.0.0.M2'
     implementation group: 'io.r2dbc', name: 'r2dbc-h2', version: '1.0.0.M7'
     implementation('org.springframework.boot:spring-boot-starter-webflux')
     implementation('io.projectreactor:reactor-test')

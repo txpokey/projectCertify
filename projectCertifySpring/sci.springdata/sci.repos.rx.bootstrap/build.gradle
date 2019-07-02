@@ -17,6 +17,7 @@ sourceSets {
 }
 dependencies {
     implementation('io.projectreactor:reactor-test')
+    implementation group: 'org.springframework.data', name: 'spring-data-r2dbc', version: '1.0.0.M2'
 
 //    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
 //    implementation('org.springframework.boot:spring-boot-starter-data-rest')
