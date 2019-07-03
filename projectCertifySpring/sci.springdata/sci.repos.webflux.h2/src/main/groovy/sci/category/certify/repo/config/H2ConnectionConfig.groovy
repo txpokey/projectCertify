@@ -20,7 +20,8 @@ class H2ConnectionConfig{
     @Bean
     ConnectionFactory connectionFactory() {
         def connectionConfig = H2ConnectionConfiguration.builder()
-                .inMemory(inMemory)
+//                .inMemory(inMemory)
+                .url("mem:testbd;autocommit=on")
                 .username(username)
                 .password('')
                 .build()
