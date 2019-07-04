@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication(scanBasePackages = ["sci.category.certify"])
 
-class AppWebfluxPostgreSql {
+class PostgresAppRx{
     static void main(String[] args) {
-        SpringApplication.run AppWebfluxPostgreSql, args
+        SpringApplication.run PostgresAppRx, args
     }
 
 //    @Autowired

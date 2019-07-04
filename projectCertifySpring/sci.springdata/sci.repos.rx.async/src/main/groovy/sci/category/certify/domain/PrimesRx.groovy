@@ -2,18 +2,15 @@ package sci.category.certify.domain
 
 import javax.annotation.Nonnull
 import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
 import javax.persistence.Id
-import javax.persistence.Table
 
 //import org.springframework.data.mongodb.core.mapping.Document
 @Entity
 //@Document
-//@Table(name="PRIMES_RX")
+//@Table(name="PRIMES")
 class PrimesRx{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id
     Integer prime
     Boolean truth
@@ -28,7 +25,10 @@ class PrimesRx{
         assert map.prime
         assert null != map.truth
         assert map.species
-        def primeRx = new PrimesRx(map)
+        def id = map.id ?: map.prime
+        Map clone = map.clone()
+        clone.id = id
+        def primeRx = new PrimesRx(clone)
         primeRx
     }
 }

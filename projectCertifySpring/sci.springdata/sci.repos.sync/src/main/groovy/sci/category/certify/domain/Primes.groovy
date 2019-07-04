@@ -1,16 +1,12 @@
 package sci.category.certify.domain
 
 import javax.annotation.Nonnull
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 //import org.springframework.data.mongodb.core.mapping.Document
 @Entity
 //@Document
-//@Table(name="PRIMES_RX")
+@Table(name="PRIMES_RX")
 class Primes{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
