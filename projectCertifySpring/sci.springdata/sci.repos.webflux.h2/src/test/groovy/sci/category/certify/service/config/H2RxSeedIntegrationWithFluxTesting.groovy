@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.annotation.Profile
 import org.springframework.data.r2dbc.core.DatabaseClient
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
-import org.springframework.transaction.annotation.Transactional
 import org.testng.annotations.Test
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
@@ -15,6 +14,10 @@ import reactor.test.StepVerifier
 import reactor.util.annotation.NonNull
 import sci.category.certify.domain.PrimesRx
 import sci.category.certify.repo.PrimesRxRepositoryContract
+import sci.category.certify.util.Print
+
+import static sci.category.certify.service.bootstrap.constants.AdhocSqlStatements.*
+import static sci.category.certify.service.util.SqlViaFlux.*
 
 @Test
 @Slf4j
@@ -22,6 +25,7 @@ import sci.category.certify.repo.PrimesRxRepositoryContract
 @Profile("default")
 class H2RxSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContextTests{
     def species = "H2-rx"
+    def printer = Print.getPrintln()
 
     @Autowired
     PrimesRxRepositoryContract repository
@@ -33,84 +37,31 @@ class H2RxSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContextTest
         assert species
         log.debug(species)
     }
-    @Transactional
     void featureCheck() {
         sanityCheck()
         proveCorrectCountOfPrimesRxInDatabase(100)
         showConversionFluxToIterableOnAllPrimesRxInDatabase()
     }
-//    select count(*) from primes_rx ;
-    @Transactional
-    void createTablesManually0() {
-        def DDL0 = """
- drop table IF EXISTS primes_rx cascade constraints ;
- drop sequence hibernate_sequence ;
- create sequence hibernate_sequence start with 1 increment by  1 ;
- create table primes_rx (id number(19,0) not null, prime number(10,0), species varchar2(255 char), truth number(1,0), primary key (id)) ;
- """
-         def DDL = """
- show tables ;
-"""
-        def EXPLORE = """
-            show tables ;
-"""
-        def what = client.execute().sql(DDL0 as String).then().log().block()
-//        def what2 = client.execute().sql("SELECT count(*) PRIMES_RX ").then().log()
-//        def what2 = client.execute().sql("SELECT count(*) FROM INFORMATION_SCHEMA.TABLES ").then().log()
-//        def ddlWork = client.select().from("primes_rx").fetch()
-//        StepVerifier
-//                .create(what2)
-//                .expectNextCount(1)
-//                .verifyComplete()
-//        def work = client.execute().sql(EXPLORE as String).then().subscribe( System.out.&println )
+//    @Transactional
+    void createTablesManually() {
+        // TODO: not seeing H2 SQL behaving as if commits happening
+        doAutocommitSettings()
+        doShowTables()
+        runSqlExpectingVoidReturned(client, CREATE_TABLE_USING_H2_CONSOLE_CODE_EXAMPLE)
+        runSqlExpectingSingleAnswer(client, SELECT_COUNT_ALL_TABLES_FROM_META_TABLE , "C")
+        runSqlExpectingListAsAnswer(client, SELECT_ALL_TABLES_FROM_META_TABLE)
+        runSqlExpectingListAsAnswer(client, SELECT_TABLES_AND_COUNTS_FROM_META_TABLE)
         false
 //        showConversionFluxToIterableOnAllPrimesRxInDatabase()
     }
-    @Transactional
+
     void doAutocommitSettings() {
-        def DDL0 = """
- SET AUTOCOMMIT on;
- """
-        def what = client.execute().sql(DDL0 as String).then().log()
-        StepVerifier
-                .create(what)
-                .verifyComplete()
+        def what = runSqlExpectingVoidReturned(client, SET_AUTOCOMMIT)
+        what
     }
-    @Transactional
-    void createTablesManually() {
-        def DDL0 = """
- drop table IF EXISTS primes_rx cascade constraints ;
- drop sequence hibernate_sequence ;
- create sequence hibernate_sequence start with 1 increment by  1 ;
- create table primes_rx (id number(19,0) not null, prime number(10,0), species varchar2(255 char), truth number(1,0), primary key (id)) ;
-"""
-        def what = client.execute().sql(DDL0 as String).then().log()
-        StepVerifier
-                .create(what)
-                .verifyComplete()
-    }
-    @Transactional
-    void peekTablesManually() {
-        def DDL0 = """
-SELECT count(*) from PRIMES_RX ;
-"""
-        def what = client.execute().sql(DDL0 as String).fetch().all().log()
-        StepVerifier
-                .create(what)
-                .verifyComplete()
-    }
-    @Transactional
-    void peekTablesManually1() {
-        def what = client.select().from("primes_rx").fetch().all().log()
-        StepVerifier
-                .create(what)
-                .verifyComplete()
-    }
-    void foo() {
-        doAutocommitSettings()
-        createTablesManually()
-        peekTablesManually()
-//        showConversionFluxToIterableOnAllPrimesRxInDatabase()
+    void doShowTables() {
+        def what = runSqlExpectingListAsAnswer(client, SHOW_TABLES)
+        what
     }
     void checkSaveOneFeature() {
         final def currentRange = 101..101

@@ -3,9 +3,10 @@ ext['spring.version'] = '5.2.0.M2'
 buildscript {
     rootProject.buildscript
 }
-//repositories {
-//    maven { url "https://repo.spring.io/libs-milestone" }
-//}
+repositories {
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
 sourceSets {
     main {
         groovy {
@@ -25,12 +26,12 @@ sourceSets {
 dependencies {
 //    implementation group: 'org.springframework.boot.experimental', name: 'spring-boot-starter-data-r2dbc', version: '0.1.0.M1'
 //    implementation group: 'org.springframework.boot.experimental', name: 'spring-boot-starter-r2dbc-h2', version: '0.1.0.M1'
-//    implementation group: 'org.springframework', name: 'spring-tx', version: '5.2.0.M3'
 
     implementation('com.h2database:h2')
-    implementation group: 'org.springframework.data', name: 'spring-data-releasetrain', version: 'Lovelace-RELEASE', ext: 'pom'
+//    implementation group: 'org.springframework.data', name: 'spring-data-releasetrain', version: 'Lovelace-RELEASE', ext: 'pom'
     implementation group: 'org.springframework.data', name: 'spring-data-r2dbc', version: '1.0.0.M2'
-    implementation group: 'io.r2dbc', name: 'r2dbc-h2', version: '1.0.0.M7'
+//    implementation group: 'io.r2dbc', name: 'r2dbc-h2', version: '1.0.0.M7'
+    implementation group: 'io.r2dbc', name: 'r2dbc-h2', version: '1.0.0.BUILD-SNAPSHOT'
     implementation('org.springframework.boot:spring-boot-starter-webflux')
     implementation('io.projectreactor:reactor-test')
 //    implementation('org.springframework.boot:spring-boot-starter-data-rest')
