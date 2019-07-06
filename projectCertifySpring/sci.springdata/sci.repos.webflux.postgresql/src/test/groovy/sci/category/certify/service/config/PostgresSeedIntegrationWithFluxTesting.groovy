@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.annotation.Profile
+import org.springframework.data.r2dbc.core.DatabaseClient
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests
 import org.testng.annotations.Test
 import reactor.core.publisher.Flux
@@ -24,11 +25,14 @@ class PostgresSeedIntegrationWithFluxTesting extends AbstractTestNGSpringContext
     @Autowired
     PrimesRxRepositoryContract repository
     @Autowired
+    DatabaseClient databaseClient
+    @Autowired
     @Qualifier("primesRepositorySpecies")
     String species
 
     void sanityCheck() {
         assert repository
+        assert databaseClient
         assert species
         log.debug(species)
     }
