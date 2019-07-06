@@ -32,6 +32,8 @@ include 'projectCertifySpring:sci.springdata:sci.repos.rx.bootstrap'
 include 'projectCertifySpring:sci.springdata:sci.repos.webflux.h2'
 include 'projectCertifySpring:sci.springdata:sci.repos.webflux.postgresql'
 
-//include 'projectCertifySpring:sci.springdata:sci.repos.rx'
+include 'projectMicronaut'
+include 'projectMicronaut:sci.micronaut'
+include 'projectMicronaut:sci.micronaut:hello'
+include 'projectMicronaut:sci.micronaut:hello:hello-world'
 
-//include 'projectCertifySpring:sci.springdata:sci.repos.r2dbc'
