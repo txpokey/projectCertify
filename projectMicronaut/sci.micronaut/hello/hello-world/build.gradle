@@ -38,6 +38,8 @@ dependencies {
     }
     testCompile "io.micronaut:micronaut-inject-groovy"
     testCompile "io.micronaut.test:micronaut-test-spock"
+    // -------------------------------
+
 }
 
 test.classpath += configurations.developmentOnly
