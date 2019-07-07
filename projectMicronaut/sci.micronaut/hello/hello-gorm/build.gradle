@@ -8,7 +8,7 @@ plugins {
 
 
 version "0.1"
-group "hello.world"
+group "hello.gorm"
 
 repositories {
     mavenCentral()
@@ -30,9 +30,13 @@ dependencies {
     compile "io.micronaut:micronaut-runtime-groovy"
     compile "io.micronaut:micronaut-validation"
     compile "io.micronaut:micronaut-http-client"
+    compile "io.micronaut.configuration:micronaut-hibernate-validator"
+    compile "io.micronaut.configuration:micronaut-hibernate-gorm"
     compile "io.micronaut:micronaut-http-server-netty"
     compileOnly "io.micronaut:micronaut-inject-groovy"
     runtime "ch.qos.logback:logback-classic:1.2.3"
+    runtime "com.h2database:h2"
+    runtime "org.apache.tomcat:tomcat-jdbc"
     testCompile("org.spockframework:spock-core") {
         exclude group: "org.codehaus.groovy", module: "groovy-all"
     }
@@ -44,7 +48,7 @@ dependencies {
 
 test.classpath += configurations.developmentOnly
 
-mainClassName = "hello.world.HelloWorldApplication"
+mainClassName = "hello.gorm.HelloGormApplication"
 tasks.withType(GroovyCompile) {
     groovyOptions.forkOptions.jvmArgs.add('-Dgroovy.parameters=true')
 }

@@ -4,8 +4,8 @@ import io.micronaut.runtime.Micronaut
 import groovy.transform.CompileStatic
 
 @CompileStatic
-class Application {
+class HelloWorldApplication{
     static void main(String[] args) {
-        Micronaut.run(Application)
+        Micronaut.run(HelloWorldApplication)
     }
 }

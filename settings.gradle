@@ -36,4 +36,5 @@ include 'projectMicronaut'
 include 'projectMicronaut:sci.micronaut'
 include 'projectMicronaut:sci.micronaut:hello'
 include 'projectMicronaut:sci.micronaut:hello:hello-world'
+include 'projectMicronaut:sci.micronaut:hello:hello-gorm'
 
