@@ -44,6 +44,15 @@ class HelloController{
         def re = HttpResponse.status(HttpStatus.OK).body(candidate)
         re
     }
+    @Transactional
+    @Get("findAllByTruth/{state}")
+    // this mapping is case sensitive
+    def doFindByTruth(Boolean state) {
+        assert primesService
+        def candidate = primesService.findAllByTruth(state)
+        def re = HttpResponse.status(HttpStatus.OK).body(candidate)
+        re
+    }
 
     @Transactional
     @Get("bootStrap")

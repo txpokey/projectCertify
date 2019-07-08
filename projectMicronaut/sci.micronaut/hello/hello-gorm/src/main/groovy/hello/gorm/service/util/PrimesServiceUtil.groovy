@@ -2,7 +2,6 @@ package hello.gorm.service.util
 
 import edu.javial.cert.se.core.math.PrimeNumberGroovy
 import hello.gorm.domain.Primes
-import hello.gorm.service.PrimesService
 
 import javax.annotation.Nonnull
 

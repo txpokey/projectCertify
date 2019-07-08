@@ -11,11 +11,13 @@ class PrimesBootStrap{
 
     private PrimesService primesService
 
+    final def species = "bootstrap-sync"
+
     PrimesBootStrap( @Nonnull PrimesService primesService ) {
         this.primesService = primesService
     }
     List<Primes> executeBootStrap() {
-        def all = PrimesServiceUtil.getPrimesInRange(1..100)
+        def all = PrimesServiceUtil.getPrimesInRange(1..100, species)
         def candidate = all.collect {
             p ->
                 def just = primesService.save(p)
