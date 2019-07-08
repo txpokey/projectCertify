@@ -1,4 +1,4 @@
-package sci.category.certify.service.util
+package hello.gorm.service.util
 
 import io.r2dbc.h2.H2Row
 import org.springframework.data.r2dbc.core.DatabaseClient

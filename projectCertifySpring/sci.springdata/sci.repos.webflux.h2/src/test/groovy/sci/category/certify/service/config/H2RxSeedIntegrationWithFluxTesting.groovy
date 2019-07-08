@@ -17,7 +17,7 @@ import sci.category.certify.repo.PrimesRxRepositoryContract
 import sci.category.certify.util.Print
 
 import static sci.category.certify.service.bootstrap.constants.AdhocSqlStatements.*
-import static sci.category.certify.service.util.SqlViaFlux.*
+import static hello.gorm.service.util.SqlViaFlux.*
 
 @Test
 @Slf4j

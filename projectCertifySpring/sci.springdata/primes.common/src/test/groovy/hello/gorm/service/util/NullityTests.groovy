@@ -1,4 +1,4 @@
-package sci.category.certify.service.util
+package hello.gorm.service.util
 
 import groovy.util.logging.Slf4j
 import org.testng.annotations.Test
