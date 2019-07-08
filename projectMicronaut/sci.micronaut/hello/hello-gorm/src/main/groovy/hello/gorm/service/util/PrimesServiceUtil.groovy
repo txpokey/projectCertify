@@ -17,13 +17,5 @@ class PrimesServiceUtil{
         Map m = [prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species]
         def p = new Primes(m)
     }
-    static List<Primes> executeBootStrap(@Nonnull PrimesService primesService) {
-        def all = PrimesServiceUtil.getPrimesInRange(1..100)
-        def candidate = all.collect {
-            p ->
-                def just = primesService.save(p)
-                just
-        }
-        candidate
-    }
+
 }
