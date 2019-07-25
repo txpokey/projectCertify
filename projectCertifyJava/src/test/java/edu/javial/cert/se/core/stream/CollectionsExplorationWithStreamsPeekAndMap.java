@@ -20,16 +20,22 @@ public class CollectionsExplorationWithStreamsPeekAndMap {
     public void mapUseCase() {
         Stream.of('a', 'b', 'c', 'd', 'e')
                 .map(c -> (int)c)
-                .forEach(i -> System.out.format("%d ", i));
+                .forEach(reportIntegerConsumer());
     }
+
+    private Consumer<Integer> reportIntegerConsumer() {
+        return i -> System.out.format("%d ", i);
+    }
+
     public void mapUseCaseRefactoredForFunctionalSignatureClarity() {
         Stream<Character> characterStream = Stream.of('a', 'b', 'c', 'd', 'e');
         Function<Character, Integer> characterIntegerFunction = c -> (int) c;
         Stream<Integer> integerStream = characterStream
                 .map(characterIntegerFunction);
         integerStream
-                .forEach(i -> System.out.format("%d ", i));
+                .forEach(reportIntegerConsumer());
     }
+
     /**
      * EH Book Ch 17 : fact checking claim about map seeing {@code List<T>} instead of {@code <T>} on the stream
      * plus confirming that map() signature is :
@@ -43,7 +49,7 @@ public class CollectionsExplorationWithStreamsPeekAndMap {
                 .peek(getCharacterConsumerReport("before"))
                 .map(getCharacter2IntegerFunction())
                 .peek(getIntegerConsumerReport("after"))
-                .forEach(i -> System.out.format("%d ", i));
+                .forEach(reportIntegerConsumer());
     }
 
     private Stream<Character> getStreamOfCharactersAsTestData() {
@@ -65,10 +71,10 @@ public class CollectionsExplorationWithStreamsPeekAndMap {
     public void flatmapUseCase() {
         List<Character> aToD = Arrays.asList('a', 'b', 'c', 'd');
         List<Character> eToG = Arrays.asList('e', 'f', 'g');
-        Stream.of(aToD, eToG)
+        Stream.of(aToD, eToG, aToD)
                 .flatMap(l -> l.stream())
-                .map(c -> (int) c)
-                .forEach(i -> System.out.format("%d ", i));
+                .map(getCharacter2IntegerFunction())
+                .forEach(reportIntegerConsumer());
     }
     public void flatmapUseCaseRefactoredForFunctionalSignatureClarity() {
         List<Character> aToD = Arrays.asList('a', 'b', 'c', 'd');
@@ -81,7 +87,7 @@ public class CollectionsExplorationWithStreamsPeekAndMap {
         Stream<Integer> integerStream = characterStream
                 .map(characterIntegerFunction);
         integerStream
-                .forEach(i -> System.out.format("%d ", i));
+                .forEach(reportIntegerConsumer());
     }
 
     public void Question_16_1() {
