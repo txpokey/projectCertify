@@ -17,6 +17,10 @@ public class ExploreAnonFromConcreteTypeTest {
     }
 
     @Test
+    /**
+     * method uses contractor style to create anon inner class 'sample'.
+     * then proves that the overridden method can see any method of the anon class
+     */
     public void aConcreteTypeTest() {
         SampleConcreteForAnon sample = new SampleConcreteForAnon() {
             void redoit() {
@@ -36,6 +40,11 @@ public class ExploreAnonFromConcreteTypeTest {
 
     }
     @Test
+    /**
+     * method uses interface 'SampleContractForAnon' to create anon inner class 'sampleAnon'.
+     * then proves that the overridden method can see any method of the anon class.
+     * it also repeats this approach via a lambda, since only one method declared on 'SampleContractInnerForAnon'
+     */
     public void anInterfaceTypeTestUsingLambda(){
         SampleContractForAnon sampleAnon = new SampleContractForAnon() {
             void redoit() {
