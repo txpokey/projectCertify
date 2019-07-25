@@ -1,11 +1,16 @@
 task hello {
+    // just to prove that basically any groovy can be in these closures
     doLast { task ->
+        Map m = [ MarvelMCU: 4 , Thor : "Lady Thor", date: new Date() ]
         println "I'm $task.project.name"
+        println "${m}"
     }
 }
-task version << {
-    println "Gradle version: " + project.getGradle().getGradleVersion()
-    println "Groovy version: " + GroovySystem.getVersion()
+task version {
+    doLast { task ->
+        println "Gradle version: " + project.getGradle().getGradleVersion()
+        println "Groovy version: " + GroovySystem.getVersion()
+    }
 }
 task printProps {
     doFirst { task ->
@@ -21,10 +26,4 @@ task printProps {
         println "spockVersion:> " + spockVersion
         println "testNgVersion:> " + testNgVersion
     }
-}
-//task wrapper(type: Wrapper) {
-//    gradleVersion = '4.10.1'
-//}
-clean {
-    delete 'out'
 }

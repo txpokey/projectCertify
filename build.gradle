@@ -50,7 +50,13 @@ allprojects {
         delete 'out'
         delete 'build'
     }
+    wrapper {
+        gradleVersion = '4.10.3'
+        distributionType = Wrapper.DistributionType.BIN
+    }
 }
+
+
 
 apply from: "${rootProject.projectDir}/etc/gradle/apply/peek.gradle", to: allprojects
 
