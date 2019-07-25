@@ -46,6 +46,11 @@ public class ExploreGenericTest {
         log.debug(list);
 
     }
+    public void reviewTestQuestion6_4_alternateVersion() {
+        List<? super Number> list = new ArrayList<>();
+        list.add(new Integer(2)); // 2
+        log.debug(list);
+    }
 
     public void reviewTestQuestion_6_2() {
         class Question_6_2<T extends Number> {
