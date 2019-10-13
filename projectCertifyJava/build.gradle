@@ -1,14 +1,26 @@
 buildscript {
     rootProject.buildscript
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven { url "https://repo.spring.io/plugins-release/" }
+        maven { url "https://repo.spring.io/libs-release/" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath group: 'org.sonarqube', name: 'org.sonarqube.gradle.plugin', version: '2.7.1'
+    }
 }
 
 bootJar {
-    baseName = project.name
-    version =  '2019Q1-1.0.0'
-    into('META-INF/resources') {
-        from "./src/main/resources/META-INF/resources"
-    }
-    exclude("**/resources/**")
+//    baseName = project.name
+//    version =  '2019Q1-1.0.0'
+//    into('META-INF/resources') {
+//        from "./src/main/resources/META-INF/resources"
+//    }
+//    exclude("**/resources/**")
+    mainClassName = ""
+
 }
 
 springBoot {

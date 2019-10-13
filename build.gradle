@@ -10,6 +10,7 @@ allprojects {
     apply plugin: 'idea'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.sonarqube'
 
     sourceCompatibility = javaVersion
     targetCompatibility = javaVersion
@@ -54,6 +55,16 @@ allprojects {
         gradleVersion = '4.10.3'
         distributionType = Wrapper.DistributionType.BIN
     }
+    bootJar {
+        baseName = project.name
+        version =  '2019Q1-1.0.0'
+        into('META-INF/resources') {
+            from "./src/main/resources/META-INF/resources"
+        }
+        exclude("**/resources/**")
+        mainClassName = ""
+
+    }
 }
 
 
@@ -73,5 +84,6 @@ buildscript {
         classpath("org.codehaus.groovy:groovy:${groovyVersion}")
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
         classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
+        classpath group: 'org.sonarqube', name: 'org.sonarqube.gradle.plugin', version: '2.7.1'
     }
 }
