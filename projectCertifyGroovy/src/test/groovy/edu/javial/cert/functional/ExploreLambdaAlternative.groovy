@@ -18,7 +18,6 @@ class ExploreLambdaAlternative{
         // number -> (number % 2 != 0) => Lambda Expression
         // Integer::sum => Method Reference
         // What is Functional Interface
-
-        assert 11 == sum 
+        assert 11 == sum
     }
 }

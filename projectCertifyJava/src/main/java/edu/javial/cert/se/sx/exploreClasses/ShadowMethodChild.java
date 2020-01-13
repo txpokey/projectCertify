@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.javial.cert.se.sx.pkg;
+package edu.javial.cert.se.sx.exploreClasses;
 
 /**
  * @author mak

@@ -14,6 +14,7 @@ public class ExplorePublicAccessModifiersClassLevel {
  * example of default level class
  */
 class DefaultAccessModifiersClassLevel {
+    public class PublicAccessInnerClass {}
     private class PrivateAccessInnerClass {}
     protected class ProtectedAccessInnerClass {}
     class DefaultAccessInnerClass {}
