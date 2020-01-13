@@ -18,6 +18,7 @@ include 'jhunt:interview:interviewGroovy'
 include 'jhunt:interview:interviewJava'
 
 include 'projectCertifySpring'
+include 'projectCertifySpring:sci.spring:sci.injection'
 include 'projectCertifySpring:sci.springdata'
 include 'projectCertifySpring:sci.springdata:primes.common'
 
