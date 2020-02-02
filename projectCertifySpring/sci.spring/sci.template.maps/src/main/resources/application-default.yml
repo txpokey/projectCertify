@@ -1,0 +1,36 @@
+#app:
+#  team:XYZ Team
+#  team-size:3
+#  team-leader:Mahesh
+#  employees:
+#    - name:Amar
+#      designation:Developer
+#      age:25
+#    - name:Akbar
+#      designation:Tester
+#      age:23
+#    - name:Anthony
+#      designation:Designer
+#      age:27
+#  technologies:
+#    BACKEND:Java
+#    FRONTEND:Angular
+#    DATABASE:Oracle
+#  clients:
+#    - A Client
+#    - B Client
+#    - C Client
+#  company:
+#    name:ABC Ltd
+#    ceo:Narendra
+#    location:Delhi
+#project:
+#  project-name:PQR Project
+#  size:10
+#  manager:John
+
+app:
+  clients:
+    - A Client
+    - B Client
+    - C Client
