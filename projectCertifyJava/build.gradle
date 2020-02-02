@@ -28,4 +28,6 @@ springBoot {
 }
 dependencies {
     compile group: 'com.sun.jna', name: 'jna', version: '3.0.9'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.0'
+
 }
