@@ -35,7 +35,7 @@ public class RestTemplateCfgTest extends AbstractTestNGSpringContextTests {
         sanityCheck();
         String json = restTemplate.getForObject(buildUrl, String.class);
         Currency map = null;
-        ObjectMapper mapper = new ObjectMapper();
+        final ObjectMapper mapper = new ObjectMapper();
         final TypeReference<Currency> valueTypeRef = new TypeReference<Currency>() {
         };
         try {
@@ -45,6 +45,6 @@ public class RestTemplateCfgTest extends AbstractTestNGSpringContextTests {
             final String sf1 = String.format("Exception converting '%s' to map", json);
             logger.debug(sf1, e);
         }
-        assert null != map;
+        Assert.notNull(map);
     }
 }
