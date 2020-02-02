@@ -1,11 +1,21 @@
 package sci.spring.rest.template.maps.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.math.BigInteger;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Currency {
+    private boolean success;
+//    private Date timestamp;
+    @JsonFormat(shape = JsonFormat.Shape.NUMBER, timezone = "UTC")
+    private Date timestamp;
+//    private LocalDateTime timestamp;
     private String base;
     private String date;
 
