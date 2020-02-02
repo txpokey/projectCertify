@@ -34,3 +34,16 @@ app:
     - A Client
     - B Client
     - C Client
+
+logging:
+  level:
+    org.springframework.web: INFO
+    sci:
+      spring:
+        rest:
+          template:
+            maps: DEBUG
+#  #  file: debugLogs/dev_app.log
+#  pattern:
+#    console: "%date{HH:mm:ss.SSS} [%thread] | %logger{10}.%method.%L : %msg%n"
+##    file: "%d %-5level [%thread] %logger : %msg%n || %logger{10}.%method.%L"

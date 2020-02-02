@@ -9,7 +9,8 @@ import sci.spring.rest.template.maps.domain.Currency;
 public class FixerIoCurrencyService implements CurrencyServiceContract {
     @Override
     public Currency getCurrency(String currencyCode) {
-        Currency currency = restTemplate.getForObject("http://api.fixer.io/latest?base={currencyCode}", Currency.class, currencyCode);
+//        Currency currency = restTemplate.getForObject("http://api.fixer.io/latest?base={currencyCode}", Currency.class, currencyCode);
+        Currency currency = null ;
         return currency;
     }
 

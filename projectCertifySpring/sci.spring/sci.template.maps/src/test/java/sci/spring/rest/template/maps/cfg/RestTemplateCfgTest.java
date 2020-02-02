@@ -15,6 +15,7 @@ public class RestTemplateCfgTest extends AbstractTestNGSpringContextTests {
 //    @Autowired
 //    private RestTemplate restTemplate ;
     public void testRestTemplate() {
+        logger.debug("PING!");
         assert null != "" ;
     }
 }
