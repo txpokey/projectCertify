@@ -2,7 +2,6 @@
 buildscript {
     rootProject.buildscript
 }
-
 bootJar {
     baseName = project.name
     version =  '2019Q1-1.0.0'
@@ -16,5 +15,7 @@ springBoot {
 //    mainClassName = 'com.category.fans.App'
 }
 dependencies {
-    // --
+    implementation("org.codehaus.groovy:groovy-all:${groovyVersion}")
+//    testImplementation('org.slf4j:api')
+
 }

@@ -7,5 +7,6 @@ subprojects {
     }
     dependencies {
         implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+        implementation("org.codehaus.groovy:groovy-all:${groovyVersion}")
     }
 }

@@ -25,8 +25,4 @@ class CascadedExceptionsTest extends GroovyTestCase {
 
   }
 
-//
-//  void testWillFinallyRunAfterBreak() {
-//
-//  }
 }

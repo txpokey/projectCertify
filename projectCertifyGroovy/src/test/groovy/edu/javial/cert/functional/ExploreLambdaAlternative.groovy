@@ -1,9 +1,9 @@
 package edu.javial.cert.functional
 
-import groovy.util.logging.Slf4j
+
 import org.testng.annotations.Test
 
-@Slf4j
+//@Slf4j
 @Test
 class ExploreLambdaAlternative{
 

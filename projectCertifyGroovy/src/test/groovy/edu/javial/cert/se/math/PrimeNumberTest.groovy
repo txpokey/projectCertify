@@ -1,7 +1,5 @@
 package edu.javial.cert.se.math
 
-//import groovy.util;
-
 /**
  * Created by mak on 9/12/14.
  */

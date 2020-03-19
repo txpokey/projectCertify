@@ -1,12 +1,10 @@
 package edu.javial.cert.se.core.math
 
-import groovy.util.logging.Slf4j
 
 import javax.annotation.Nonnull
-
 import java.util.concurrent.ConcurrentSkipListSet
 
-@Slf4j
+//@Slf4j
 class PrimeNumberGroovy{
 
 

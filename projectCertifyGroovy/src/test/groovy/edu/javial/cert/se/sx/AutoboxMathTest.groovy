@@ -18,4 +18,5 @@ class AutoboxMathTest extends GroovyTestCase {
     age = Operand[0] * Operand[1];
     assertTrue("3 * 4 = 12", 12 == age )
   }
+
 }

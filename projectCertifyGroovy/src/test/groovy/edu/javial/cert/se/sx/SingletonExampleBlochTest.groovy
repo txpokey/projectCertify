@@ -1,27 +1,19 @@
 package edu.javial.cert.se.sx
-
-import org.junit.Test
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
-
-import static org.junit.Assert.assertTrue
-
 /*
  * Created by mak on 9/13/14.
  * TODO multi-threaded on the bumpCounter
  */
 
 class SingletonExampleBlochTest extends GroovyTestCase {
-  static Logger logger = LoggerFactory.getLogger(SingletonExampleBlochTest.class);
   SingletonExampleBloch tool0, tool1;
 
   void setUp() {
     tool0 = SingletonExampleBloch.getInstance();
     tool1 = SingletonExampleBloch.getInstance();
   }
-  void testOrdinalVaue() {
-    logger.info("INSTANCE ordinal value:tool0> " + tool0);
-    logger.info("INSTANCE ordinal value:tool1> " + tool1);
+  void testOrdinalValue() {
+    log.info("INSTANCE ordinal value:tool0> " + tool0);
+    log.info("INSTANCE ordinal value:tool1> " + tool1);
   }
 
 
