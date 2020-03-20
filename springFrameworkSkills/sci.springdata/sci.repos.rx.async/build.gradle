@@ -4,12 +4,12 @@ buildscript {
 sourceSets {
     main {
         groovy {
-            source project(':projectCertifySpring:sci.springdata:primes.common').sourceSets.main.groovy
+            source project(':springFrameworkSkills:sci.springdata:primes.common').sourceSets.main.groovy
         }
     }
     test {
         groovy {
-            source project(':projectCertifySpring:sci.springdata:primes.common').sourceSets.main.groovy
+            source project(':springFrameworkSkills:sci.springdata:primes.common').sourceSets.main.groovy
         }
     }
 }
