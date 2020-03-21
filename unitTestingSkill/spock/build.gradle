@@ -1,0 +1,13 @@
+buildscript {
+    rootProject.buildscript
+}
+subprojects {
+    repositories {
+        maven { url "https://repo.spring.io/libs-milestone" }
+    }
+    dependencies {
+//        implementation('org.springframework.boot:spring-boot-starter-actuator')
+//        testImplementation('org.springframework.boot:spring-boot-starter-test')
+        implementation("org.codehaus.groovy:groovy-all:${groovyVersion}")
+    }
+}

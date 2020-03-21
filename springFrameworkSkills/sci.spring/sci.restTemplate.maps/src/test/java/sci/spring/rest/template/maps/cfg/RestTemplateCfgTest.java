@@ -2,7 +2,6 @@ package sci.spring.rest.template.maps.cfg;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import groovy.util.logging.Slf4j;
 import org.spockframework.util.Assert;
@@ -12,9 +11,6 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.web.client.RestTemplate;
 import org.testng.annotations.Test;
 import sci.spring.rest.template.maps.domain.Currency;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Slf4j
 @Test

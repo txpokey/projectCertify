@@ -40,3 +40,7 @@ include 'projectMicronaut:sci.micronaut:hello'
 include 'projectMicronaut:sci.micronaut:hello:hello-world'
 include 'projectMicronaut:sci.micronaut:hello:hello-gorm'
 
+include 'unitTestingSkill'
+include 'unitTestingSkill:testng'
+include 'unitTestingSkill:testngSlf4jLogger'
+//include 'unitTestingSkill:spock'
