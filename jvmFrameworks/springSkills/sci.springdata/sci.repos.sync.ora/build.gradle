@@ -1,0 +1,29 @@
+buildscript {
+    rootProject.buildscript
+}
+repositories {
+    maven { url "http://nexus.saas.hand-china.com/content/repositories/rdc/" }
+}
+sourceSets {
+    main {
+        groovy {
+            source project(':jvmFrameworks:springSkills:sci.springdata:primes.common').sourceSets.main.groovy
+            source project(':jvmFrameworks:springSkills:sci.springdata:sci.repos.sync').sourceSets.main.groovy
+            source project(':jvmFrameworks:springSkills:sci.springdata:sci.repos.sync.bootstrap').sourceSets.main.groovy
+        }
+    }
+    test {
+        groovy {
+            source project(':jvmFrameworks:springSkills:sci.springdata:primes.common').sourceSets.test.groovy
+            source project(':jvmFrameworks:springSkills:sci.springdata:sci.repos.sync').sourceSets.test.groovy
+            source project(':jvmFrameworks:springSkills:sci.springdata:sci.repos.sync.bootstrap').sourceSets.test.groovy
+        }
+    }
+}
+dependencies {
+    implementation('com.oracle:ojdbc7:12.1.0.2')
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+//    implementation('org.springframework.boot:spring-boot-starter-data-rest')
+//    implementation('org.springframework.boot:spring-boot-starter-web')
+
+}
