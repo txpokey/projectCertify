@@ -48,15 +48,6 @@ class BookExploreExecutorsTestWithSlf4jLoggerAnnotation {
         Object[][] candidate = [callables as MyCallable[]]
         candidate
     }
-    @DataProvider
-    private final Object[][] getCallables0() {
-        final List<MyCallable> callables = new ArrayList<>();
-        IntStream.rangeClosed(1, 10).forEach( { i -> callables.add( new MyCallable(i)) } );
-        Object[] array = callables.toArray(new MyCallable[callables.size()]);
-        Object[][] candidate = [array]
-        candidate
-    }
-
 
     /**
      * take a random collection of callables, have them executed, and report on their order of results
