@@ -2,7 +2,7 @@ package sci.certify.testing.spock.fundamentals
 
 import spock.lang.Specification
 
-class SpockTestBasics extends Specification{
+class SpockTestBasics extends Specification {
     class UserService{
         List users
 
@@ -27,14 +27,14 @@ class SpockTestBasics extends Specification{
 
     def "Return total number of users verse where clause"() {
         setup: 'Create UserService instance with userList from where clause'
-            def userService = new UserService(users: userList)
+        def userService = new UserService(users: userList)
         expect: 'Invoke count() method'
-            expectedCount == userService.count()
+        expectedCount == userService.count()
         where:
-            expectedCount | userList
-            -1            | null
-            0             | []
-            1             | ['mrhaki']
-            2             | ['mrhaki', 'hubert']
+        expectedCount | userList
+        -1            | null
+        0             | []
+        1             | ['mrhaki']
+        2             | ['mrhaki', 'hubert']
     }
 }
