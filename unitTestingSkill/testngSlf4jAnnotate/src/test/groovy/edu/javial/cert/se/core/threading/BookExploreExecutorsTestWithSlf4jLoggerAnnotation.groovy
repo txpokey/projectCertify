@@ -14,11 +14,8 @@ import java.util.stream.IntStream
  */
 @Test
 @Slf4j
-//@SpringBootTest
-
 class BookExploreExecutorsTestWithSlf4jLoggerAnnotation {
     // using log4j VERSION 1.x with the log4j.properties
-//    private static Logger log = LogManager.getLogger(BookExploreExecutorsTestWithSlf4jLoggerAnnotation.class.getName());; // V1
     final private int THREADS_USED = 3;
 
     class MyCallable implements Callable<String> {
