@@ -29,9 +29,6 @@ allprojects {
         testImplementation("org.testng:testng:${testNgVersion}")
         testImplementation group: 'org.mockito', name: 'mockito-core'
         implementation('com.google.code.findbugs:jsr305:latest.integration')
-//        testImplementation group: 'org.slf4j', name: 'slf4j-log4j12'
-//        testImplementation group: 'org.slf4j', name: 'api'
-
     }
     buildDir="$projectDir/out"
     clean {
