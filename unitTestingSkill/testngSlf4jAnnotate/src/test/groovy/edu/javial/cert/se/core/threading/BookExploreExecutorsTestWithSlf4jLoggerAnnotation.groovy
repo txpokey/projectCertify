@@ -1,41 +1,25 @@
-package edu.javial.cert.se.core.threading;
+package edu.javial.cert.se.core.threading
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-import groovy.util.logging.Slf4j;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import groovy.util.logging.Slf4j
+import org.testng.annotations.DataProvider
+import org.testng.annotations.Test
 
-import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.*;
-import java.util.function.Consumer;
-import java.util.stream.IntStream;
+import javax.annotation.Nonnull
+import java.util.concurrent.*
+import java.util.function.Consumer
+import java.util.stream.IntStream
 
 /**
  * prove that futures from executor are returned in the same order as the invokeAll(arg)
  */
 @Test
 @Slf4j
-@SpringBootTest
+//@SpringBootTest
 
-public class BookExploreExecutorsTestWithSlf4jLoggerAnnotation {
+class BookExploreExecutorsTestWithSlf4jLoggerAnnotation {
     // using log4j VERSION 1.x with the log4j.properties
-    private static Logger log = LogManager.getLogger(BookExploreExecutorsTestWithSlf4jLoggerAnnotation.class.getName());; // V1
+//    private static Logger log = LogManager.getLogger(BookExploreExecutorsTestWithSlf4jLoggerAnnotation.class.getName());; // V1
     final private int THREADS_USED = 3;
-
-    @DataProvider
-    private final Object[][] getCallables(){
-        final List<MyCallable> callables = new ArrayList<>();
-        IntStream.rangeClosed(1, 10).forEach( i -> callables.add( new MyCallable(i) ));
-        return new Object[][] {
-                {callables},
-        };
-    }
 
     class MyCallable implements Callable<String> {
         final private int id ;
@@ -60,6 +44,22 @@ public class BookExploreExecutorsTestWithSlf4jLoggerAnnotation {
             return payload;
         }
     }
+    @DataProvider
+    private final Object[][] getCallables() {
+        final Range<Integer> range = 1..10
+        final List<MyCallable> callables = range.collect { i -> new MyCallable(i) }
+        Object[][] candidate = [callables as MyCallable[]]
+        candidate
+    }
+    @DataProvider
+    private final Object[][] getCallables0() {
+        final List<MyCallable> callables = new ArrayList<>();
+        IntStream.rangeClosed(1, 10).forEach( { i -> callables.add( new MyCallable(i)) } );
+        Object[] array = callables.toArray(new MyCallable[callables.size()]);
+        Object[][] candidate = [array]
+        candidate
+    }
+
 
     /**
      * take a random collection of callables, have them executed, and report on their order of results
@@ -67,7 +67,8 @@ public class BookExploreExecutorsTestWithSlf4jLoggerAnnotation {
      * @param callables test data
      */
     @Test(dataProvider = "getCallables")
-    public void exploreExampleExecutorWithNonTrivialPool(@Nonnull List<MyCallable> callables) {
+    void exploreExampleExecutorWithNonTrivialPool(@Nonnull MyCallable[] callablesArray) {
+        List<MyCallable> callables = callablesArray.toList()
         Collections.shuffle(callables);
         List<Future<String>> futures = getFuturesFromExecuteCallables(callables);
         report(callables, futures);
@@ -111,7 +112,7 @@ public class BookExploreExecutorsTestWithSlf4jLoggerAnnotation {
      */
     private List<String> report(@Nonnull List<MyCallable> list) {
         List<String> seeResults = new ArrayList<>();
-        final Consumer<MyCallable> stringConsumer = l -> {
+        final Consumer<MyCallable> stringConsumer = { l ->
             String msg = String.format("%s%n", l.getPayload());
             seeResults.add(msg);
         };
@@ -126,7 +127,7 @@ public class BookExploreExecutorsTestWithSlf4jLoggerAnnotation {
      */
     private List<String> reportFutures(@Nonnull List<Future<String>> futures)  {
         List<String> seeResults = new ArrayList<>();
-        final Consumer<Future<String>> futureConsumer = f -> {
+        final Consumer<Future<String>> futureConsumer = { f ->
             try {
                 // run the methods on futures to see result data
                 String msg = String.format("%s - %s%n", f.get(), f.isDone());
