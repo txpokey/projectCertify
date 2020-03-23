@@ -3,7 +3,7 @@ package sci.certify.testing.spock.fundamentals
 import spock.lang.Specification
 import spock.lang.Subject
 
-class UserServiceSpec extends Specification{
+class ForExploreThenWithBlocks extends Specification{
     @Subject
     private UserService userService = new DefaultUserService()
 
