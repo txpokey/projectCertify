@@ -1,13 +1,24 @@
-package sci.certify.testing.spock.fundamentals
+package sci.certify.testing.spock.fundamentals.mock
 
 import spock.lang.Specification
 import spock.lang.Subject
 
 class ExploreMockPlusTripleGreaterThanTerminal extends Specification{
+
+    final String[] sizeThese = ['one', 'two', 'three', 'four', 'five']
+    interface Calculator {
+        int calculateSize(final String s)
+    }
+    class StringUtil{
+        def calculator
+
+        int size(final String[] s) {
+            int result = s.sum { it -> calculator.calculateSize(it) }
+            result
+        }
+    }
     @Subject
     def util = new StringUtil()
-    final String[] sizeThese = ['one', 'two', 'three', 'four', 'five']
-
     def "explore string sum passing in closure for the calculation"() {
         when:
         def count = sizeThese.sum { it -> it.length() }
@@ -39,18 +50,7 @@ class ExploreMockPlusTripleGreaterThanTerminal extends Specification{
         then:
         -1 != count
     }
-    def "Calculate sizes of String values"() {
-        given:
-        def calculator = Mock(Calculator)
-        util.calculator = calculator
-        calculator.calculateSize(sizeThese) >>> {10000}
-        util.calculator = calculator
-        when:
-        def total = util.size()
-        then:
-        total == 1 + 3 + 4 + 4 + 4
-    }
-    def "Calculate sizes of String values - THIS BOOK EXAMPLE DOES NOT WORK "() {
+    def "Calculate sizes of String values by stubbing calculator interface"() {
         given:
         def calculator = Mock(Calculator)
         util.calculator = calculator
@@ -60,32 +60,6 @@ class ExploreMockPlusTripleGreaterThanTerminal extends Specification{
         calculator.calculateSize(_) >>> [1, 3, 4]
         total == 1 + 3 + 4 + 4 + 4
     }
-    interface Calculator {
-        int calculateSize(final String s)
-    }
-    class StringUtil{
-        def calculator
 
-        int size(final String[] s) {
-            int result = s.sum { it -> calculator.calculateSize(it) }
-            result
-        }
-    }
-    def "should return Role.USER when asked for role"() {
-        given:
-        List list = Stub()
-        list.size() >> 3
-        expect:
-        // let's see if this works
-        list.size() == 3
-    }
-    def "should return 2 for method parameter equal to 2"() {
-        given:
-        List list = Stub()
-        list.get(0) >> 0
-        list.get(1) >> { throw new IllegalArgumentException() }
-        list.get(2) >> 2
-        expect:
-        list.get(2) == 2
-    }
+
 }
