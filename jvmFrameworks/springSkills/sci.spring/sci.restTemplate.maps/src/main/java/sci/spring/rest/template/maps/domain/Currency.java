@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Date;
 import java.util.Map;
+import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Currency {
@@ -41,4 +42,19 @@ public class Currency {
         this.date = date;
     }
 
+    @Override
+    public int hashCode(){
+        return Objects.hash(rates, base);
+    }
+
+    @Override
+    public boolean equals(final Object obj){
+        if(obj instanceof Currency){
+            final Currency other = (Currency) obj;
+            return Objects.equals(rates, other.rates)
+                    && Objects.equals(base, other.base);
+        } else{
+            return false;
+        }
+    }
 }

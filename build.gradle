@@ -67,7 +67,7 @@ buildscript {
     dependencies {
         classpath("org.codehaus.groovy:groovy:${groovyVersion}")
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
-        classpath group: 'org.sonarqube', name: 'org.sonarqube.gradle.plugin', version: '2.7.1'
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE"
+        classpath group: 'org.sonarqube', name: 'org.sonarqube.gradle.plugin', version: "${sonarVersion}"
     }
 }
