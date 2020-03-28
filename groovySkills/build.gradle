@@ -1,0 +1,22 @@
+
+buildscript {
+    rootProject.buildscript
+}
+bootJar {
+    baseName = project.name
+    version =  '2019Q1-1.0.0'
+//    into('META-INF/resources') {
+//        from "./src/main/resources/META-INF/resources"
+//    }
+//    exclude("**/resources/**")
+}
+
+springBoot {
+//    mainClassName = 'com.category.fans.App'
+}
+dependencies {
+    implementation("org.codehaus.groovy:groovy-all:${groovyVersion}")
+//    testImplementation('org.slf4j:api')
+        implementation group: 'commons-logging', name: 'commons-logging', version: '1.2'
+
+}

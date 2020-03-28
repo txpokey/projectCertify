@@ -2,7 +2,7 @@
 ext['groovy.version'] = groovyVersion // need for compile groovy to pick up groovy fix
 
 allprojects {
-    group = 'com.category.certify'
+    group = 'sci.category.certify'
     version = '0.0.1-SNAPSHOT'
 
     apply plugin: 'groovy'
@@ -10,10 +10,13 @@ allprojects {
     apply plugin: 'idea'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.sonarqube'
 
     sourceCompatibility = javaVersion
     targetCompatibility = javaVersion
-//    version 'unspecified'
+
+    version =  "${outputLibVersion}"
+
 
     repositories {
         mavenCentral()
@@ -21,23 +24,34 @@ allprojects {
     }
 
     dependencies {
-        compile("org.codehaus.groovy:groovy-all")
-        compile('org.codehaus.groovy:groovy-templates')
-        compile('org.springframework.boot:spring-boot-starter-web')
         // -------------------------------------------
-        compile("org.webjars:bootstrap:${latestRelease}")
-        compile("org.webjars:webjars-locator:${latestRelease}")
-        // -------------------------------------------
-        runtime('org.springframework.boot:spring-boot-devtools')
-        compile('org.springframework.boot:spring-boot-starter-actuator')
-        testCompile('org.springframework.boot:spring-boot-starter-test')
-        testCompile("org.spockframework:spock-core:${spockVersion}")
-        testCompile("org.testng:testng:${testNgVersion}")
-        testCompile group: 'org.mockito', name: 'mockito-core'
-        compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
-        runtime('com.h2database:h2')
+        testImplementation("org.spockframework:spock-core:${spockVersion}")
+        testImplementation("org.testng:testng:${testNgVersion}")
+        testImplementation group: 'org.mockito', name: 'mockito-core'
+        implementation('com.google.code.findbugs:jsr305:latest.integration')
+    }
+    buildDir="$projectDir/out"
+    clean {
+        delete 'out'
+        delete 'build'
+    }
+    wrapper {
+        gradleVersion = '6.2.2'
+        distributionType = Wrapper.DistributionType.BIN
+    }
+    bootJar {
+        baseName = project.name
+        version =  '2020Q2-1.0.0'
+        into('META-INF/resources') {
+            from "./src/main/resources/META-INF/resources"
+        }
+        exclude("**/resources/**")
+        mainClassName = ""
+
     }
 }
+
+
 
 apply from: "${rootProject.projectDir}/etc/gradle/apply/peek.gradle", to: allprojects
 
@@ -53,6 +67,7 @@ buildscript {
     dependencies {
         classpath("org.codehaus.groovy:groovy:${groovyVersion}")
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE"
+        classpath group: 'org.sonarqube', name: 'org.sonarqube.gradle.plugin', version: "${sonarVersion}"
     }
 }

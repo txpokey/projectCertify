@@ -1,0 +1,26 @@
+debug: false
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    password: pokey0
+    username: postgres
+  jpa:
+    database-platform: org.hibernate.dialect.ProgressDialect
+    show-sql: true
+    hibernate:
+    ## use "create" when running the app for the first time
+    ## then change to "update" which just updates the schema when necessary
+      ddl-auto: create
+    properties.hibernate.jdbc.lob.non_contextual_creation: true
+logging:
+  level:
+    org.springframework.web: INFO
+    sci.category.certify: DEBUG
+  file: /dev/null
+  pattern:
+    console: "%date{HH:mm:ss.SSS} [%thread] | %logger{10}.%method.%L : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n || %logger{10}.%method.%L"

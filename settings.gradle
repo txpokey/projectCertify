@@ -8,23 +8,41 @@
  * in the user guide at https://docs.gradle.org/4.1/userguide/multi_project_builds.html
  */
 
-/*
-// To declare projects as part of a multi-project build use the 'include' method
-include 'shared'
-include 'api'
-include 'services:webservice'
-*/
-
-
-include 'projectCertifyGroovy'
-include 'projectCertifyJava'
+rootProject.name = 'projectCertify'
+include 'groovySkills'
+include 'javaSkills'
 include 'jhunt:thoughtWorks'
 include 'jhunt:dealer.com'
 include 'jhunt:interview'
 include 'jhunt:interview:interviewGroovy'
 include 'jhunt:interview:interviewJava'
 
-rootProject.name = 'projectCertify'
-include 'projectCertifySpring'
-findProject(':projectCertifySpring')?.name = 'spring'
+include 'jvmFrameworks:springSkills'
+include 'jvmFrameworks:springSkills:sci.spring:sci.injection'
+include 'jvmFrameworks:springSkills:sci.spring:sci.restTemplate.maps'
+include 'jvmFrameworks:springSkills:sci.springdata'
+include 'jvmFrameworks:springSkills:sci.springdata:primes.common'
 
+include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.sync'
+include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.sync.bootstrap'
+include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.sync.h2'
+include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.sync.ora'
+include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.sync.postgresql'
+
+include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.rx.async'
+include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.rx.bootstrap'
+include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.webflux.h2'
+include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.webflux.postgresql'
+
+include 'jvmFrameworks:micronautSkills'
+include 'jvmFrameworks:micronautSkills:sci.micronaut'
+include 'jvmFrameworks:micronautSkills:sci.micronaut:hello'
+include 'jvmFrameworks:micronautSkills:sci.micronaut:hello:hello-world'
+include 'jvmFrameworks:micronautSkills:sci.micronaut:hello:hello-gorm'
+
+include 'unitTestingSkill'
+include 'unitTestingSkill:testng'
+include 'unitTestingSkill:testng:slf4j:explicit'
+include 'unitTestingSkill:testng:slf4j:annotate'
+include 'unitTestingSkill:testng:log4j'
+include 'unitTestingSkill:spock'

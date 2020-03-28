@@ -1,0 +1,11 @@
+buildscript {
+    rootProject.buildscript
+}
+subprojects {
+    repositories {
+        maven { url "https://repo.spring.io/libs-milestone" }
+    }
+    dependencies {
+        implementation("org.codehaus.groovy:groovy-all:${groovyVersion}")
+    }
+}

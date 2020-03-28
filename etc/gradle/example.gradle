@@ -9,7 +9,13 @@ repositories {
 }
 //sourceSets.main.java.srcDirs =
 //  ["src/main/java", "src/test/java", "src/main/resources" ]
-
+bootJar {
+    baseName = project.name
+    into('META-INF/resources') {
+        from "./src/main/resources/META-INF/resources"
+    }
+    exclude("**/resources/**")
+}
 dependencies {
 //	compile 'junit:junit:4.8.2'
 //	compile 'org.springframework:spring:2.5.6.SEC02'

@@ -1,0 +1,9 @@
+
+buildscript {
+    rootProject.buildscript
+}
+subprojects {
+    dependencies {
+        implementation("org.codehaus.groovy:groovy-all:${groovyVersion}")
+    }
+}

@@ -1,0 +1,7 @@
+buildscript {
+    rootProject.buildscript
+}
+dependencies {
+    // for @SLF4j to work using V1 log4j.properties
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+}
