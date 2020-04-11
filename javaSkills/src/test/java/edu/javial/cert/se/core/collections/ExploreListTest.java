@@ -11,11 +11,11 @@ import java.util.List;
 @Test
 public class ExploreListTest {
     private static Log log = LogFactory.getLog(ExploreListTest.class);
+    final List<Integer> inputList = Arrays.asList(12, 5, 45, 18, 33, 24, 40);
 
     public void lookAtArrayListPedigree() {
-        final List<Integer> input = Arrays.asList(12, 5, 45, 18, 33, 24, 40);
-        log.debug(input.getClass());
-        final List<Integer> inputRedux = new ArrayList<>(input);
+        log.debug(inputList.getClass());
+        final List<Integer> inputRedux = new ArrayList<>(inputList);
         log.debug(inputRedux.getClass());
     }
 
