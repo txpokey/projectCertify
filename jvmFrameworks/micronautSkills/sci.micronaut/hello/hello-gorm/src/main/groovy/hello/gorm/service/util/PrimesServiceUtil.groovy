@@ -12,7 +12,7 @@ class PrimesServiceUtil{
         candidate
     }
 
-    private static getPrimeViaConstructorOnMap(@Nonnull int i, @Nonnull String species) {
+    private static def getPrimeViaConstructorOnMap(@Nonnull int i, @Nonnull String species) {
         Map m = [prime: i, truth: PrimeNumberGroovy.isPrime(i), species: species]
         def p = new Primes(m)
     }
