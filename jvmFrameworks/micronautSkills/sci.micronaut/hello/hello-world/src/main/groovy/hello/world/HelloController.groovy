@@ -17,8 +17,9 @@ class HelloController {
     }
     @Get("Bob") // this mapping is case sensitive
     def bobIsHere() {
-        log.debug(BOB_MESSAGE)
-        def re = HttpResponse.status(HttpStatus.OK).body(BOB_MESSAGE)
+        def timedMessage = "${BOB_MESSAGE} @ ${new Date()}"
+        log.debug(timedMessage)
+        def re = HttpResponse.status(HttpStatus.OK).body(timedMessage)
         re
     }
     private final static BOB_MESSAGE = "This is a HELLO WORLD from Bob"
