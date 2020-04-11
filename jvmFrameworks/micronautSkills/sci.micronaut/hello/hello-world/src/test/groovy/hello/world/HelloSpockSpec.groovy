@@ -10,7 +10,7 @@ class HelloSpockSpec extends Specification {
 
     @Shared message = 'Hello world!'
     def "The world can say hello using expect"(){
-        log.info("this si a TEST")
+        log.info("this is a TEST")
         expect:
         message == 'Hello world!'
     }
