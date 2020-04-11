@@ -34,8 +34,6 @@ include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.rx.bootstrap'
 include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.webflux.h2'
 include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.webflux.postgresql'
 
-include 'jvmFrameworks:micronautSkills'
-include 'jvmFrameworks:micronautSkills:sci.micronaut'
 include 'jvmFrameworks:micronautSkills:sci.micronaut:hello'
 include 'jvmFrameworks:micronautSkills:sci.micronaut:hello:hello-world'
 include 'jvmFrameworks:micronautSkills:sci.micronaut:hello:hello-gorm'
