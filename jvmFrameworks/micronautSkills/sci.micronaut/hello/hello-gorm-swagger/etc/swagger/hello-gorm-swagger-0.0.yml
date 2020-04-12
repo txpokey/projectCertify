@@ -1,0 +1,150 @@
+openapi: 3.0.1
+info:
+  title: hello-gorm-swagger
+  version: "0.0"
+paths:
+  /hello:
+    get:
+      operationId: index
+      parameters: []
+      responses:
+        default:
+          description: index default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HttpStatus'
+  /hello/Bob:
+    get:
+      operationId: bobIsHere
+      parameters: []
+      responses:
+        default:
+          description: bobIsHere default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+  /hello/findAll:
+    get:
+      operationId: doFindAll
+      parameters: []
+      responses:
+        default:
+          description: doFindAll default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+  /hello/findAllByTruth/{state}:
+    get:
+      operationId: doFindByTruth
+      parameters:
+      - name: state
+        in: path
+        required: true
+        schema:
+          type: boolean
+      responses:
+        default:
+          description: doFindByTruth default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+  /hello/bootStrap:
+    get:
+      operationId: doBootStrap
+      parameters: []
+      responses:
+        default:
+          description: doBootStrap default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+  /map/useCases:
+    get:
+      operationId: whatWillThisDo
+      parameters: []
+      responses:
+        default:
+          description: whatWillThisDo default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+components:
+  schemas:
+    HttpStatus:
+      type: string
+      enum:
+      - CONTINUE
+      - SWITCHING_PROTOCOLS
+      - PROCESSING
+      - OK
+      - CREATED
+      - ACCEPTED
+      - NON_AUTHORITATIVE_INFORMATION
+      - NO_CONTENT
+      - RESET_CONTENT
+      - PARTIAL_CONTENT
+      - MULTI_STATUS
+      - ALREADY_IMPORTED
+      - IM_USED
+      - MULTIPLE_CHOICES
+      - MOVED_PERMANENTLY
+      - FOUND
+      - SEE_OTHER
+      - NOT_MODIFIED
+      - USE_PROXY
+      - SWITCH_PROXY
+      - TEMPORARY_REDIRECT
+      - PERMANENT_REDIRECT
+      - BAD_REQUEST
+      - UNAUTHORIZED
+      - PAYMENT_REQUIRED
+      - FORBIDDEN
+      - NOT_FOUND
+      - METHOD_NOT_ALLOWED
+      - NOT_ACCEPTABLE
+      - PROXY_AUTHENTICATION_REQUIRED
+      - REQUEST_TIMEOUT
+      - CONFLICT
+      - GONE
+      - LENGTH_REQUIRED
+      - PRECONDITION_FAILED
+      - REQUEST_ENTITY_TOO_LARGE
+      - REQUEST_URI_TOO_LONG
+      - UNSUPPORTED_MEDIA_TYPE
+      - REQUESTED_RANGE_NOT_SATISFIABLE
+      - EXPECTATION_FAILED
+      - I_AM_A_TEAPOT
+      - ENHANCE_YOUR_CALM
+      - UNPROCESSABLE_ENTITY
+      - LOCKED
+      - FAILED_DEPENDENCY
+      - UNORDERED_COLLECTION
+      - UPGRADE_REQUIRED
+      - PRECONDITION_REQUIRED
+      - TOO_MANY_REQUESTS
+      - REQUEST_HEADER_FIELDS_TOO_LARGE
+      - NO_RESPONSE
+      - BLOCKED_BY_WINDOWS_PARENTAL_CONTROLS
+      - UNAVAILABLE_FOR_LEGAL_REASONS
+      - REQUEST_HEADER_TOO_LARGE
+      - INTERNAL_SERVER_ERROR
+      - NOT_IMPLEMENTED
+      - BAD_GATEWAY
+      - SERVICE_UNAVAILABLE
+      - GATEWAY_TIMEOUT
+      - HTTP_VERSION_NOT_SUPPORTED
+      - VARIANT_ALSO_NEGOTIATES
+      - INSUFFICIENT_STORAGE
+      - LOOP_DETECTED
+      - BANDWIDTH_LIMIT_EXCEEDED
+      - NOT_EXTENDED
+      - NETWORK_AUTHENTICATION_REQUIRED
+      - CONNECTION_TIMED_OUT
+    Object:
+      type: object
