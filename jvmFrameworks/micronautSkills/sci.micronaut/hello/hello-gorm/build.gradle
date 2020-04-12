@@ -47,9 +47,6 @@ dependencies {
     //
     compile group: 'org.hibernate', name: 'hibernate-ehcache', version: '5.4.14.Final'
 
-    //
-    annotationProcessor "io.micronaut.configuration:micronaut-openapi"
-    compile "io.swagger.core.v3:swagger-annotations"
 }
 
 test.classpath += configurations.developmentOnly
@@ -61,17 +58,13 @@ test {
 }
 tasks.withType(GroovyCompile) {
     groovyOptions.forkOptions.jvmArgs.add('-Dgroovy.parameters=true')
-//    groovyOptions.forkOptions.jvmArgs << '-Dmicronaut.openapi.views.spec=swagger-ui.enabled=true,swagger-ui.theme=flattop'
 
 }
 
 shadowJar {
     mergeServiceFiles()
 }
-//tasks.withType(JavaCompile) {
-//    options.fork = true
-//    options.forkOptions.jvmArgs << '-Dmicronaut.openapi.views.spec=swagger-ui.enabled=true,swagger-ui.theme=flattop'
-//}
+
 tasks.withType(JavaExec) {
     classpath += configurations.developmentOnly
     jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
