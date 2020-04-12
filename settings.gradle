@@ -37,6 +37,7 @@ include 'jvmFrameworks:springSkills:sci.springdata:sci.repos.webflux.postgresql'
 include 'jvmFrameworks:micronautSkills:sci.micronaut:hello'
 include 'jvmFrameworks:micronautSkills:sci.micronaut:hello:hello-world'
 include 'jvmFrameworks:micronautSkills:sci.micronaut:hello:hello-gorm'
+include 'jvmFrameworks:micronautSkills:sci.micronaut:hello:hello-gorm-swagger'
 
 include 'unitTestingSkill'
 include 'unitTestingSkill:testng'
