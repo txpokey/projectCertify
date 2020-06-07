@@ -46,6 +46,11 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
     //
     compile group: 'org.hibernate', name: 'hibernate-ehcache', version: '5.4.14.Final'
+// swagger - stubbed
+//    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+//    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+//    compile group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.1.2'
+//    compile group: 'io.swagger.core.v3', name: 'swagger-models', version: '2.1.2'
 
 }
 
