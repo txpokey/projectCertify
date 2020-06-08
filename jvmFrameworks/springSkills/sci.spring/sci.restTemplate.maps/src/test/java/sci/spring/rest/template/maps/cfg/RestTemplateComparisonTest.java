@@ -54,10 +54,13 @@ public class RestTemplateComparisonTest extends RestTemplateCfgTest {
         assert currency1.equals(currency2);
     }
     public void testWebClient() {
-
+        sanityCheck();
+        Currency currency1 = service.getCurrency("dummy");
         Flux<Currency> moneyFlux = getCurrencyNonBlocking() ;
-        Currency currency = moneyFlux.blockFirst();
-        assert null != currency ;
+        Currency currency2 = moneyFlux.blockFirst();
+        assert null != currency1;
+        assert null != currency2;
+        assert currency1.equals(currency2);
     }
     private Flux<Currency> getCurrencyNonBlocking () {
         Flux<Currency> moneyFlux = WebClient.create()
