@@ -7,7 +7,9 @@ import groovy.util.logging.Slf4j;
 import org.spockframework.util.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.testng.annotations.Test;
+import reactor.core.publisher.Flux;
 import sci.spring.rest.template.maps.domain.Currency;
 
 @Slf4j
@@ -50,5 +52,21 @@ public class RestTemplateComparisonTest extends RestTemplateCfgTest {
         assert null != currency1;
         assert null != currency2;
         assert currency1.equals(currency2);
+    }
+    public void testWebClient() {
+
+        Flux<Currency> moneyFlux = getCurrencyNonBlocking() ;
+        Currency currency = moneyFlux.blockFirst();
+        assert null != currency ;
+    }
+    private Flux<Currency> getCurrencyNonBlocking () {
+        Flux<Currency> moneyFlux = WebClient.create()
+                .get()
+                .uri(currencyUrl)
+                .retrieve()
+                .bodyToFlux(Currency.class);
+
+        moneyFlux.subscribe(data -> logger.info(data.toString()));
+        return moneyFlux;
     }
 }
