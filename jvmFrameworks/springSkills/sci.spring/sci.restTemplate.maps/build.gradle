@@ -4,6 +4,4 @@ buildscript {
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
-    testImplementation group: 'org.slf4j', name: 'slf4j-log4j12'
-
 }
