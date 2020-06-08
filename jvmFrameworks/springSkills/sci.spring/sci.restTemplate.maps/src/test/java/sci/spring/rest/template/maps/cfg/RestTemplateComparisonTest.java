@@ -5,18 +5,21 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import groovy.util.logging.Slf4j;
 import org.spockframework.util.Assert;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.testng.annotations.Test;
 import sci.spring.rest.template.maps.domain.Currency;
 
 @Slf4j
 @Test // inherit random port
 public class RestTemplateComparisonTest extends RestTemplateCfgTest {
-    private final static String buildUrl = "http://data.fixer" +
-            ".io/api/latest?access_key=3e71e8caaa61c017d627f66461436b5f&symbols=USD";
+    @Autowired
+    @Qualifier("currencyUrl")
+    private String currencyUrl;
 
     public void testRestTemplate0() {
         sanityCheck();
-        String json = getTestRestTemplate().getForObject(buildUrl, String.class);
+        String json = getTestRestTemplate().getForObject(currencyUrl, String.class);
         Currency map = null;
         final ObjectMapper mapper = new ObjectMapper();
         final TypeReference<Currency> valueTypeRef = new TypeReference<Currency>() {
@@ -33,8 +36,8 @@ public class RestTemplateComparisonTest extends RestTemplateCfgTest {
 
     public void testRestTemplate() {
         sanityCheck();
-        Currency currency1 = getRestTemplate().getForObject(buildUrl, Currency.class);
-        Currency currency2 = getTestRestTemplate().getForObject(buildUrl, Currency.class);
+        Currency currency1 = getRestTemplate().getForObject(currencyUrl, Currency.class);
+        Currency currency2 = getTestRestTemplate().getForObject(currencyUrl, Currency.class);
         assert null != currency1;
         assert null != currency2;
         assert currency1.equals(currency2);
@@ -43,7 +46,7 @@ public class RestTemplateComparisonTest extends RestTemplateCfgTest {
     public void testRestTemplate2() {
         sanityCheck();
         Currency currency1 = service.getCurrency("dummy");
-        Currency currency2 = getTestRestTemplate().getForObject(buildUrl, Currency.class);
+        Currency currency2 = getTestRestTemplate().getForObject(currencyUrl, Currency.class);
         assert null != currency1;
         assert null != currency2;
         assert currency1.equals(currency2);
