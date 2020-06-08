@@ -30,10 +30,6 @@
 #  manager:John
 
 app:
-  clients:
-    - A Client
-    - B Client
-    - C Client
   currencyUrl: "http://data.fixer.io/api/latest?access_key=3e71e8caaa61c017d627f66461436b5f&symbols=USD"
 
 logging:
