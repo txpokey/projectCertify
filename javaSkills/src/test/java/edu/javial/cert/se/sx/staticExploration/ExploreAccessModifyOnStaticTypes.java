@@ -25,7 +25,9 @@ public class ExploreAccessModifyOnStaticTypes {
         }
     }
     public void sanityCheck() {
-        Assert.assertNotNull(logger);
+        Assert.assertNotNull(log);
+        log.info("ping!");
+        log.debug("ping!");
     }
-    private static Logger logger = LoggerFactory.getLogger(ExploreAccessModifyOnStaticTypes.class);
+    private static Logger log = LoggerFactory.getLogger(ExploreAccessModifyOnStaticTypes.class);
 }
