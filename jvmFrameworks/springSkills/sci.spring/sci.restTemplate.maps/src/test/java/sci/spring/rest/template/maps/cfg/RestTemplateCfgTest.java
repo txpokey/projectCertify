@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.web.client.RestTemplate;
 import org.testng.annotations.Test;

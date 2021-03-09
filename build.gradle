@@ -29,6 +29,8 @@ allprojects {
         testImplementation("org.testng:testng:${testNgVersion}")
         testImplementation group: 'org.mockito', name: 'mockito-core'
         implementation('com.google.code.findbugs:jsr305:latest.integration')
+        annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
     }
     buildDir="$projectDir/out"
     clean {
@@ -36,7 +38,7 @@ allprojects {
         delete 'build'
     }
     wrapper {
-        gradleVersion = '6.2.2'
+        gradleVersion = '6.6'
         distributionType = Wrapper.DistributionType.BIN
     }
     bootJar {

@@ -16,7 +16,17 @@ public class ExploreListTest {
     public void lookAtArrayListPedigree() {
         log.debug(inputList.getClass());
         final List<Integer> inputRedux = new ArrayList<>(inputList);
-        log.debug(inputRedux.getClass());
+        final Class c = inputRedux.getClass() ;
+        log.debug(c);
+    }
+
+    public void addingToList() {
+        log.debug(inputList.getClass());
+        final List<Integer> inputRedux = new ArrayList<>(inputList);
+        inputRedux.add(1, 6 );
+        assert inputRedux.get(1) == 6 ;
+        assert inputRedux.get(0) == 12 ;
+        assert inputRedux.get(2) == 5 ;
     }
 
 }

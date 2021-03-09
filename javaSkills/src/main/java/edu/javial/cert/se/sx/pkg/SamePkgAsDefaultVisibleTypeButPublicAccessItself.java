@@ -8,7 +8,7 @@ package edu.javial.cert.se.sx.pkg;
  * 
  */
 public class SamePkgAsDefaultVisibleTypeButPublicAccessItself {
-	private DefaultVisibleType sneeky = new DefaultVisibleType();
+	private PackagePrivateType sneeky = new PackagePrivateType();
 
 	public SamePkgAsDefaultVisibleTypeButPublicAccessItself() {
 

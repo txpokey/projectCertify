@@ -39,7 +39,7 @@ public class ExploreStaticInnerClassesTest {
         int isProtected = count2 ;
         boolean isAll = count0 == count1 && count0 == count2 ;
         Assert.assertTrue( isAll ) ;
-        boolean f = inner.isPublic() ;
-        Assert.assertTrue( f ) ;
+        boolean t = inner.isPublic() ;
+        Assert.assertTrue( t ) ;
     }
 }
