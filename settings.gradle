@@ -45,3 +45,6 @@ include 'unitTestingSkill:testng:slf4j:explicit'
 include 'unitTestingSkill:testng:slf4j:annotate'
 include 'unitTestingSkill:testng:log4j'
 include 'unitTestingSkill:spock'
+
+include 'apiSkill'
+include 'apiSkill:swagger'

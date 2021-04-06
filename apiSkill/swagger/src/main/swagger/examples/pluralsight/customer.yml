@@ -1,0 +1,50 @@
+swagger: '2.0'
+info:
+  title: Customer Api
+  description: Now is the Time
+  version: 1.0.0
+  contact:
+    name: Bob
+    url: http://dev.null
+    email: dev@null.org
+  license:
+    name: Apache 2.0
+    url: http://dev.null
+
+paths:
+  /customer:
+    get:
+      summary: reads a customer's data
+      operationId: getCustomer
+      description: "find a customer by id"
+      parameters:
+        - name: customerId
+          in: query
+          description: "foo bar"
+          type: integer
+          required: true
+      responses:
+        200:
+          description: "reads a cutomer"
+          schema:
+            $ref: "#/definitions/Customer"
+        404:
+          description: "customer with this id does not exist"
+definitions:
+  Customer:
+    type: object
+    properties:
+      customerId:
+        type: integer
+      address:
+        type: object
+        properties:
+          name:
+            type: string
+      contacts:
+        type: array
+        items:
+          type: object
+          properties:
+            city:
+              type: string
