@@ -1,14 +1,14 @@
 package edu.javial.cert.se.core.math
 
 
-import javax.annotation.Nonnull
+//import javax.annotation.Nonnull
 import java.util.concurrent.ConcurrentSkipListSet
 
 //@Slf4j
 class PrimeNumberGroovy{
 
 
-    static boolean isPrime( @Nonnull Integer p ) {
+    static boolean isPrime( Integer p ) {
         final def specials = 1..3
         def candidate = specials.contains(p) ? true : privateIsPrime(p)
         candidate
