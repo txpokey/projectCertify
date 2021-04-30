@@ -25,11 +25,31 @@ paths:
           required: true
       responses:
         200:
-          description: "reads a cutomer"
+          description: "reads a customer"
           schema:
             $ref: "#/definitions/Customer"
         404:
           description: "customer with this id does not exist"
+    post:
+      summary: creates a customer
+      operationId: addCustomer
+      description: "Add a new customer"
+      parameters:
+        - in: body
+          name: body
+          description: "payload for a new customer"
+          required: true
+          schema:
+            $ref: "#/definitions/Customer"
+      responses:
+        201:
+          description: "customer created successfully"
+          schema:
+            type: integer
+        405:
+          description: "Invalid customer definition"
+          schema:
+            type: integer
 definitions:
   Customer:
     type: object
